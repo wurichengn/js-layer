@@ -1,0 +1,1446 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"voxe",
+				"voxel_show"
+			],
+			[
+				"voxel",
+				"voxel-show"
+			],
+			[
+				"trigger",
+				"trigger"
+			],
+			[
+				"pointer",
+				"pointer"
+			],
+			[
+				"create",
+				"createElement"
+			],
+			[
+				"mouse",
+				"mouse2pix"
+			],
+			[
+				"def",
+				"def_annos_info"
+			],
+			[
+				"sub",
+				"sub_type"
+			],
+			[
+				"ele",
+				"electron"
+			],
+			[
+				"不",
+				"不均回声"
+			],
+			[
+				"低",
+				"低回声"
+			],
+			[
+				"calci",
+				"calcifications_in_mass"
+			],
+			[
+				"vox",
+				"voxel"
+			],
+			[
+				"vol",
+				"voxelData"
+			],
+			[
+				"out",
+				"output"
+			],
+			[
+				"annos",
+				"annoList"
+			],
+			[
+				"name",
+				"names"
+			],
+			[
+				"activeV",
+				"activeVoxel"
+			],
+			[
+				"getR",
+				"getBoundingClientRect"
+			],
+			[
+				"inlin",
+				"inline-block\tdisplay"
+			],
+			[
+				"active_",
+				"active_type"
+			],
+			[
+				"activeVox",
+				"activeVoxelType"
+			],
+			[
+				"onc",
+				"oncontextmenu"
+			],
+			[
+				"trans",
+				"translate(50%,50"
+			],
+			[
+				"line",
+				"lineList"
+			],
+			[
+				"three",
+				"three-cut"
+			],
+			[
+				"point",
+				"pointer-events"
+			],
+			[
+				"get",
+				"getBoundingClientRect"
+			],
+			[
+				"func",
+				"function"
+			],
+			[
+				"instance",
+				"instance"
+			],
+			[
+				"pr",
+				"preventDefault"
+			],
+			[
+				"gr",
+				"growing-medth"
+			],
+			[
+				"series",
+				"seriesUid"
+			],
+			[
+				"stat",
+				"states"
+			],
+			[
+				"margin",
+				"margin"
+			],
+			[
+				"menu",
+				"menu-button"
+			],
+			[
+				"ver",
+				"vertical-align"
+			],
+			[
+				"tex",
+				"texscope"
+			],
+			[
+				"need",
+				"needsUpdate"
+			],
+			[
+				"size",
+				"size_low"
+			],
+			[
+				"active",
+				"activeVoxel"
+			],
+			[
+				"getSc",
+				"getScope"
+			],
+			[
+				"groups",
+				"groups"
+			],
+			[
+				"update",
+				"updateScope"
+			],
+			[
+				"off",
+				"off"
+			],
+			[
+				"none",
+				"none_hu"
+			],
+			[
+				"text",
+				"texture"
+			],
+			[
+				"poin",
+				"pointer-events"
+			],
+			[
+				"paths",
+				"paths"
+			],
+			[
+				"load",
+				"loadStudy"
+			],
+			[
+				"pix",
+				"pixelSpacing"
+			],
+			[
+				"image",
+				"imageOrientation"
+			],
+			[
+				"index",
+				"index"
+			],
+			[
+				"sclae",
+				"scale"
+			],
+			[
+				"Mod",
+				"Modules"
+			],
+			[
+				"save",
+				"saveHTML"
+			],
+			[
+				"DOc",
+				"Docs"
+			],
+			[
+				"set",
+				"setUniform"
+			],
+			[
+				"mat",
+				"material"
+			],
+			[
+				"v_",
+				"v_offset"
+			],
+			[
+				"main",
+				"mainSize"
+			],
+			[
+				"light",
+				"light_mat_n"
+			],
+			[
+				"obj",
+				"objTest"
+			],
+			[
+				"low",
+				"lowSize"
+			],
+			[
+				"End",
+				"firstEnd"
+			],
+			[
+				"alpha",
+				"alpha_uper_render"
+			],
+			[
+				"is",
+				"isUper"
+			],
+			[
+				"uin",
+				"uniform"
+			],
+			[
+				"offset",
+				"offset"
+			],
+			[
+				"sam",
+				"sampler2D"
+			],
+			[
+				"all",
+				"allnum"
+			],
+			[
+				"offse",
+				"offse"
+			],
+			[
+				"offs",
+				"offs"
+			],
+			[
+				"ima",
+				"image_data"
+			],
+			[
+				"Uint",
+				"Uint8Array"
+			],
+			[
+				"render",
+				"render"
+			],
+			[
+				"webgl",
+				"webgl-main"
+			],
+			[
+				"free",
+				"free_mode"
+			],
+			[
+				"major",
+				"major_axis"
+			],
+			[
+				"uint",
+				"uint_sub"
+			],
+			[
+				"report",
+				"report"
+			],
+			[
+				"edit",
+				"edits"
+			],
+			[
+				"user",
+				"userInfo"
+			],
+			[
+				"num",
+				"number"
+			],
+			[
+				"draw",
+				"drawImage"
+			],
+			[
+				"inner",
+				"innerText"
+			],
+			[
+				"View",
+				"View3D"
+			],
+			[
+				"list",
+				"list_mode"
+			],
+			[
+				"nodu",
+				"nodule"
+			],
+			[
+				"talk",
+				"talkAbout"
+			],
+			[
+				"window",
+				"window"
+			],
+			[
+				"write",
+				"writeFileSync"
+			],
+			[
+				"query",
+				"querySelector"
+			],
+			[
+				"lastD",
+				"lastDom"
+			],
+			[
+				"las",
+				"lastDom"
+			],
+			[
+				"conte",
+				"contentWindow"
+			],
+			[
+				"isS",
+				"isShow"
+			],
+			[
+				"nod",
+				"noduleType"
+			],
+			[
+				"no",
+				"noduleType"
+			],
+			[
+				"NC",
+				"NCP_Prob"
+			],
+			[
+				"ai-lin",
+				"ai-link-all-list"
+			],
+			[
+				"his",
+				"hisInfo"
+			],
+			[
+				"Link",
+				"LinkItem"
+			],
+			[
+				"Vec",
+				"Vector3"
+			],
+			[
+				"lne",
+				"length"
+			],
+			[
+				"qury",
+				"querySelectorAll"
+			],
+			[
+				"over",
+				"overflow-y"
+			],
+			[
+				"link",
+				"linkID"
+			],
+			[
+				"pos",
+				"positions"
+			],
+			[
+				"loc",
+				"hxLoc"
+			],
+			[
+				"child",
+				"childNodes"
+			],
+			[
+				"frame",
+				"frame-info"
+			],
+			[
+				"padding",
+				"padding"
+			],
+			[
+				"class",
+				"classList"
+			],
+			[
+				"que",
+				"querySelectorAll"
+			],
+			[
+				"N",
+				"Number"
+			],
+			[
+				"act",
+				"activeDom"
+			],
+			[
+				"windowC",
+				"windowCenter"
+			],
+			[
+				"type",
+				"type_talk"
+			],
+			[
+				"patient",
+				"patientId"
+			],
+			[
+				"border",
+				"border-bottom"
+			],
+			[
+				"Ite",
+				"SelectItem"
+			],
+			[
+				"wri",
+				"writerZD"
+			],
+			[
+				"remove",
+				"remove"
+			],
+			[
+				"ov",
+				"overflow"
+			],
+			[
+				"pso",
+				"position"
+			],
+			[
+				"dtas",
+				"datas"
+			],
+			[
+				"background",
+				"background-color"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "alpha-new/main.js",
+			"settings":
+			{
+				"buffer_size": 146,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/draws/draws-app.js",
+			"settings":
+			{
+				"buffer_size": 1245,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/LCG/Documents/WeChat Files/wxid_2b2qzp857v7b21/FileStorage/File/2020-08/reportData.js",
+			"settings":
+			{
+				"buffer_size": 104,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/draws/uints/draws-layer.js",
+			"settings":
+			{
+				"buffer_size": 366,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/draws/uints/draws-uint.js",
+			"settings":
+			{
+				"buffer_size": 272,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/draws/uints/draws-image.js",
+			"settings":
+			{
+				"buffer_size": 627,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "module.html",
+			"settings":
+			{
+				"buffer_size": 1324,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/draws/index.js",
+			"settings":
+			{
+				"buffer_size": 75,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "webpack.config.js",
+			"settings":
+			{
+				"buffer_size": 2978,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "lcg.build.js",
+			"settings":
+			{
+				"buffer_size": 232,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 375.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"install package",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package→安装插件"
+			],
+			[
+				"i",
+				"Package Control: Install Package→安装插件"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 197.0,
+		"history":
+		[
+			"npm",
+			"cd",
+			"ls"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/CodeTest/Self/JS-Layers",
+		"/D/CodeTest/Self/JS-Layers/alpha-new",
+		"/D/CodeTest/Self/JS-Layers/build",
+		"/D/CodeTest/Self/JS-Layers/build/lib",
+		"/D/CodeTest/Self/JS-Layers/public",
+		"/D/CodeTest/Self/JS-Layers/public/draws",
+		"/D/CodeTest/Self/JS-Layers/public/draws/uints",
+		"/D/Code/MyLib/Git/前端/public_modules",
+		"/D/Code/MyLib/Git/前端/public_modules/lcg-camera"
+	],
+	"file_history":
+	[
+		"/D/CodeTest/Self/JS-Layers/public/draws/draws-util.js",
+		"/D/CodeTest/Self/JS-Layers/public/draws/draws-layer.js",
+		"/D/CodeTest/Self/JS-Layers/public/draws/draws-unit.js",
+		"/D/CodeWork/Cpany/gits/Service/web-project/build/talk/index.html",
+		"/D/CodeWork/Cpany/gits/Service/web-project/build/talk/index.js",
+		"/D/test.html",
+		"/C/Tools/FlashFXP/Cache/~flashfxp/D3F192A0_edit.tmp/crow_pacs.properties",
+		"/D/CodeWork/Cpany/gits/weiyun-plugin/plugin.js",
+		"/D/CodeWork/Cpany/gits/weiyun-plugin/web-project/build/plugin.js",
+		"/D/CodeTest/Self/JS-Layers/build/lib/pixi.js",
+		"/D/CodeTest/Self/JS-Layers/public/global/index.js",
+		"/D/CodeWork/Cpany/gits/AlphaProject/Alpha-Label/alpha-new/ui/ui-index.js",
+		"/D/CodeWork/Cpany/gits/AlphaProject/Alpha-Label/public/actions/label-server-new/label-server-new.js",
+		"/D/临时文件夹/math-growing.js",
+		"/D/CodeWork/Cpany/gits/AlphaProject/ImageServer/web-project/public/maths/math-growing.js",
+		"/D/临时文件夹/lg.json",
+		"/D/CodeWork/Cpany/gits/AlphaProject/ImageServer/web-project/public/renders/three/r-three-vr-view.js",
+		"/D/CodeWork/Cpany/gits/AlphaProject/ImageServer/web-project/public/labels/label-three-cut.js",
+		"/D/CodeWork/Cpany/gits/AlphaProject/Alpha-Label/public/label-configs/label-ctxq.js",
+		"/D/CodeWork/Cpany/gits/AlphaProject/Alpha-Label/public/label-configs/label-tomo-new.js",
+		"/D/CodeWork/Cpany/gits/AlphaProject/Alpha-Label/alpha-new/ui/ui-panle.js",
+		"/D/CodeWork/Cpany/gits/AlphaProject/Alpha-Label/public/label-configs/label-lung.js",
+		"/C/Users/LCG/Documents/WeChat Files/wxid_2b2qzp857v7b21/FileStorage/File/2020-07/saves/saves/12.json",
+		"/D/CodeWork/Cpany/gits/AlphaProject/Alpha-Label/public/label-configs/label-cr.js",
+		"/C/Users/LCG/Downloads/frp_0.33.0_windows_amd64/frp_0.33.0_windows_amd64/frpc.ini",
+		"/E/BaiDuDownload/游视界剑零单JI -625/游视界剑零单JI -625/游视界剑零单机625/BnsDat/config.dat.files/release.config2.xml",
+		"/D/CodeWork/Cpany/gits/AlphaProject/ImageServer/web-project/public/loader/loader-study.js",
+		"/D/Code/MyLib/Git/前端/public_modules/lcg-tools/ssh/ssh-config.js",
+		"/D/CodeWork/Cpany/gits/AlphaProject/ImageServer/web-project/public/labels/label-voxel.js",
+		"/D/CodeWork/Cpany/gits/AlphaProject/Alpha-Label/alpha-new/ui/ui-menu-config.js",
+		"/D/CodeWork/Cpany/gits/AlphaProject/Alpha-Label/alpha-new/ui/ui-menu.js",
+		"/D/CodeWork/Cpany/gits/AlphaProject/ImageServer/web-project/public/renders/mpr/r-mpr-view.js",
+		"/D/CodeWork/Cpany/gits/AlphaProject/ImageServer/web-project/public/renders/mpr/r-mpr.js",
+		"/D/CodeWork/Cpany/gits/AlphaProject/ImageServer/web-project/public/renders/mpr/r-mpr-shader.js",
+		"/D/临时文件夹/冠脉病例/标注/test.js",
+		"/D/CodeWork/Cpany/gits/不同医院的标注配置/河北胸科-2020-5-13.js",
+		"/D/临时文件夹/冠脉病例/标注/41846.json",
+		"/D/临时文件夹/冠脉病例/标注/41823.json",
+		"/D/临时文件夹/冠脉病例/标注/41839.json",
+		"/D/临时文件夹/冠脉病例/标注/41824.json",
+		"/D/临时文件夹/冠脉病例/标注/41826.json",
+		"/D/CodeWork/Cpany/gits/AlphaProject/Alpha-Label/public/modules/mod-base.js",
+		"/E/BaiDuDownload/游视界剑零单JI -625/游视界剑零单JI -625/游视界剑零单机625/frp_0.33.0_windows_amd64/frpc.ini",
+		"/E/BaiDuDownload/游视界剑零单JI -625/游视界剑零单JI -625/游视界剑零单机625/BnsDat/config.dat.files/system.config2.xml",
+		"/E/BaiDuDownload/MXD143/Maple83-master/Maple83-master/docs/mcpq/blob/MCParty.java",
+		"/E/BaiDuDownload/MXD143/Maple83-master/Maple83-master/src/scripting/reactor/ReactorScriptManager.java",
+		"/E/BaiDuDownload/MXD143/Maple83-master/Maple83-master/src/scripting/AbstractPlayerInteraction.java",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/reactor/9250000.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/npc/1012100.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/quest/21018.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/quest/21017.js",
+		"/D/CodeWork/Cpany/gits/AlphaProject/ImageServer/web-project/public/labels/label-box.js",
+		"/D/CodeWork/Cpany/gits/AlphaProject/ImageServer/web-project/public/labels/box3ds.js",
+		"/D/CodeWork/Cpany/gits/AlphaProject/ImageServer/web-project/public/board/board-main.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/save.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/event/BossBalrog_EASY.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/test.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/npc/9113000.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/event/BeidlerPQ.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/event/BossDog.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/config/Server - 副本/client/MapleCharacter.class",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/config/Server - 副本/client/MapleClient.class",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/config/Server - 副本/Test.class",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/config/Server - 副本/client/MapleCharacter$FameStatus.class",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/config/Server - 副本/client/LoginCrypto.class",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/npc/1002100.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/event/BossZakum_EASY.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/js说明",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/event/BossLucid.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/item/2430455.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/reactor/1058019.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/reactor/9208000.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/reactor/9211000.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/reactor/8630002.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/reactor/2619003.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/portal/Depart_goFoward1.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/portal/davy3_hd1.js",
+		"/D/Code/MyLib/Git/前端/public_modules/lcg/dm.js",
+		"/E/CocosProject/2020-6/FB/build/web-desktop/test.html",
+		"/E/CocosProject/2020-6/FB/assets/Script/NewScript.js",
+		"/E/CocosProject/2020-6/FB/assets/Script/NS1.js",
+		"/E/CocosProject/2020-6/FB/temp/quick-scripts/src/assets/Script/HelloWorld.js",
+		"/E/CocosProject/2020-6/FB/build/web-desktop/test.js",
+		"/E/CocosProject/2020-6/FB/build/web-desktop/main.js",
+		"/D/CodeWork/Cpany/gits/AlphaProject/ImageServer/web-project/public/workers/worker/maths/growing-step.js",
+		"/D/CodeWork/Cpany/gits/AlphaProject/Alpha-Label/public/actions/study-label/study-label.js",
+		"/D/Code/MyLib/Git/前端/public_modules/lcg/jsx.next.js",
+		"/D/CodeWork/Cpany/gits/AlphaProject/ImageServer/web-project/public/views/view-2d.js",
+		"/D/CodeWork/Cpany/gits/AlphaProject/Alpha-Label/public/export-modules/tag-merge.js",
+		"/D/CodeWork/Cpany/gits/AlphaProject/Alpha-Label/public/export-modules/tag-editor.js",
+		"/D/CodeWork/Cpany/gits/AlphaProject/Alpha-Label/public/export-modules/tag-editor/editor.js",
+		"/D/CodeWork/Cpany/gits/AlphaProject/Alpha-Label/public/export-modules/tag-editor/modules.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/quest/22010.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/reactor/2111000.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/map/onUserEnter/lightning_tuto_5_0.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/extend/制作1.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/event/2xEvent.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/event/BossBanban_CHAOS.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/event/DoJang.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/event/MonsterPark.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/js说明",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/item/道具通用模版.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/item/2436527.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/npc/9201003.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/npc/2159000.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/npc/2103012.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/npc/2084001.js",
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/npc/1090000.js",
+		"/E/CocosProject/2020-6/FB/temp/quick-scripts/dst/assets/Script/HelloWorld.js",
+		"/E/CocosProject/2020-6/FB/temp/quick-scripts/src/assets/Script/NewScript.js",
+		"/E/CocosProject/2020-6/FB/build/web-desktop/index.html",
+		"/E/CocosProject/2020-6/FB/build/web-desktop/main.230d6.js",
+		"/C/Users/LCG/Desktop/bz.js",
+		"/E/CocosProject/2020-6/FB/build/web-desktop/src/settings.f93c2.js",
+		"/E/CocosProject/2020-6/FB/build/web-desktop/assets/internal/config.45e63.json",
+		"/E/CocosProject/2020-6/FB/build/web-desktop/assets/main/config.94f26.json",
+		"/E/CocosProject/2020-6/FB/build/web-desktop/assets/main/index.94f26.js",
+		"/E/CocosProject/2020-6/FB/temp/quick-scripts/dst/assets/Script/NewScript.js",
+		"/E/CocosProject/2020-6/FB/library/imports/60/60a6e0c2-9dd7-413b-9885-4ee69dcd37e2.json",
+		"/E/CocosProject/2020-6/FB/library/imports/ec/eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432.json",
+		"/E/CocosProject/2020-6/FB/assets/Script/HelloWorld.js",
+		"/D/CodeWork/Cpany/gits/AlphaProject/ImageServer/web-project/public/renders/dicom/r-dicom.js",
+		"/D/CodeTest/2020-6/ai/tt.html",
+		"/D/CodeWork/Cpany/gits/AlphaProject/ImageServer/web-project/public/renders/dicom/r-dicom-view.js",
+		"/D/CodeWork/Cpany/gits/AlphaProject/Alpha-Label/public/actions/label-server-new/data-fixed.js",
+		"/D/CodeWork/Cpany/gits/AlphaProject/ImageServer/web-project/public/config/cfg-label.js",
+		"/C/Users/LCG/Desktop/gm.js",
+		"/D/临时文件夹/t.json"
+	],
+	"find":
+	{
+		"height": 46.0
+	},
+	"find_in_files":
+	{
+		"height": 128.0,
+		"where_history":
+		[
+			"D:\\CodeWork\\Cpany\\gits\\AlphaProject\\Alpha-Label\\alpha-new",
+			"D:\\CodeWork\\Cpany\\gits\\不同医院的标注配置",
+			"D:\\CodeWork\\Cpany\\gits\\AlphaProject\\Alpha-Label\\public\\label-configs",
+			"D:\\CodeWork\\Cpany\\gits\\AlphaProject\\Alpha-Label\\public",
+			"E:\\BaiDuDownload\\游视界剑零单JI -625\\游视界剑零单JI -625\\游视界剑零单机625\\BnsDat",
+			"E:\\BaiDuDownload\\游视界剑零单JI -625\\游视界剑零单JI -625\\游视界剑零单机625\\BnsDat\\config.dat.files",
+			"E:\\BaiDuDownload\\游视界剑零单JI -625\\游视界剑零单JI -625\\游视界剑零单机625\\BnsDat",
+			"E:\\BaiDuDownload\\游视界剑零单JI -625\\游视界剑零单JI -625\\游视界剑零单机625\\BnsDat\\xml.dat.files",
+			"E:\\BaiDuDownload\\游视界剑零单JI -625\\游视界剑零单JI -625\\游视界剑零单机625\\4.剑灵客户端",
+			"E:\\BaiDuDownload\\MXD143\\Maple83-master\\Maple83-master",
+			"E:\\BaiDuDownload\\MXD143\\Maple83-master\\Maple83-master,*.java",
+			"E:\\BaiDuDownload\\MXD143\\Maple83-master\\Maple83-master",
+			"E:\\BaiDuDownload\\MXD143\\冒险岛143服务端VIP版V14\\米米单机脚本\\npc",
+			"E:\\BaiDuDownload\\MXD143\\冒险岛143服务端VIP版V14\\米米单机脚本\\quest",
+			"E:\\BaiDuDownload\\MXD143\\冒险岛143服务端VIP版V14\\米米单机脚本",
+			"D:\\Code\\MyLib\\Git\\前端\\public_modules",
+			"D:\\Code\\MyLib\\Git\\前端\\public_modules\\lcg",
+			"D:\\CodeWork\\Cpany\\gits\\AlphaProject\\ImageServer\\web-project\\public",
+			"D:\\CodeWork\\Cpany\\gits\\AlphaProject\\Alpha-Label\\public",
+			"D:\\CodeWork\\Cpany\\gits\\AlphaProject\\Alpha-Label\\public\\actions",
+			"D:\\CodeWork\\Cpany\\gits\\AlphaProject\\ImageServer\\web-project\\public\\renders",
+			"D:\\CodeWork\\Cpany\\gits\\AlphaProject\\ImageServer\\web-project\\public",
+			"D:\\CodeWork\\Cpany\\gits\\AlphaProject\\Alpha-Label\\public\\export-modules",
+			"D:\\CodeWork\\Cpany\\gits\\AlphaProject\\Alpha-Label\\public\\actions",
+			"D:\\CodeWork\\Cpany\\gits\\AlphaProject\\Alpha-Label\\alpha-new",
+			"D:\\CodeWork\\Cpany\\gits\\webpack\\alpha-new",
+			"D:\\CodeWork\\Cpany\\gits\\webpack",
+			"D:\\CodeWork\\Cpany\\gits\\webpack\\plugins",
+			"D:\\CodeWork\\Cpany\\gits\\webpack\\alpha-new",
+			"D:\\CodeWork\\Cpany\\gits\\webpack\\plugins",
+			"D:\\CodeWork\\Cpany\\gits\\webpack\\alpha-new",
+			"D:\\CodeWork\\Cpany\\gits\\webpack",
+			"D:\\CodeWork\\Cpany\\gits\\webpack\\alpha-new",
+			"D:\\CodeTest\\2020-2\\three.js-master\\three.js-master",
+			"D:\\CodeWork\\Cpany\\gits\\webpack\\alpha-new",
+			"D:\\CodeWork\\Cpany\\gits\\webpack\\alpha-new\\js\\view",
+			"D:\\CodeWork\\Cpany\\gits\\webpack\\alpha-new",
+			"D:\\CodeWork\\Cpany\\gits\\webpack\\alpha-new\\js\\vis",
+			"D:\\CodeWork\\Cpany\\gits\\webpack\\alpha-new",
+			"D:\\CodeWork\\Cpany\\gits\\webpack\\alpha-new\\js\\view",
+			"D:\\CodeWork\\Cpany\\gits\\webpack\\alpha-new",
+			"D:\\DDMS124.1",
+			"D:\\CodeWork\\Cpany\\gits\\webpack\\alpha-new",
+			"D:\\BaiduNetdiskDownload\\LTZS_BL20166.Com\\server\\bin\\gameworld\\data",
+			"D:\\BaiduNetdiskDownload\\LTZS_BL20166.Com\\server\\bin\\gameworld\\data\\config\\fuben",
+			"D:\\BaiduNetdiskDownload\\LTZS_BL20166.Com\\server\\bin\\gameworld\\data",
+			"D:\\CodeWork\\Self\\chuanqi",
+			"D:\\CodeWork\\Cpany\\gits\\webpack\\alpha-new",
+			"D:\\BaiduNetdiskDownload\\LTZS_BL20166.Com\\phpStudy\\WWW",
+			"D:\\BaiduNetdiskDownload\\LTZS_BL20166.Com\\server\\bin\\gameworld\\data",
+			"D:\\BaiduNetdiskDownload\\LTZS_BL20166.Com\\phpStudy\\WWW\\resource\\skins",
+			"D:\\BaiduNetdiskDownload\\LTZS_BL20166.Com\\phpStudy\\WWW",
+			"D:\\BaiduNetdiskDownload\\LTZS_BL20166.Com\\phpStudy\\WWW,*.php",
+			"D:\\BaiduNetdiskDownload\\LTZS_BL20166.Com\\phpStudy\\WWW",
+			"D:\\BaiduNetdiskDownload\\LTZS_BL20166.Com\\phpStudy\\WWW,*.php",
+			"D:\\BaiduNetdiskDownload\\LTKF\\LT_Server\\Client,*.php",
+			"D:\\BaiduNetdiskDownload\\LTKF\\LT_Server\\Client",
+			"D:\\BaiduNetdiskDownload\\LTKF\\LT_Server\\Client,*.php",
+			"D:\\BaiduNetdiskDownload\\LTKF\\LT_Server\\Client",
+			"C:\\Users\\LCG\\Downloads\\fenenzankl\\fenenzankl\\芬恩战骷髅\\Finn",
+			"D:\\CodeWork\\Cpany\\gits\\webpack\\alpha-new",
+			"D:\\CodeTest\\Cpany\\viewer\\webpack\\alpha-new",
+			"D:\\CodeTest\\2019-5\\vtk\\vtkjs-exercise-master\\2\\node_modules\\vtk.js\\Sources",
+			"D:\\CodeTest\\2019-5\\vtk\\vtk-js-master",
+			"D:\\CodeTest\\Cpany\\viewer\\webpack\\alpha-new",
+			"D:\\CodeTest\\Cpany\\viewer\\webpack\\plugins",
+			"D:\\CodeTest\\Cpany\\viewer\\webpack\\alpha-new",
+			"D:\\CodeTest\\Cpany\\viewer\\webpack",
+			"D:\\CodeTest\\Cpany\\viewer\\webpack\\alpha-new"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"http://www.pixijs.com/ ",
+			"voxelData",
+			"base64ToUint8Array",
+			"base64",
+			"F",
+			"H",
+			"继发性肺结核",
+			"pathological",
+			"lesion_location",
+			"pathological",
+			"肿块",
+			"结核",
+			"mod.FloatFrame",
+			"jl_",
+			"8001",
+			"6605",
+			"12100",
+			"7000",
+			"6600",
+			"10900",
+			"6605",
+			"12100",
+			"7000",
+			"6600",
+			"52925",
+			"port",
+			"\"3389\"",
+			"3389",
+			"10100",
+			"10241",
+			"14411",
+			"54389",
+			"192.168",
+			"111.177",
+			"192.168.200",
+			"127.0.0.1",
+			"192.168.200.128",
+			"port",
+			"192.168.200",
+			"mob",
+			"Moster",
+			"\"enter\"",
+			"playerMessage",
+			"updateEvanIntroState",
+			"getDirectionEffect",
+			"getDirectionStatus",
+			"\"act\"",
+			"quest",
+			"消灭",
+			"/",
+			"x",
+			"spawnAutoDrop",
+			"drop",
+			"registerCarnivalParty",
+			"party",
+			"Party",
+			"getParty",
+			"Party",
+			"getParty",
+			"BossDog",
+			"dispose(",
+			"disposeInstance",
+			"newInstance",
+			"Property",
+			"setInstanceMap",
+			"Portal",
+			"slot",
+			"$$slotDom",
+			"slotDom",
+			"dmid",
+			"__dmid",
+			"不规则形",
+			"cc.game",
+			"step",
+			"getAIByStudy",
+			"dt.mit",
+			"zBl",
+			"zbl",
+			"render(",
+			"render",
+			"衰弱",
+			"高斯",
+			"BI-RADS",
+			"RI",
+			"scale",
+			"conso",
+			"info",
+			"0.25",
+			"0.4",
+			".y",
+			"1 - ",
+			"img",
+			".render",
+			"0.4",
+			"mode",
+			"mpr_center_mode",
+			"data",
+			"mpr",
+			"rel2mpr",
+			"rel2",
+			"render(",
+			"mit",
+			"}\n",
+			"box",
+			".info",
+			"info = ",
+			"pointInfo",
+			"p_ct",
+			"scale",
+			"activeTags",
+			"info.lesionsInfo",
+			"it",
+			"info.groups",
+			"tags",
+			"dicom.extendViewTags",
+			"item",
+			"Maths",
+			"getSpaceColor",
+			"re",
+			"active_color",
+			"\"editor-change-info\"",
+			"jump",
+			"point",
+			"active",
+			"d",
+			"update",
+			"mit",
+			".x"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"222.128.11.98"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "alpha-new/main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 146,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								109,
+								109
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": false,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "public/draws/draws-app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1245,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								532,
+								532
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": false,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 729.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/Users/LCG/Documents/WeChat Files/wxid_2b2qzp857v7b21/FileStorage/File/2020-08/reportData.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 104,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								38,
+								38
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": false,
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "public/draws/uints/draws-layer.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 366,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								87,
+								87
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": false,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "public/draws/uints/draws-uint.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 272,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								153,
+								153
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": false,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "public/draws/uints/draws-image.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 627,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								154,
+								154
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": false,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "module.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1324,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								562,
+								562
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": false,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 162.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "public/draws/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 75,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								75,
+								75
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": false,
+							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "webpack.config.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2978,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								61,
+								61
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": false,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "lcg.build.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 232,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								80,
+								80
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": false,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 38.0
+	},
+	"input":
+	{
+		"height": 84.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 162.0
+	},
+	"pinned_build_system": "",
+	"project": "JS-Layers.sublime-project",
+	"replace":
+	{
+		"height": 72.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"render",
+				"node_modules\\renderkid\\lib\\RenderKid.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"D:\\CodeWork\\Cpany\\gits\\webpack\\ctview-webpack.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 358.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
