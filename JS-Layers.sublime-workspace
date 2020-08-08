@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"remove",
+				"removeChild"
+			],
+			[
+				"child",
+				"children"
+			],
+			[
+				"p",
+				"pivot"
+			],
+			[
+				"sync",
+				"syncBody"
+			],
+			[
+				"STage",
+				"StageUnit"
+			],
+			[
 				"voxe",
 				"voxel_show"
 			],
@@ -444,10 +464,6 @@
 				"hxLoc"
 			],
 			[
-				"child",
-				"childNodes"
-			],
-			[
 				"frame",
 				"frame-info"
 			],
@@ -496,114 +512,108 @@
 				"writerZD"
 			],
 			[
-				"remove",
-				"remove"
-			],
-			[
 				"ov",
 				"overflow"
-			],
-			[
-				"pso",
-				"position"
-			],
-			[
-				"dtas",
-				"datas"
-			],
-			[
-				"background",
-				"background-color"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "alpha-new/main.js",
+			"file": "public/renderer/index.js",
 			"settings":
 			{
-				"buffer_size": 146,
+				"buffer_size": 241,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "public/draws/draws-app.js",
+			"file": "src/main.js",
 			"settings":
 			{
-				"buffer_size": 1245,
+				"buffer_size": 2929,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/Users/LCG/Documents/WeChat Files/wxid_2b2qzp857v7b21/FileStorage/File/2020-08/reportData.js",
+			"file": "public/renderer/stage-mgr/stage-unit.js",
 			"settings":
 			{
-				"buffer_size": 104,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/draws/uints/draws-layer.js",
-			"settings":
-			{
-				"buffer_size": 366,
+				"buffer_size": 3009,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "public/draws/uints/draws-uint.js",
+			"file": "public/renderer/filter/filter-base.js",
 			"settings":
 			{
-				"buffer_size": 272,
+				"buffer_size": 316,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "public/draws/uints/draws-image.js",
+			"file": "public/renderer/builder/builder-main.js",
 			"settings":
 			{
-				"buffer_size": 627,
+				"buffer_size": 106,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "module.html",
+			"file": "public/renderer/builder/builder-base.js",
 			"settings":
 			{
-				"buffer_size": 1324,
+				"buffer_size": 320,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "public/draws/index.js",
+			"file": "public/renderer/stage-mgr/stage-mgr.js",
 			"settings":
 			{
-				"buffer_size": 75,
+				"buffer_size": 989,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "webpack.config.js",
+			"file": "public/renderer/res-mgr/res-mgr.js",
 			"settings":
 			{
-				"buffer_size": 2978,
+				"buffer_size": 736,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "lcg.build.js",
+			"file": "/D/Code/MyLib/Git/前端/public_modules/lcg/base.js",
 			"settings":
 			{
-				"buffer_size": 232,
+				"buffer_size": 5805,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/renderer/res-mgr/res-item.js",
+			"settings":
+			{
+				"buffer_size": 562,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/renderer/demo.js",
+			"settings":
+			{
+				"buffer_size": 2774,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -661,17 +671,33 @@
 	"expanded_folders":
 	[
 		"/D/CodeTest/Self/JS-Layers",
-		"/D/CodeTest/Self/JS-Layers/alpha-new",
 		"/D/CodeTest/Self/JS-Layers/build",
 		"/D/CodeTest/Self/JS-Layers/build/lib",
 		"/D/CodeTest/Self/JS-Layers/public",
-		"/D/CodeTest/Self/JS-Layers/public/draws",
-		"/D/CodeTest/Self/JS-Layers/public/draws/uints",
+		"/D/CodeTest/Self/JS-Layers/public/renderer",
+		"/D/CodeTest/Self/JS-Layers/public/renderer/builder",
+		"/D/CodeTest/Self/JS-Layers/public/renderer/filter",
+		"/D/CodeTest/Self/JS-Layers/src",
 		"/D/Code/MyLib/Git/前端/public_modules",
-		"/D/Code/MyLib/Git/前端/public_modules/lcg-camera"
+		"/D/Code/MyLib/Git/前端/public_modules/lcg"
 	],
 	"file_history":
 	[
+		"/D/CodeTest/Self/JS-Layers/public/renderer/filter/filter-base.js",
+		"/D/CodeTest/Self/JS-Layers/public/renderer/Filter/filter-main.js",
+		"/D/CodeTest/Self/JS-Layers/src/main.js",
+		"/D/CodeTest/Self/JS-Layers/webpack.config.js",
+		"/D/CodeTest/Self/JS-Layers/README.md",
+		"/D/CodeTest/Self/JS-Layers/lcg.build.js",
+		"/D/CodeTest/Self/JS-Layers/build/info/info-module.json",
+		"/D/CodeTest/Self/JS-Layers/public/draws/draws-app.js",
+		"/D/CodeTest/Self/JS-Layers/alpha-new/main.js",
+		"/C/Users/LCG/Documents/WeChat Files/wxid_2b2qzp857v7b21/FileStorage/File/2020-08/reportData.js",
+		"/D/CodeTest/Self/JS-Layers/public/draws/uints/draws-layer.js",
+		"/D/CodeTest/Self/JS-Layers/public/draws/uints/draws-uint.js",
+		"/D/CodeTest/Self/JS-Layers/public/draws/uints/draws-image.js",
+		"/D/CodeTest/Self/JS-Layers/module.html",
+		"/D/CodeTest/Self/JS-Layers/public/draws/index.js",
 		"/D/CodeTest/Self/JS-Layers/public/draws/draws-util.js",
 		"/D/CodeTest/Self/JS-Layers/public/draws/draws-layer.js",
 		"/D/CodeTest/Self/JS-Layers/public/draws/draws-unit.js",
@@ -784,26 +810,11 @@
 		"/E/CocosProject/2020-6/FB/temp/quick-scripts/src/assets/Script/NewScript.js",
 		"/E/CocosProject/2020-6/FB/build/web-desktop/index.html",
 		"/E/CocosProject/2020-6/FB/build/web-desktop/main.230d6.js",
-		"/C/Users/LCG/Desktop/bz.js",
-		"/E/CocosProject/2020-6/FB/build/web-desktop/src/settings.f93c2.js",
-		"/E/CocosProject/2020-6/FB/build/web-desktop/assets/internal/config.45e63.json",
-		"/E/CocosProject/2020-6/FB/build/web-desktop/assets/main/config.94f26.json",
-		"/E/CocosProject/2020-6/FB/build/web-desktop/assets/main/index.94f26.js",
-		"/E/CocosProject/2020-6/FB/temp/quick-scripts/dst/assets/Script/NewScript.js",
-		"/E/CocosProject/2020-6/FB/library/imports/60/60a6e0c2-9dd7-413b-9885-4ee69dcd37e2.json",
-		"/E/CocosProject/2020-6/FB/library/imports/ec/eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432.json",
-		"/E/CocosProject/2020-6/FB/assets/Script/HelloWorld.js",
-		"/D/CodeWork/Cpany/gits/AlphaProject/ImageServer/web-project/public/renders/dicom/r-dicom.js",
-		"/D/CodeTest/2020-6/ai/tt.html",
-		"/D/CodeWork/Cpany/gits/AlphaProject/ImageServer/web-project/public/renders/dicom/r-dicom-view.js",
-		"/D/CodeWork/Cpany/gits/AlphaProject/Alpha-Label/public/actions/label-server-new/data-fixed.js",
-		"/D/CodeWork/Cpany/gits/AlphaProject/ImageServer/web-project/public/config/cfg-label.js",
-		"/C/Users/LCG/Desktop/gm.js",
-		"/D/临时文件夹/t.json"
+		"/C/Users/LCG/Desktop/bz.js"
 	],
 	"find":
 	{
-		"height": 46.0
+		"height": 38.0
 	},
 	"find_in_files":
 	{
@@ -886,6 +897,14 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"effects",
+			"滤镜",
+			"效果",
+			"滤镜",
+			"effects",
+			"children",
+			"childs",
+			"alpah",
 			"http://www.pixijs.com/ ",
 			"voxelData",
 			"base64ToUint8Array",
@@ -1005,15 +1024,7 @@
 			"Maths",
 			"getSpaceColor",
 			"re",
-			"active_color",
-			"\"editor-change-info\"",
-			"jump",
-			"point",
-			"active",
-			"d",
-			"update",
-			"mit",
-			".x"
+			"active_color"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1037,61 +1048,60 @@
 			[
 				{
 					"buffer": 0,
-					"file": "alpha-new/main.js",
+					"file": "public/renderer/index.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 146,
+						"buffer_size": 241,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								109,
-								109
+								190,
+								190
 							]
 						],
 						"settings":
 						{
-							"git_gutter_is_enabled": false,
+							"git_gutter_is_enabled": true,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2929,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								150,
+								150
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
 							"origin_encoding": "UTF-8",
 							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "public/draws/draws-app.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1245,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								532,
-								532
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": false,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 729.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1099,29 +1109,28 @@
 				},
 				{
 					"buffer": 2,
-					"file": "/C/Users/LCG/Documents/WeChat Files/wxid_2b2qzp857v7b21/FileStorage/File/2020-08/reportData.js",
+					"file": "public/renderer/stage-mgr/stage-unit.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 104,
+						"buffer_size": 3009,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								38,
-								38
+								2498,
+								2498
 							]
 						],
 						"settings":
 						{
-							"git_gutter_is_enabled": false,
-							"origin_encoding": "ASCII",
+							"git_gutter_is_enabled": true,
 							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3092.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -1129,27 +1138,26 @@
 				},
 				{
 					"buffer": 3,
-					"file": "public/draws/uints/draws-layer.js",
+					"file": "public/renderer/filter/filter-base.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 366,
+						"buffer_size": 316,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								87,
-								87
+								229,
+								229
 							]
 						],
 						"settings":
 						{
-							"git_gutter_is_enabled": false,
+							"git_gutter_is_enabled": true,
 							"origin_encoding": "UTF-8",
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1160,25 +1168,53 @@
 				},
 				{
 					"buffer": 4,
-					"file": "public/draws/uints/draws-uint.js",
+					"file": "public/renderer/builder/builder-main.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 272,
+						"buffer_size": 106,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								153,
-								153
+								104,
+								104
 							]
 						],
 						"settings":
 						{
-							"git_gutter_is_enabled": false,
-							"origin_encoding": "UTF-8",
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "public/renderer/builder/builder-base.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 320,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								320
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
 							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage"
 						},
 						"translation.x": 0.0,
@@ -1189,120 +1225,60 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "public/draws/uints/draws-image.js",
+					"buffer": 6,
+					"file": "public/renderer/stage-mgr/stage-mgr.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 627,
+						"buffer_size": 989,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								154,
-								154
+								306,
+								306
 							]
 						],
 						"settings":
 						{
-							"git_gutter_is_enabled": false,
+							"git_gutter_is_enabled": true,
 							"origin_encoding": "UTF-8",
 							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 405.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "module.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1324,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								562,
-								562
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": false,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 162.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 7,
-					"file": "public/draws/index.js",
+					"file": "public/renderer/res-mgr/res-mgr.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 75,
+						"buffer_size": 736,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								75,
-								75
+								169,
+								169
 							]
 						],
 						"settings":
 						{
-							"git_gutter_is_enabled": false,
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "webpack.config.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2978,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								61,
-								61
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": false,
+							"auto_name": "",
+							"git_gutter_is_enabled": true,
 							"origin_encoding": "UTF-8",
 							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1312,25 +1288,57 @@
 					"type": "text"
 				},
 				{
-					"buffer": 9,
-					"file": "lcg.build.js",
+					"buffer": 8,
+					"file": "/D/Code/MyLib/Git/前端/public_modules/lcg/base.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 232,
+						"buffer_size": 5805,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								80,
-								80
+								115,
+								115
 							]
 						],
 						"settings":
 						{
-							"git_gutter_is_enabled": false,
+							"git_gutter_is_enabled": true,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "public/renderer/res-mgr/res-item.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 562,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								83,
+								83
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
 							"origin_encoding": "UTF-8",
 							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
 							"translate_tabs_to_spaces": false
@@ -1340,6 +1348,37 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "public/renderer/demo.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2774,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1581,
+								1581
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2267.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -1392,7 +1431,7 @@
 	"project": "JS-Layers.sublime-project",
 	"replace":
 	{
-		"height": 72.0
+		"height": 84.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1416,7 +1455,7 @@
 		[
 			[
 				"",
-				"D:\\CodeWork\\Cpany\\gits\\webpack\\ctview-webpack.sublime-project"
+				"D:\\CodeWork\\Cpany\\gits\\AlphaProject\\Alpha-Label\\标注整合.sublime-project"
 			]
 		],
 		"width": 380.0
