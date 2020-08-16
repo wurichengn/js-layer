@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"render",
+				"render"
+			],
+			[
 				"remove",
 				"removeChild"
 			],
@@ -324,10 +328,6 @@
 				"Uint8Array"
 			],
 			[
-				"render",
-				"render"
-			],
-			[
 				"webgl",
 				"webgl-main"
 			],
@@ -520,19 +520,19 @@
 	"buffers":
 	[
 		{
-			"file": "public/renderer/index.js",
+			"file": "src/main.js",
 			"settings":
 			{
-				"buffer_size": 241,
+				"buffer_size": 1496,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "src/main.js",
+			"file": "public/renderer/stage-mgr/stage-mgr.js",
 			"settings":
 			{
-				"buffer_size": 2929,
+				"buffer_size": 1263,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -541,7 +541,7 @@
 			"file": "public/renderer/stage-mgr/stage-unit.js",
 			"settings":
 			{
-				"buffer_size": 3009,
+				"buffer_size": 3310,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -574,15 +574,6 @@
 			}
 		},
 		{
-			"file": "public/renderer/stage-mgr/stage-mgr.js",
-			"settings":
-			{
-				"buffer_size": 989,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "public/renderer/res-mgr/res-mgr.js",
 			"settings":
 			{
@@ -605,15 +596,6 @@
 			"settings":
 			{
 				"buffer_size": 562,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/renderer/demo.js",
-			"settings":
-			{
-				"buffer_size": 2774,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -683,6 +665,10 @@
 	],
 	"file_history":
 	[
+		"/D/CodeTest/Self/JS-Layers/public/renderer/index.js",
+		"/D/CodeTest/Self/JS-Layers/public/renderer/demo.js",
+		"/C/Users/LCG/Documents/WeChat Files/wxid_2b2qzp857v7b21/FileStorage/File/2020-08/uids_duplicated.json",
+		"/C/Users/LCG/Documents/WeChat Files/wxid_2b2qzp857v7b21/FileStorage/File/2020-08/撕脱1.json",
 		"/D/CodeTest/Self/JS-Layers/public/renderer/filter/filter-base.js",
 		"/D/CodeTest/Self/JS-Layers/public/renderer/Filter/filter-main.js",
 		"/D/CodeTest/Self/JS-Layers/src/main.js",
@@ -806,15 +792,11 @@
 		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/npc/2103012.js",
 		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/npc/2084001.js",
 		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/npc/1090000.js",
-		"/E/CocosProject/2020-6/FB/temp/quick-scripts/dst/assets/Script/HelloWorld.js",
-		"/E/CocosProject/2020-6/FB/temp/quick-scripts/src/assets/Script/NewScript.js",
-		"/E/CocosProject/2020-6/FB/build/web-desktop/index.html",
-		"/E/CocosProject/2020-6/FB/build/web-desktop/main.230d6.js",
-		"/C/Users/LCG/Desktop/bz.js"
+		"/E/CocosProject/2020-6/FB/temp/quick-scripts/dst/assets/Script/HelloWorld.js"
 	],
 	"find":
 	{
-		"height": 38.0
+		"height": 36.0
 	},
 	"find_in_files":
 	{
@@ -897,6 +879,11 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"30",
+			"2048",
+			"4096",
+			"2048",
+			"320",
 			"effects",
 			"滤镜",
 			"效果",
@@ -1019,12 +1006,7 @@
 			"it",
 			"info.groups",
 			"tags",
-			"dicom.extendViewTags",
-			"item",
-			"Maths",
-			"getSpaceColor",
-			"re",
-			"active_color"
+			"dicom.extendViewTags"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1043,54 +1025,24 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "public/renderer/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 241,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								190,
-								190
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "src/main.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2929,
+						"buffer_size": 1496,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								150,
-								150
+								107,
+								107
 							]
 						],
 						"settings":
@@ -1108,32 +1060,65 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "public/renderer/stage-mgr/stage-unit.js",
+					"buffer": 1,
+					"file": "public/renderer/stage-mgr/stage-mgr.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3009,
+						"buffer_size": 1263,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2498,
-								2498
+								719,
+								719
 							]
 						],
 						"settings":
 						{
 							"git_gutter_is_enabled": true,
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage"
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3092.0,
+						"translation.y": 1863.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "public/renderer/stage-mgr/stage-unit.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3310,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								247,
+								247
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -1163,7 +1148,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -1186,6 +1171,7 @@
 						"settings":
 						{
 							"git_gutter_is_enabled": true,
+							"origin_encoding": "UTF-8",
 							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage"
 						},
 						"translation.x": 0.0,
@@ -1208,55 +1194,25 @@
 						"selection":
 						[
 							[
-								0,
-								320
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "public/renderer/stage-mgr/stage-mgr.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 989,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								306,
-								306
+								48,
+								48
 							]
 						],
 						"settings":
 						{
 							"git_gutter_is_enabled": true,
 							"origin_encoding": "UTF-8",
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 405.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 6,
 					"file": "public/renderer/res-mgr/res-mgr.js",
 					"semi_transient": false,
 					"settings":
@@ -1284,11 +1240,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 7,
 					"file": "/D/Code/MyLib/Git/前端/public_modules/lcg/base.js",
 					"semi_transient": false,
 					"settings":
@@ -1316,11 +1272,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 8,
 					"file": "public/renderer/res-mgr/res-item.js",
 					"semi_transient": false,
 					"settings":
@@ -1347,38 +1303,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "public/renderer/demo.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2774,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1581,
-								1581
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2267.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
+					"stack_index": 7,
 					"type": "text"
 				}
 			]
@@ -1386,7 +1311,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 38.0
+		"height": 36.0
 	},
 	"input":
 	{
@@ -1431,7 +1356,7 @@
 	"project": "JS-Layers.sublime-project",
 	"replace":
 	{
-		"height": 84.0
+		"height": 68.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1455,7 +1380,7 @@
 		[
 			[
 				"",
-				"D:\\CodeWork\\Cpany\\gits\\AlphaProject\\Alpha-Label\\标注整合.sublime-project"
+				"D:\\CodeWork\\Cpany\\gits\\Service\\service.sublime-project"
 			]
 		],
 		"width": 380.0
