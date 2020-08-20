@@ -41,7 +41,10 @@ module.exports = function(){
 	var init = async function(dt){
 		//图像资源
 		if(dt.type == "img"){
-			res = await PIXI.Texture.from(dt.target);
+			if(typeof dt.target == "string")
+				res = await PIXI.Texture.fromURL(dt.target);
+			else
+				res = await PIXI.Texture.from(dt.target);
 		}
 	}
 	

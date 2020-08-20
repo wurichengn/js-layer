@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"dis",
+				"displayObject"
+			],
+			[
 				"render",
 				"render"
 			],
@@ -510,10 +514,6 @@
 			[
 				"wri",
 				"writerZD"
-			],
-			[
-				"ov",
-				"overflow"
 			]
 		]
 	},
@@ -523,7 +523,7 @@
 			"file": "src/main.js",
 			"settings":
 			{
-				"buffer_size": 1496,
+				"buffer_size": 1570,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -538,10 +538,47 @@
 			}
 		},
 		{
+			"file": "build/lib/pixi.js",
+			"settings":
+			{
+				"buffer_size": 1539681,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "Searching 690 files for \".apply(\" (case sensitive)\n\nD:\\CodeTest\\Self\\pixi.js-dev\\pixi.js-dev\\packages\\core\\src\\filters\\FilterSystem.ts:\n  260          if (filters.length === 1)\n  261          {\n  262:             filters[0].apply(this, state.renderTexture, lastState.renderTexture, CLEAR_MODES.BLEND, state);\n  263  \n  264              this.returnFilterTexture(state.renderTexture);\n  ...\n  279              for (i = 0; i < filters.length - 1; ++i)\n  280              {\n  281:                 filters[i].apply(this, flip, flop, CLEAR_MODES.CLEAR, state);\n  282  \n  283                  const t = flip;\n  ...\n  287              }\n  288  \n  289:             filters[i].apply(this, flip, lastState.renderTexture, CLEAR_MODES.BLEND, state);\n  290  \n  291              this.returnFilterTexture(flip);\n\nD:\\CodeTest\\Self\\pixi.js-dev\\pixi.js-dev\\packages\\core\\test\\FilterSystem.js:\n   40              const tmp = filterSystem.getFilterTexture(input);\n   41  \n   42:             innerFilter.apply(filterSystem, input, tmp, clearModeValue);\n   43:             innerFilter.apply(filterSystem, tmp, output, clearMode);\n   44              filterSystem.returnFilterTexture(tmp);\n   45          };\n\nD:\\CodeTest\\Self\\pixi.js-dev\\pixi.js-dev\\packages\\core\\test\\ProjectionSystem.js:\n   21  \n   22          const sourceOrigin = new Point(16, 16);\n   23:         const clipOrigin = this.renderer.projection.projectionMatrix.apply(sourceOrigin);\n   24  \n   25          expect(clipOrigin.x).to.equal(-1);\n   ..\n   27  \n   28          const sourceCorner = new Point(1040, 1040);\n   29:         const clipCorner = this.renderer.projection.projectionMatrix.apply(sourceCorner);\n   30  \n   31          expect(clipCorner.x).to.equal(1);\n\nD:\\CodeTest\\Self\\pixi.js-dev\\pixi.js-dev\\packages\\filters\\filter-blur\\src\\BlurFilter.ts:\n   60              const renderTarget = filterManager.getFilterTexture();\n   61  \n   62:             this.blurXFilter.apply(filterManager, input, renderTarget, CLEAR_MODES.CLEAR);\n   63:             this.blurYFilter.apply(filterManager, renderTarget, output, clearMode);\n   64  \n   65              filterManager.returnFilterTexture(renderTarget);\n   ..\n   67          else if (yStrength)\n   68          {\n   69:             this.blurYFilter.apply(filterManager, input, output, clearMode);\n   70          }\n   71          else\n   72          {\n   73:             this.blurXFilter.apply(filterManager, input, output, clearMode);\n   74          }\n   75      }\n\n11 matches across 4 files\n",
+			"settings":
+			{
+				"buffer_size": 2484,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "/D/CodeTest/Self/pixi.js-dev/pixi.js-dev/packages/core/test/FilterSystem.js",
+			"settings":
+			{
+				"buffer_size": 2631,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/renderer/index.js",
+			"settings":
+			{
+				"buffer_size": 241,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "public/renderer/stage-mgr/stage-unit.js",
 			"settings":
 			{
-				"buffer_size": 3310,
+				"buffer_size": 3312,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -653,18 +690,20 @@
 	"expanded_folders":
 	[
 		"/D/CodeTest/Self/JS-Layers",
-		"/D/CodeTest/Self/JS-Layers/build",
-		"/D/CodeTest/Self/JS-Layers/build/lib",
 		"/D/CodeTest/Self/JS-Layers/public",
 		"/D/CodeTest/Self/JS-Layers/public/renderer",
-		"/D/CodeTest/Self/JS-Layers/public/renderer/builder",
-		"/D/CodeTest/Self/JS-Layers/public/renderer/filter",
-		"/D/CodeTest/Self/JS-Layers/src",
+		"/D/CodeTest/Self/JS-Layers/public/renderer/stage-mgr",
 		"/D/Code/MyLib/Git/前端/public_modules",
-		"/D/Code/MyLib/Git/前端/public_modules/lcg"
+		"/D/Code/MyLib/Git/前端/public_modules/lcg",
+		"/D/Code/MyLib/Git/前端/public_modules/lcg-tools",
+		"/D/Code/MyLib/Git/前端/public_modules/lcg-tools/ssh"
 	],
 	"file_history":
 	[
+		"/D/CodeTest/Self/pixi.js-dev/pixi.js-dev/packages/core/src/filters/FilterSystem.ts",
+		"/D/CodeTest/Self/pixi.js-dev/pixi.js-dev/packages/core/test/FilterSystem.js",
+		"/D/Code/MyLib/Git/前端/public_modules/lcg-tools/ssh/ssh-config.js",
+		"/D/CodeTest/Self/JS-Layers/README.md",
 		"/D/CodeTest/Self/JS-Layers/public/renderer/index.js",
 		"/D/CodeTest/Self/JS-Layers/public/renderer/demo.js",
 		"/C/Users/LCG/Documents/WeChat Files/wxid_2b2qzp857v7b21/FileStorage/File/2020-08/uids_duplicated.json",
@@ -673,7 +712,6 @@
 		"/D/CodeTest/Self/JS-Layers/public/renderer/Filter/filter-main.js",
 		"/D/CodeTest/Self/JS-Layers/src/main.js",
 		"/D/CodeTest/Self/JS-Layers/webpack.config.js",
-		"/D/CodeTest/Self/JS-Layers/README.md",
 		"/D/CodeTest/Self/JS-Layers/lcg.build.js",
 		"/D/CodeTest/Self/JS-Layers/build/info/info-module.json",
 		"/D/CodeTest/Self/JS-Layers/public/draws/draws-app.js",
@@ -711,7 +749,6 @@
 		"/C/Users/LCG/Downloads/frp_0.33.0_windows_amd64/frp_0.33.0_windows_amd64/frpc.ini",
 		"/E/BaiDuDownload/游视界剑零单JI -625/游视界剑零单JI -625/游视界剑零单机625/BnsDat/config.dat.files/release.config2.xml",
 		"/D/CodeWork/Cpany/gits/AlphaProject/ImageServer/web-project/public/loader/loader-study.js",
-		"/D/Code/MyLib/Git/前端/public_modules/lcg-tools/ssh/ssh-config.js",
 		"/D/CodeWork/Cpany/gits/AlphaProject/ImageServer/web-project/public/labels/label-voxel.js",
 		"/D/CodeWork/Cpany/gits/AlphaProject/Alpha-Label/alpha-new/ui/ui-menu-config.js",
 		"/D/CodeWork/Cpany/gits/AlphaProject/Alpha-Label/alpha-new/ui/ui-menu.js",
@@ -790,19 +827,18 @@
 		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/npc/9201003.js",
 		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/npc/2159000.js",
 		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/npc/2103012.js",
-		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/npc/2084001.js",
-		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/npc/1090000.js",
-		"/E/CocosProject/2020-6/FB/temp/quick-scripts/dst/assets/Script/HelloWorld.js"
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/npc/2084001.js"
 	],
 	"find":
 	{
-		"height": 36.0
+		"height": 46.0
 	},
 	"find_in_files":
 	{
 		"height": 128.0,
 		"where_history":
 		[
+			"D:\\CodeTest\\Self\\pixi.js-dev\\pixi.js-dev",
 			"D:\\CodeWork\\Cpany\\gits\\AlphaProject\\Alpha-Label\\alpha-new",
 			"D:\\CodeWork\\Cpany\\gits\\不同医院的标注配置",
 			"D:\\CodeWork\\Cpany\\gits\\AlphaProject\\Alpha-Label\\public\\label-configs",
@@ -879,6 +915,14 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"Renderer(",
+			"Renderer:",
+			"PIXI.Renderer",
+			"push",
+			"pop",
+			".apply(",
+			"apply:",
+			"filter.apply",
 			"30",
 			"2048",
 			"4096",
@@ -998,15 +1042,7 @@
 			"box",
 			".info",
 			"info = ",
-			"pointInfo",
-			"p_ct",
-			"scale",
-			"activeTags",
-			"info.lesionsInfo",
-			"it",
-			"info.groups",
-			"tags",
-			"dicom.extendViewTags"
+			"pointInfo"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1034,15 +1070,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1496,
+						"buffer_size": 1570,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								107,
-								107
+								1378,
+								1378
 							]
 						],
 						"settings":
@@ -1053,7 +1089,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1943.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1072,39 +1108,8 @@
 						"selection":
 						[
 							[
-								719,
-								719
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1863.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "public/renderer/stage-mgr/stage-unit.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3310,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								247,
-								247
+								109,
+								109
 							]
 						],
 						"settings":
@@ -1122,20 +1127,170 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "public/renderer/filter/filter-base.js",
+					"buffer": 2,
+					"file": "build/lib/pixi.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 316,
+						"buffer_size": 1539681,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								229,
-								229
+								798136,
+								798136
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 594524.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2484,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										223,
+										230
+									],
+									[
+										503,
+										510
+									],
+									[
+										666,
+										673
+									],
+									[
+										981,
+										988
+									],
+									[
+										1061,
+										1068
+									],
+									[
+										1403,
+										1410
+									],
+									[
+										1631,
+										1638
+									],
+									[
+										1917,
+										1924
+									],
+									[
+										2015,
+										2022
+									],
+									[
+										2240,
+										2247
+									],
+									[
+										2378,
+										2385
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								176,
+								176
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"git_gutter_is_enabled": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/D/CodeTest/Self/pixi.js-dev/pixi.js-dev/packages/core/test/FilterSystem.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2631,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								672,
+								672
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": false,
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 628.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "public/renderer/index.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 241,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								208,
+								216
 							]
 						],
 						"settings":
@@ -1148,11 +1303,72 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 6,
+					"file": "public/renderer/stage-mgr/stage-unit.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3312,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2920,
+								2920
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3564.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "public/renderer/filter/filter-base.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 316,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								26,
+								26
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
 					"file": "public/renderer/builder/builder-main.js",
 					"semi_transient": false,
 					"settings":
@@ -1178,11 +1394,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 9,
 					"file": "public/renderer/builder/builder-base.js",
 					"semi_transient": false,
 					"settings":
@@ -1208,11 +1424,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 10,
 					"file": "public/renderer/res-mgr/res-mgr.js",
 					"semi_transient": false,
 					"settings":
@@ -1240,11 +1456,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 11,
 					"file": "/D/Code/MyLib/Git/前端/public_modules/lcg/base.js",
 					"semi_transient": false,
 					"settings":
@@ -1272,11 +1488,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 12,
 					"file": "public/renderer/res-mgr/res-item.js",
 					"semi_transient": false,
 					"settings":
@@ -1303,7 +1519,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 11,
 					"type": "text"
 				}
 			]
@@ -1380,7 +1596,7 @@
 		[
 			[
 				"",
-				"D:\\CodeWork\\Cpany\\gits\\Service\\service.sublime-project"
+				"D:\\CodeWork\\Cpany\\gits\\AlphaProject\\Alpha-Label\\标注整合.sublime-project"
 			]
 		],
 		"width": 380.0

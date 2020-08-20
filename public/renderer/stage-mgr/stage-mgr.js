@@ -15,7 +15,8 @@ module.exports = function(d){
 
 	//初始化主场景
 	var app = this.app = new PIXI.Application({
-		transparent:true
+		transparent:true,
+		autoStart:false
 	});
 	this.view = app.view;
 	var stage = StageUnit.new({},self,app.stage);
@@ -66,6 +67,9 @@ module.exports = function(d){
 			if(renderList[i].render)
 				await renderList[i].render();
 		}
+
+		//渲染
+		app.render();
 	}
 
 	//同步场景

@@ -8,9 +8,10 @@ var app = new Draws.App({width:800,height:800});
 document.body.appendChild(app.view);*/
 
 var Renderer = require("renderer");
-var renderer = new Renderer();
+var renderer = window.renderer = new Renderer();
 document.body.appendChild(renderer.view);
 renderer.view.style["width"] = renderer.view.style["height"] = "128px";
+renderer.view.style["opacity"] = 0.1;
 
 
 
@@ -47,7 +48,7 @@ await renderer.render({
 					}
 				},
 				childs:function(){
-					if(Math.random() > 0.5){
+					if(Math.random() > 0.0){
 						return [
 							{
 								uid:"vg8ak39gn4",
@@ -90,8 +91,8 @@ await renderer.render({
 	}
 });
 
-
-setTimeout(step,20);
+console.log("xx");
+//setTimeout(step,1000);
 
 };
 

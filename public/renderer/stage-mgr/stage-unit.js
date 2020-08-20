@@ -158,7 +158,7 @@ class StageUnit{
 
 		//==================额外渲染操作实现===================
 		this.render = async function(){
-			console.log("render");
+			//console.log("render");
 		}
 	}
 }
