@@ -19,6 +19,7 @@ renderer.view.style["opacity"] = 0.1;
 var i = 0;
 
 var step = async function(){
+	var t1 = new Date().getTime();
 	i++;
 await renderer.render({
 	setting:{
@@ -91,10 +92,40 @@ await renderer.render({
 	}
 });
 
+var t2 = new Date().getTime();
+console.log(t2 - t1);
 console.log("xx");
-//setTimeout(step,1000);
+setTimeout(step,100);
 
 };
 
 
 step();
+
+
+
+
+
+
+
+var tt = function(level){
+	if(level < 1)
+		return;
+	return new Promise(function(next){
+		var re = tt(level - 1);
+		console.log(level);
+		if(re)
+			re.then(function(){
+				next();
+			});
+	});
+}
+
+
+var test = async function(){
+	var t1 = new Date().getTime();
+	await tt(5);
+	var t2 = new Date().getTime();
+	console.log(t2 - t1);
+}
+test();

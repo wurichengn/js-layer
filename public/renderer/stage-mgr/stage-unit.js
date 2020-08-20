@@ -14,10 +14,6 @@ class StageUnit{
 		//======初始化层面======
 		//内容渲染层
 		var input_layer = this.input_layer = new PIXI.Container();
-		//前置内容层
-		var before_layer = this.before_layer = new PIXI.Container();
-		//后置内容层
-		var after_layer = this.after_layer = new PIXI.Container();
 		//子内容层
 		var child_layer = this.child_layer = new PIXI.Container();
 		//特殊渲染时需要进行操作的临时渲染层
@@ -101,7 +97,7 @@ class StageUnit{
 		}
 
 		//同步子节点
-		var syncChilds = function(datas){
+		var syncChilds = async function(datas){
 			datas = datas || [];
 			var children = child_layer.children;
 
@@ -127,7 +123,7 @@ class StageUnit{
 			}
 		}
 
-		//同步效果器
+		//同步滤镜
 		var syncFilters = function(datas){
 			if(datas == null)
 				return;
@@ -150,15 +146,15 @@ class StageUnit{
 
 		//判断是否需要临时渲染
 		var isNeedsRender = function(){
-			if(child_layer.children.length > 0)
-				main.addRender(self);
+			//if(child_layer.children.length > 0)
+			//	main.addRender(self);
 		}
 
 
 
 		//==================额外渲染操作实现===================
 		this.render = async function(){
-			//console.log("render");
+
 		}
 	}
 }
