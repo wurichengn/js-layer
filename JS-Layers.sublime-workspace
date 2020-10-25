@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"COUNT",
+				"COUNT_LENGTH"
+			],
+			[
+				"samp_",
+				"samp_val"
+			],
+			[
+				"fil",
+				"use_filter"
+			],
+			[
+				"uid",
+				"uid_index"
+			],
+			[
+				"Filters",
+				"Filters"
+			],
+			[
+				"the",
+				"then"
+			],
+			[
 				"dis",
 				"displayObject"
 			],
@@ -490,30 +514,6 @@
 			[
 				"act",
 				"activeDom"
-			],
-			[
-				"windowC",
-				"windowCenter"
-			],
-			[
-				"type",
-				"type_talk"
-			],
-			[
-				"patient",
-				"patientId"
-			],
-			[
-				"border",
-				"border-bottom"
-			],
-			[
-				"Ite",
-				"SelectItem"
-			],
-			[
-				"wri",
-				"writerZD"
 			]
 		]
 	},
@@ -523,62 +523,7 @@
 			"file": "src/main.js",
 			"settings":
 			{
-				"buffer_size": 1570,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/renderer/stage-mgr/stage-mgr.js",
-			"settings":
-			{
-				"buffer_size": 1263,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "build/lib/pixi.js",
-			"settings":
-			{
-				"buffer_size": 1539681,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "Searching 690 files for \".apply(\" (case sensitive)\n\nD:\\CodeTest\\Self\\pixi.js-dev\\pixi.js-dev\\packages\\core\\src\\filters\\FilterSystem.ts:\n  260          if (filters.length === 1)\n  261          {\n  262:             filters[0].apply(this, state.renderTexture, lastState.renderTexture, CLEAR_MODES.BLEND, state);\n  263  \n  264              this.returnFilterTexture(state.renderTexture);\n  ...\n  279              for (i = 0; i < filters.length - 1; ++i)\n  280              {\n  281:                 filters[i].apply(this, flip, flop, CLEAR_MODES.CLEAR, state);\n  282  \n  283                  const t = flip;\n  ...\n  287              }\n  288  \n  289:             filters[i].apply(this, flip, lastState.renderTexture, CLEAR_MODES.BLEND, state);\n  290  \n  291              this.returnFilterTexture(flip);\n\nD:\\CodeTest\\Self\\pixi.js-dev\\pixi.js-dev\\packages\\core\\test\\FilterSystem.js:\n   40              const tmp = filterSystem.getFilterTexture(input);\n   41  \n   42:             innerFilter.apply(filterSystem, input, tmp, clearModeValue);\n   43:             innerFilter.apply(filterSystem, tmp, output, clearMode);\n   44              filterSystem.returnFilterTexture(tmp);\n   45          };\n\nD:\\CodeTest\\Self\\pixi.js-dev\\pixi.js-dev\\packages\\core\\test\\ProjectionSystem.js:\n   21  \n   22          const sourceOrigin = new Point(16, 16);\n   23:         const clipOrigin = this.renderer.projection.projectionMatrix.apply(sourceOrigin);\n   24  \n   25          expect(clipOrigin.x).to.equal(-1);\n   ..\n   27  \n   28          const sourceCorner = new Point(1040, 1040);\n   29:         const clipCorner = this.renderer.projection.projectionMatrix.apply(sourceCorner);\n   30  \n   31          expect(clipCorner.x).to.equal(1);\n\nD:\\CodeTest\\Self\\pixi.js-dev\\pixi.js-dev\\packages\\filters\\filter-blur\\src\\BlurFilter.ts:\n   60              const renderTarget = filterManager.getFilterTexture();\n   61  \n   62:             this.blurXFilter.apply(filterManager, input, renderTarget, CLEAR_MODES.CLEAR);\n   63:             this.blurYFilter.apply(filterManager, renderTarget, output, clearMode);\n   64  \n   65              filterManager.returnFilterTexture(renderTarget);\n   ..\n   67          else if (yStrength)\n   68          {\n   69:             this.blurYFilter.apply(filterManager, input, output, clearMode);\n   70          }\n   71          else\n   72          {\n   73:             this.blurXFilter.apply(filterManager, input, output, clearMode);\n   74          }\n   75      }\n\n11 matches across 4 files\n",
-			"settings":
-			{
-				"buffer_size": 2484,
-				"line_ending": "Windows",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "/D/CodeTest/Self/pixi.js-dev/pixi.js-dev/packages/core/test/FilterSystem.js",
-			"settings":
-			{
-				"buffer_size": 2631,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public/renderer/index.js",
-			"settings":
-			{
-				"buffer_size": 241,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/renderer/stage-mgr/stage-unit.js",
-			"settings":
-			{
-				"buffer_size": 3312,
+				"buffer_size": 4553,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -587,52 +532,25 @@
 			"file": "public/renderer/filter/filter-base.js",
 			"settings":
 			{
-				"buffer_size": 316,
+				"buffer_size": 3475,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "public/renderer/builder/builder-main.js",
+			"file": "module.html",
 			"settings":
 			{
-				"buffer_size": 106,
+				"buffer_size": 1323,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "public/renderer/builder/builder-base.js",
+			"file": "public/renderer/stage-mgr/stage-unit.js",
 			"settings":
 			{
-				"buffer_size": 320,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/renderer/res-mgr/res-mgr.js",
-			"settings":
-			{
-				"buffer_size": 736,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/D/Code/MyLib/Git/前端/public_modules/lcg/base.js",
-			"settings":
-			{
-				"buffer_size": 5805,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/renderer/res-mgr/res-item.js",
-			"settings":
-			{
-				"buffer_size": 562,
+				"buffer_size": 3201,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -691,24 +609,38 @@
 	[
 		"/D/CodeTest/Self/JS-Layers",
 		"/D/CodeTest/Self/JS-Layers/public",
+		"/D/CodeTest/Self/JS-Layers/public/draws",
+		"/D/CodeTest/Self/JS-Layers/public/draws/uints",
+		"/D/CodeTest/Self/JS-Layers/public/global",
+		"/D/CodeTest/Self/JS-Layers/public/layers",
 		"/D/CodeTest/Self/JS-Layers/public/renderer",
-		"/D/CodeTest/Self/JS-Layers/public/renderer/stage-mgr",
-		"/D/Code/MyLib/Git/前端/public_modules",
-		"/D/Code/MyLib/Git/前端/public_modules/lcg",
-		"/D/Code/MyLib/Git/前端/public_modules/lcg-tools",
-		"/D/Code/MyLib/Git/前端/public_modules/lcg-tools/ssh"
+		"/D/CodeTest/Self/JS-Layers/public/renderer/builder",
+		"/D/CodeTest/Self/JS-Layers/public/renderer/filter",
+		"/D/CodeTest/Self/JS-Layers/public/renderer/res-mgr",
+		"/D/CodeTest/Self/JS-Layers/public/renderer/stage-mgr"
 	],
 	"file_history":
 	[
-		"/D/CodeTest/Self/pixi.js-dev/pixi.js-dev/packages/core/src/filters/FilterSystem.ts",
+		"/D/CodeTest/Cpany/tag匹配/test2.js",
+		"/D/CodeTest/Cpany/tag匹配/test.js",
+		"/D/CodeTest/Self/JS-Layers/public/layers/demo.js",
+		"/D/CodeTest/Self/JS-Layers/build/lib/pixi.js",
+		"/D/CodeTest/Self/JS-Layers/public/renderer/stage-mgr/stage-unit.js",
+		"/D/CodeTest/Self/JS-Layers/public/renderer/demo.js",
+		"/D/CodeTest/Self/JS-Layers/public/renderer/filter/filter-base.js",
+		"/D/CodeTest/Self/JS-Layers/public/renderer/builder/builder-main.js",
+		"/D/CodeTest/Self/JS-Layers/public/renderer/builder/builder-base.js",
+		"/D/CodeTest/Self/JS-Layers/public/renderer/res-mgr/res-mgr.js",
+		"/D/Code/MyLib/Git/前端/public_modules/lcg/base.js",
+		"/D/CodeTest/Self/JS-Layers/public/renderer/res-mgr/res-item.js",
+		"/D/CodeTest/Self/JS-Layers/public/renderer/stage-mgr/stage-mgr.js",
 		"/D/CodeTest/Self/pixi.js-dev/pixi.js-dev/packages/core/test/FilterSystem.js",
+		"/D/CodeTest/Self/pixi.js-dev/pixi.js-dev/packages/core/src/filters/FilterSystem.ts",
 		"/D/Code/MyLib/Git/前端/public_modules/lcg-tools/ssh/ssh-config.js",
 		"/D/CodeTest/Self/JS-Layers/README.md",
 		"/D/CodeTest/Self/JS-Layers/public/renderer/index.js",
-		"/D/CodeTest/Self/JS-Layers/public/renderer/demo.js",
 		"/C/Users/LCG/Documents/WeChat Files/wxid_2b2qzp857v7b21/FileStorage/File/2020-08/uids_duplicated.json",
 		"/C/Users/LCG/Documents/WeChat Files/wxid_2b2qzp857v7b21/FileStorage/File/2020-08/撕脱1.json",
-		"/D/CodeTest/Self/JS-Layers/public/renderer/filter/filter-base.js",
 		"/D/CodeTest/Self/JS-Layers/public/renderer/Filter/filter-main.js",
 		"/D/CodeTest/Self/JS-Layers/src/main.js",
 		"/D/CodeTest/Self/JS-Layers/webpack.config.js",
@@ -731,7 +663,6 @@
 		"/C/Tools/FlashFXP/Cache/~flashfxp/D3F192A0_edit.tmp/crow_pacs.properties",
 		"/D/CodeWork/Cpany/gits/weiyun-plugin/plugin.js",
 		"/D/CodeWork/Cpany/gits/weiyun-plugin/web-project/build/plugin.js",
-		"/D/CodeTest/Self/JS-Layers/build/lib/pixi.js",
 		"/D/CodeTest/Self/JS-Layers/public/global/index.js",
 		"/D/CodeWork/Cpany/gits/AlphaProject/Alpha-Label/alpha-new/ui/ui-index.js",
 		"/D/CodeWork/Cpany/gits/AlphaProject/Alpha-Label/public/actions/label-server-new/label-server-new.js",
@@ -817,17 +748,7 @@
 		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/reactor/2111000.js",
 		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/map/onUserEnter/lightning_tuto_5_0.js",
 		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/extend/制作1.js",
-		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/event/2xEvent.js",
-		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/event/BossBanban_CHAOS.js",
-		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/event/DoJang.js",
-		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/event/MonsterPark.js",
-		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/js说明",
-		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/item/道具通用模版.js",
-		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/item/2436527.js",
-		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/npc/9201003.js",
-		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/npc/2159000.js",
-		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/npc/2103012.js",
-		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/npc/2084001.js"
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/event/2xEvent.js"
 	],
 	"find":
 	{
@@ -838,6 +759,7 @@
 		"height": 128.0,
 		"where_history":
 		[
+			"D:\\CodeTest\\Self\\JS-Layers\\public",
 			"D:\\CodeTest\\Self\\pixi.js-dev\\pixi.js-dev",
 			"D:\\CodeWork\\Cpany\\gits\\AlphaProject\\Alpha-Label\\alpha-new",
 			"D:\\CodeWork\\Cpany\\gits\\不同医院的标注配置",
@@ -915,6 +837,12 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			" )",
+			"texture2D(uSampler,vTextureCoord)",
+			"alpha",
+			"before",
+			"effects",
+			"renderAdvanced ",
 			"Renderer(",
 			"Renderer:",
 			"PIXI.Renderer",
@@ -1036,13 +964,7 @@
 			"mpr",
 			"rel2mpr",
 			"rel2",
-			"render(",
-			"mit",
-			"}\n",
-			"box",
-			".info",
-			"info = ",
-			"pointInfo"
+			"render("
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1070,15 +992,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1570,
+						"buffer_size": 4553,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1378,
-								1378
+								4042,
+								4042
 							]
 						],
 						"settings":
@@ -1089,7 +1011,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1943.0,
+						"translation.y": 7452.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1097,19 +1019,19 @@
 				},
 				{
 					"buffer": 1,
-					"file": "public/renderer/stage-mgr/stage-mgr.js",
+					"file": "public/renderer/filter/filter-base.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1263,
+						"buffer_size": 3475,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								109,
-								109
+								2660,
+								2660
 							]
 						],
 						"settings":
@@ -1117,6 +1039,37 @@
 							"git_gutter_is_enabled": true,
 							"origin_encoding": "UTF-8",
 							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3402.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "module.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1323,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								120,
+								120
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
@@ -1127,200 +1080,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "build/lib/pixi.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1539681,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								798136,
-								798136
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 594524.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
 					"buffer": 3,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2484,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										223,
-										230
-									],
-									[
-										503,
-										510
-									],
-									[
-										666,
-										673
-									],
-									[
-										981,
-										988
-									],
-									[
-										1061,
-										1068
-									],
-									[
-										1403,
-										1410
-									],
-									[
-										1631,
-										1638
-									],
-									[
-										1917,
-										1924
-									],
-									[
-										2015,
-										2022
-									],
-									[
-										2240,
-										2247
-									],
-									[
-										2378,
-										2385
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								176,
-								176
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"git_gutter_is_enabled": false,
-							"line_numbers": false,
-							"output_tag": 1,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ \t].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/D/CodeTest/Self/pixi.js-dev/pixi.js-dev/packages/core/test/FilterSystem.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2631,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								672,
-								672
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": false,
-							"origin_encoding": "ASCII",
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 628.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "public/renderer/index.js",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 241,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								208,
-								216
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
 					"file": "public/renderer/stage-mgr/stage-unit.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3312,
+						"buffer_size": 3201,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2920,
-								2920
+								1174,
+								1174
 							]
 						],
 						"settings":
@@ -1331,195 +1104,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3564.0,
+						"translation.y": 1538.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "public/renderer/filter/filter-base.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 316,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								26,
-								26
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "public/renderer/builder/builder-main.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 106,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								104,
-								104
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "public/renderer/builder/builder-base.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 320,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								48,
-								48
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "public/renderer/res-mgr/res-mgr.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 736,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								169,
-								169
-							]
-						],
-						"settings":
-						{
-							"auto_name": "",
-							"git_gutter_is_enabled": true,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "/D/Code/MyLib/Git/前端/public_modules/lcg/base.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5805,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								115,
-								115
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "public/renderer/res-mgr/res-item.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 562,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								83,
-								83
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]

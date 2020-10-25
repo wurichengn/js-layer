@@ -114,7 +114,8 @@ class StageUnit{
 					child_layer.addChild(Unit.new(dt,main));
 				}
 				//同步子节点
-				children[i].sync(dt);
+				if(children[i].sync)
+					children[i].sync(dt);
 			}
 
 			//移除多余节点
@@ -137,7 +138,8 @@ class StageUnit{
 				if(filters[i] == null)
 					filters.push(Filters[dt.type].new(dt));
 				//同步滤镜
-				filters[i].sync(dt);
+				if(filters[i].sync)
+					filters[i].sync(dt);
 			}
 
 			//移除多余滤镜
