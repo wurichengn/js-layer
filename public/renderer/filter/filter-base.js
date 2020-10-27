@@ -57,6 +57,8 @@ uniform vec2 thickness;
 uniform float iAngle;
 //光线模式
 uniform float iMode;
+//光照强度
+uniform float iStr;
 
 //光照颜色
 vec4 light_color = vec4(1,1,1,1);
@@ -64,9 +66,9 @@ vec4 light_color = vec4(1,1,1,1);
 //整圆角度
 const float DOUBLE_PI = 3.14159265358979323846264 * 2.0;
 //角度采样次数
-const float COUNT_ANGLE = 36.0;
+const float COUNT_ANGLE = 12.0;
 //深度采样次数
-const float COUNT_LENGTH = 5.0;
+const float COUNT_LENGTH = 3.0;
 //总深度
 const float LENGTH = 6.0;
 
@@ -130,7 +132,7 @@ void main(void)
 	}
 
 	//强度计算
-	samp_val = samp_val / COUNT_ANGLE / COUNT_LENGTH * 10.0;
+	samp_val = samp_val / COUNT_ANGLE / COUNT_LENGTH * iStr;
 	if(samp_val > 1.0)
 		samp_val = 1.0;
 	samp_val = samp_val * color.a;
@@ -162,6 +164,7 @@ void main(void)
 			angle = 0;
 		angle = ((angle / (Math.PI * 2)) % 1) * (Math.PI * 2);
 		p.uniforms["iAngle"] = angle;
+		p.uniforms["iStr"] = dt.attr.str;
 		p.uniforms["iMode"] = dt.attr.mode || 0;
 	}
 
