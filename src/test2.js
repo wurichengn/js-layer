@@ -9,7 +9,7 @@ var Camera = require("lcg-camera");
 //当前状态
 var states = new Camera({
 	//宽度
-	width:1700,
+	width:1600,
 	//高度
 	height:720,
 	//内阴影
