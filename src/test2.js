@@ -1,26 +1,35 @@
 var Renderer = require("renderer");
 var Draws = require("draws");
 var renderer = window.renderer = new Renderer();
+//renderer.view.style["opacity"] = 0.1;
 document.body.appendChild(renderer.view);
 var dat = require("dat.gui");
 var Camera = require("lcg-camera");
 
 //当前状态
 var states = new Camera({
+	//宽度
+	width:1700,
+	//高度
+	height:720,
+	//内阴影
+	inner:false,
+	//缩放
+	scale:1,
 	//角度
-	rotation:0,
+	rotation:45,
 	//背景色
-	background_color:0x0098d8,
+	background_color:[0x00,0x98,0xd8],//0x0098d8,
 	//阴影距离
-	len:80,
+	len:120,
 	//阴影采样数量
-	samp:50,
-	//模糊程度
-	blur:30,
-	//模糊类型
-	blur_type:0,
+	samp:100,
+	//距离淡化
+	fade:1,
+	//发散角度
+	angle_fade:30,
 	//阴影能见度
-	alpha:2,
+	alpha:0.65,
 	//开启边缘光照
 	useLight:true,
 	//是否使用辉光
@@ -32,13 +41,17 @@ var states = new Camera({
 });
 
 var gui = new dat.GUI({name:"参数"});
+gui.add(states,"width",240,1920,1).name("画布宽度");
+gui.add(states,"height",240,1920,1).name("画布高度");
+gui.add(states,"scale",0.2,5,0.01).name("缩放");
+gui.add(states,"inner").name("内阴影");
 gui.add(states,"rotation",0,360,0.1).name("投射角度");
 gui.addColor(states,"background_color").name("背景色");
 gui.add(states,"len",0,300,1).name("阴影长度");
-gui.add(states,"samp",10,150,1).name("阴影采样数");
-gui.add(states,"blur",0,300,1).name("模糊程度");
-gui.add(states,"blur_type",0,2,1).name("模糊类型");
-gui.add(states,"alpha",0,10,0.1).name("阴影能见度");
+gui.add(states,"samp",10,250,1).name("阴影采样数");
+gui.add(states,"fade",0,1,0.01).name("淡化比例");
+gui.add(states,"angle_fade",0,30,0.1).name("发散角度");
+gui.add(states,"alpha",0,1,0.01).name("阴影能见度");
 gui.add(states,"useLight").name("边缘光照");
 gui.add(states,"lightStr",0,20,0.1).name("光照强度");
 gui.add(states,"useGlow").name("辉光");
@@ -57,21 +70,23 @@ var renderOne = async function(d){
 
 	//起始坐标
 	var cfgs = {
-		//图像基本坐标
-		x:100,
-		y:100,
+		//是否是内阴影
+		inner:false,
+		//尺寸
+		width:640,
+		height:640,
+		//缩放
+		scale:1,
 		//光线角度
 		rotation:Math.PI / 4,
 		//阴影距离
 		len:200,
 		//采样数
 		samp:10,
-		//模糊系数
-		blur:200,
-		//透明度
-		alpha:2,
-		//模糊类型 0固定模糊  1距离透明度   2反向距离透明度
-		blur_type:0,
+		//距离淡化
+		fade:0.6,
+		//发散角度
+		angle_fade:30,
 		//是否使用光照
 		useLight:true,
 		//是否添加辉光
@@ -86,8 +101,10 @@ var renderOne = async function(d){
 	for(var i in d)
 		cfgs[i] = d[i];
 
+	var c = cfgs.background_color;
+
 	//透明度处理
-	cfgs.alpha = cfgs.alpha / cfgs.samp;
+	//cfgs.alpha = cfgs.alpha / cfgs.samp;
 	//偏移量计算
 	var px = Math.cos(cfgs.rotation);
 	var py = Math.sin(cfgs.rotation);
@@ -113,27 +130,21 @@ var renderOne = async function(d){
 		var index = cfg.index / cfgs.samp;
 		var off = index * cfgs.len;
 		var alpha = 1;
-		if(!dt.isImage){
-			if(cfgs.blur_type == 0)
-				alpha = cfgs.alpha;
-			else if(cfgs.blur_type == 1)
-				alpha = (1 - index) * cfgs.alpha;
-			else
-				alpha = index * cfgs.alpha;
-		}
 
 		var re = {
 			uid:uuid(),
 			type:"sprite",
 			attr:{
-				res:"roz8ga3kg8"
+				res:"roz8ga3kg8",
+				anchor:{x:0.5,y:0.5}
 			},
 			body:{
-				//alpha:cfg.alpha || alpha,
+				//alpha:alpha,
+				scale:{x:cfgs.scale,y:cfgs.scale},
 				//坐标
 				position:{
-					x:cfgs.x + px * off,
-					y:cfgs.y + py * off
+					x:cfgs.width / 2,//cfgs.x + px * off,
+					y:cfgs.height / 2,//cfgs.y + py * off
 				}
 			},
 			//滤镜
@@ -144,7 +155,11 @@ var renderOne = async function(d){
 					attr:{
 						angle:cfgs.rotation,
 						len:cfgs.len,
-						len_samp:cfgs.samp
+						len_samp:cfgs.samp,
+						fade:cfgs.fade,
+						angle_fade:cfgs.angle_fade,
+						alpha:cfgs.alpha,
+						inner:cfgs.inner
 					}
 				}
 			]
@@ -157,9 +172,23 @@ var renderOne = async function(d){
 				re.filters = [
 					{
 						uid:uuid(),
+						type:"color-map",
+						attr:{
+							color:[c[0] / 255,c[1] / 255,c[2] / 255]
+						}
+					},
+					{
+						uid:uuid(),
+						type:"line-color",
+						attr:{
+							angle:cfgs.rotation
+						}
+					},
+					{
+						uid:uuid(),
 						type:"inner-light",
 						attr:{
-							angle:cfgs.rotation,
+							angle:cfgs.inner?(cfgs.rotation + Math.PI):cfgs.rotation,
 							str:cfgs.lightStr,
 						}
 					}
@@ -174,7 +203,7 @@ var renderOne = async function(d){
 					uid:uuid(),
 					type:"inner-light",
 					attr:{
-						angle:cfgs.rotation,
+						angle:cfgs.inner?(cfgs.rotation + Math.PI):cfgs.rotation,
 						str:cfgs.lightStr,
 						mode:1
 					}
@@ -192,21 +221,34 @@ var renderOne = async function(d){
 		return re;
 	}
 
-
+	for(var i in c)
+		c[i] = Math.floor(c[i]);
 	var lays = [{
 		uid:uuid(),
 		type:"rect-full",
-		attr:{color:cfgs.background_color}
+		attr:{color:c[0] * 256 * 256 + c[1] * 256 + c[2]},
+		filters:[
+			{
+				uid:uuid(),
+				type:"line-color",
+				attr:{
+					angle:cfgs.rotation
+				}
+			}
+		]
 	}];
 
 	//加入阴影
-	lays.push(createOne({}));
+	//lays.push(createOne({}));
 
 	//加入固定阴影
 	//lays.push(createOne({blur:10,alpha:0.2}));
 
 	//加入原图
 	lays.push(createOne({isImage:true}));
+
+	//加入阴影
+	lays.push(createOne({}));
 	
 	//加入辉光
 	if(cfgs.useGlow){
@@ -216,14 +258,14 @@ var renderOne = async function(d){
 
 	await renderer.render({
 		setting:{
-			width:640,
-			height:640,
+			width:cfgs.width,
+			height:cfgs.height,
 		},
 		res:[
 			{
 				uid:"roz8ga3kg8",
 				type:"img",
-				target:"img/text.png"
+				target:"img/text2.png"
 			}
 		],
 		stage:{
@@ -241,6 +283,7 @@ var step = async function(){
 			//数据处理
 			var data = states.$get();
 			data.rotation = data.rotation / 180 * Math.PI;
+			data.angle_fade = data.angle_fade / 180 * Math.PI;
 			//背景色处理
 			renderer.view.style["background-color"] = data.background_color;
 			//渲染

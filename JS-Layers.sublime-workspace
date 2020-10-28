@@ -4,16 +4,36 @@
 		"selected_items":
 		[
 			[
+				"unif",
+				"uniform"
+			],
+			[
+				"angle",
+				"angle_fade"
+			],
+			[
+				"iLn",
+				"iLenSamp"
+			],
+			[
+				"COUNT",
+				"COUNT_ANGLE"
+			],
+			[
+				"iLen",
+				"iLenSamp"
+			],
+			[
+				"add",
+				"addChild"
+			],
+			[
 				"back",
 				"background_color"
 			],
 			[
 				"render",
 				"renderOne"
-			],
-			[
-				"COUNT",
-				"COUNT_LENGTH"
 			],
 			[
 				"samp_",
@@ -494,26 +514,6 @@
 			[
 				"loc",
 				"hxLoc"
-			],
-			[
-				"frame",
-				"frame-info"
-			],
-			[
-				"padding",
-				"padding"
-			],
-			[
-				"class",
-				"classList"
-			],
-			[
-				"que",
-				"querySelectorAll"
-			],
-			[
-				"N",
-				"Number"
 			]
 		]
 	},
@@ -541,16 +541,7 @@
 			"file": "src/test2.js",
 			"settings":
 			{
-				"buffer_size": 4047,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/D/package.json",
-			"settings":
-			{
-				"buffer_size": 2563,
+				"buffer_size": 4075,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -559,27 +550,27 @@
 			"file": "public/renderer/filter/filter-base.js",
 			"settings":
 			{
-				"buffer_size": 3538,
+				"buffer_size": 6168,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "module.html",
+			"contents": "Searching 717 files for \"uSampler\" (case sensitive)\n\nC:\\Users\\LCG\\Downloads\\pixi.js-dev\\pixi.js-dev\\packages\\core\\src\\batch\\AbstractBatchRenderer.ts:\n   86           * This is used to generate a shader that can\n   87           * color each vertex based on a `aTextureId`\n   88:          * attribute that points to an texture in `uSampler`.\n   89           *\n   90           * This enables the objects with different textures\n\nC:\\Users\\LCG\\Downloads\\pixi.js-dev\\pixi.js-dev\\packages\\core\\src\\batch\\BatchPluginFactory.ts:\n   31       * varying vec4 vColor;\n   32       * varying float vTextureId;\n   33:      * uniform sampler2D uSamplers[%count%];\n   34       *\n   35       * void main(void){\n\nC:\\Users\\LCG\\Downloads\\pixi.js-dev\\pixi.js-dev\\packages\\core\\src\\batch\\BatchShaderGenerator.ts:\n   61              }\n   62  \n   63:             this.defaultGroupCache[maxTextures] = UniformGroup.from({ uSamplers: sampleValues }, true);\n   64  \n   65              let fragmentSrc = this.fragTemplate;\n   ..\n  100  \n  101              src += '\\n{';\n  102:             src += `\\n\\tcolor = texture2D(uSamplers[${i}], vTextureCoord);`;\n  103              src += '\\n}';\n  104          }\n\nC:\\Users\\LCG\\Downloads\\pixi.js-dev\\pixi.js-dev\\packages\\core\\src\\batch\\texture.frag:\n    2  varying vec4 vColor;\n    3  varying float vTextureId;\n    4: uniform sampler2D uSamplers[%count%];\n    5  \n    6  void main(void){\n\nC:\\Users\\LCG\\Downloads\\pixi.js-dev\\pixi.js-dev\\packages\\core\\src\\filters\\defaultFilter.frag:\n    1  varying vec2 vTextureCoord;\n    2  \n    3: uniform sampler2D uSampler;\n    4  \n    5  void main(void){\n    6:    gl_FragColor = texture2D(uSampler, vTextureCoord);\n    7  }\n    8  \n\nC:\\Users\\LCG\\Downloads\\pixi.js-dev\\pixi.js-dev\\packages\\core\\src\\filters\\Filter.ts:\n   85   * and `projectionMatrix` uniform maps it to the gl viewport.\n   86   *\n   87:  * **uSampler**\n   88   *\n   89   * The most important uniform is the input texture that container was rendered into.\n   ..\n   97   * const fragment = `\n   98   * varying vec2 vTextureCoord;\n   99:  * uniform sampler2D uSampler;\n  100   * void main(void)\n  101   * {\n  102:  *    gl_FragColor = texture2D(uSampler, vTextureCoord);\n  103   * }\n  104   * `;\n  ...\n  165   *\n  166   * ```\n  167:  * vec4 color = texture2D(uSampler, clamp(modifigedTextureCoord, inputClamp.xy, inputClamp.zw))\n  168   * ```\n  169   * OR\n  170   * ```\n  171:  * vec4 color = texture2D(uSampler, min(modifigedTextureCoord, inputClamp.zw))\n  172   * ```\n  173   *\n\nC:\\Users\\LCG\\Downloads\\pixi.js-dev\\pixi.js-dev\\packages\\core\\src\\filters\\FilterSystem.ts:\n  370  \n  371          // set the uniforms..\n  372:         filter.uniforms.uSampler = input;\n  373          filter.uniforms.filterGlobals = this.globalUniforms;\n  374  \n\nC:\\Users\\LCG\\Downloads\\pixi.js-dev\\pixi.js-dev\\packages\\core\\src\\filters\\spriteMask\\spriteMaskFilter.frag:\n    2  varying vec2 vTextureCoord;\n    3  \n    4: uniform sampler2D uSampler;\n    5  uniform sampler2D mask;\n    6  uniform float alpha;\n    .\n   16          step(vMaskCoord.y, maskClamp.w));\n   17  \n   18:     vec4 original = texture2D(uSampler, vTextureCoord);\n   19      vec4 masky = texture2D(mask, vMaskCoord);\n   20      float alphaMul = 1.0 - npmAlpha * (1.0 - masky.a);\n\nC:\\Users\\LCG\\Downloads\\pixi.js-dev\\pixi.js-dev\\packages\\core\\src\\shader\\defaultProgram.frag:\n    1  varying vec2 vTextureCoord;\n    2  \n    3: uniform sampler2D uSampler;\n    4  \n    5  void main(void){\n    6:    gl_FragColor *= texture2D(uSampler, vTextureCoord);\n    7  }\n\nC:\\Users\\LCG\\Downloads\\pixi.js-dev\\pixi.js-dev\\packages\\core\\src\\shader\\Program.ts:\n  194  \n  195          // TODO expose this as a prop?\n  196:         // const maskRegex = new RegExp('^(projectionMatrix|uSampler|translationMatrix)$');\n  197:         // const maskRegex = new RegExp('^(projectionMatrix|uSampler|translationMatrix)$');\n  198  \n  199          for (let i = 0; i < totalUniforms; i++)\n\nC:\\Users\\LCG\\Downloads\\pixi.js-dev\\pixi.js-dev\\packages\\core\\src\\shader\\utils\\extractUniformsFromSrc.ts:\n   11  function extractUniformsFromString(string: string): {[key: string]: IExtractedUniformData}\n   12  {\n   13:     const maskRegex = new RegExp('^(projectionMatrix|uSampler|translationMatrix)$');\n   14  \n   15      const uniforms: {[key: string]: IExtractedUniformData} = {};\n\nC:\\Users\\LCG\\Downloads\\pixi.js-dev\\pixi.js-dev\\packages\\core\\test\\Geometry.js:\n   14  const frag = `\n   15  varying vec2 vUvs;\n   16: uniform sampler2D uSampler;\n   17  \n   18  void main() {\n   19:     gl_FragColor = texture2D(uSampler, vUvs);\n   20  }`;\n   21  \n   ..\n   32              const geometry2 = new Geometry();\n   33              const prog = new Program(vert, frag);\n   34:             const shader = new Shader(prog, { uSampler: Texture.WHITE });\n   35  \n   36              geometry1.addAttribute('aVertexPosition', [-100, -100, 100, -100, 100, 100, -100, 100], 2)\n\nC:\\Users\\LCG\\Downloads\\pixi.js-dev\\pixi.js-dev\\packages\\core\\test\\ShaderSystem.js:\n   25  varying vec2 vUvs;\n   26  \n   27: uniform sampler2D uSampler2;\n   28: uniform sampler2D uSampler1;\n   29  \n   30  void main() {\n   31  \n   32:     gl_FragColor = mix( texture2D(uSampler1, vUvs), texture2D(uSampler2, vUvs), 0.5) ;\n   33  \n   34  }`;\n   ..\n   67              .addAttribute('aVertexPosition', [-100, -100, 100, -100, 100, 100], 2)\n   68              .addAttribute('aUvs', [0, 0, 1, 0, 1, 1], 2);\n   69:         const group1 = UniformGroup.from({ uSampler2: texture1 });\n   70:         const uniforms = { uSampler1: texture2, group: group1 };\n   71          const shader = Shader.from(vertexSrc, fragmentSrc, uniforms);\n   72  \n\nC:\\Users\\LCG\\Downloads\\pixi.js-dev\\pixi.js-dev\\packages\\filters\\filter-alpha\\src\\alpha.frag:\n    1  varying vec2 vTextureCoord;\n    2  \n    3: uniform sampler2D uSampler;\n    4  uniform float uAlpha;\n    5  \n    6  void main(void)\n    7  {\n    8:    gl_FragColor = texture2D(uSampler, vTextureCoord) * uAlpha;\n    9  }\n   10  \n\nC:\\Users\\LCG\\Downloads\\pixi.js-dev\\pixi.js-dev\\packages\\filters\\filter-blur\\src\\BlurFilterPass.ts:\n  110                  filterManager.bindAndClear(flip, CLEAR_MODES.BLIT);\n  111  \n  112:                 this.uniforms.uSampler = flop;\n  113  \n  114                  const temp = flop;\n\nC:\\Users\\LCG\\Downloads\\pixi.js-dev\\pixi.js-dev\\packages\\filters\\filter-blur\\src\\generateBlurFragSource.ts:\n   13  const fragTemplate = [\n   14      'varying vec2 vBlurTexCoords[%size%];',\n   15:     'uniform sampler2D uSampler;',\n   16  \n   17      'void main(void)',\n   ..\n   31  \n   32      let blurLoop = '';\n   33:     const template = 'gl_FragColor += texture2D(uSampler, vBlurTexCoords[%index%]) * %value%;';\n   34      let value: number;\n   35  \n\nC:\\Users\\LCG\\Downloads\\pixi.js-dev\\pixi.js-dev\\packages\\filters\\filter-color-matrix\\src\\colorMatrix.frag:\n    1  varying vec2 vTextureCoord;\n    2: uniform sampler2D uSampler;\n    3  uniform float m[20];\n    4  uniform float uAlpha;\n    .\n    6  void main(void)\n    7  {\n    8:     vec4 c = texture2D(uSampler, vTextureCoord);\n    9  \n   10      if (uAlpha == 0.0) {\n\nC:\\Users\\LCG\\Downloads\\pixi.js-dev\\pixi.js-dev\\packages\\filters\\filter-displacement\\src\\displacement.frag:\n    4  uniform vec2 scale;\n    5  uniform mat2 rotation;\n    6: uniform sampler2D uSampler;\n    7  uniform sampler2D mapSampler;\n    8  \n    .\n   17    map.xy = scale * inputSize.zw * (rotation * map.xy);\n   18  \n   19:   gl_FragColor = texture2D(uSampler, clamp(vec2(vTextureCoord.x + map.x, vTextureCoord.y + map.y), inputClamp.xy, inputClamp.zw));\n   20  }\n   21  \n\nC:\\Users\\LCG\\Downloads\\pixi.js-dev\\pixi.js-dev\\packages\\filters\\filter-fxaa\\src\\fxaa.frag:\n    6  \n    7  varying vec2 vFragCoord;\n    8: uniform sampler2D uSampler;\n    9  uniform highp vec4 inputPixel;\n   10  \n   ..\n  116        vec4 color;\n  117  \n  118:       color = fxaa(uSampler, vFragCoord, inputPixel.zw, v_rgbNW, v_rgbNE, v_rgbSW, v_rgbSE, v_rgbM);\n  119  \n  120        gl_FragColor = color;\n\nC:\\Users\\LCG\\Downloads\\pixi.js-dev\\pixi.js-dev\\packages\\filters\\filter-noise\\src\\noise.frag:\n    6  uniform float uNoise;\n    7  uniform float uSeed;\n    8: uniform sampler2D uSampler;\n    9  \n   10  float rand(vec2 co)\n   ..\n   15  void main()\n   16  {\n   17:     vec4 color = texture2D(uSampler, vTextureCoord);\n   18      float randomValue = rand(gl_FragCoord.xy * uSeed);\n   19      float diff = (randomValue - 0.5) * uNoise;\n\nC:\\Users\\LCG\\Downloads\\pixi.js-dev\\pixi.js-dev\\packages\\graphics\\src\\Graphics.ts:\n 1178                      tint: new Float32Array([1, 1, 1, 1]),\n 1179                      translationMatrix: new Matrix(),\n 1180:                     default: UniformGroup.from({ uSamplers: sampleValues }, true),\n 1181                  };\n 1182  \n\nC:\\Users\\LCG\\Downloads\\pixi.js-dev\\pixi.js-dev\\packages\\mesh\\src\\MeshMaterial.ts:\n   40  \n   41      /**\n   42:      * @param {PIXI.Texture} uSampler - Texture that material uses to render.\n   43       * @param {object} [options] - Additional options\n   44       * @param {number} [options.alpha=1] - Default alpha.\n   ..\n   48       * @param {object} [options.uniforms] - Custom uniforms.\n   49       */\n   50:     constructor(uSampler: Texture, options?: IMeshMaterialOptions)\n   51      {\n   52          const uniforms = {\n   53:             uSampler,\n   54              alpha: 1,\n   55              uTextureMatrix: Matrix.IDENTITY,\n   ..\n   85           * @readonly\n   86           */\n   87:         this.uvMatrix = new TextureMatrix(uSampler);\n   88  \n   89          /**\n   ..\n  112      get texture(): Texture\n  113      {\n  114:         return this.uniforms.uSampler;\n  115      }\n  116      set texture(value: Texture)\n  117      {\n  118:         if (this.uniforms.uSampler !== value)\n  119          {\n  120:             this.uniforms.uSampler = value;\n  121              this.uvMatrix.texture = value;\n  122          }\n\nC:\\Users\\LCG\\Downloads\\pixi.js-dev\\pixi.js-dev\\packages\\mesh\\src\\shader\\mesh.frag:\n    2  uniform vec4 uColor;\n    3  \n    4: uniform sampler2D uSampler;\n    5  \n    6  void main(void)\n    7  {\n    8:     gl_FragColor = texture2D(uSampler, vTextureCoord) * uColor;\n    9  }\n   10  \n\nC:\\Users\\LCG\\Downloads\\pixi.js-dev\\pixi.js-dev\\packages\\particles\\src\\ParticleRenderer.ts:\n  164              container.worldAlpha, this.shader.uniforms.uColor, baseTexture.alphaMode);\n  165  \n  166:         this.shader.uniforms.uSampler = baseTexture;\n  167  \n  168          this.renderer.shader.bind(this.shader);\n\nC:\\Users\\LCG\\Downloads\\pixi.js-dev\\pixi.js-dev\\packages\\particles\\src\\particles.frag:\n    2  varying vec4 vColor;\n    3  \n    4: uniform sampler2D uSampler;\n    5  \n    6  void main(void){\n    7:     vec4 color = texture2D(uSampler, vTextureCoord) * vColor;\n    8      gl_FragColor = color;\n    9  }\n\nC:\\Users\\LCG\\Downloads\\pixi.js-dev\\pixi.js-dev\\packages\\sprite-tiling\\src\\tilingSprite.frag:\n    1  varying vec2 vTextureCoord;\n    2  \n    3: uniform sampler2D uSampler;\n    4  uniform vec4 uColor;\n    5  uniform mat3 uMapCoord;\n    .\n   13      coord = clamp(coord, uClampFrame.xy, uClampFrame.zw);\n   14  \n   15:     vec4 texSample = texture2D(uSampler, coord);\n   16      gl_FragColor = texSample * uColor;\n   17  }\n\nC:\\Users\\LCG\\Downloads\\pixi.js-dev\\pixi.js-dev\\packages\\sprite-tiling\\src\\tilingSprite_simple.frag:\n    1  varying vec2 vTextureCoord;\n    2  \n    3: uniform sampler2D uSampler;\n    4  uniform vec4 uColor;\n    5  \n    6  void main(void)\n    7  {\n    8:     vec4 sample = texture2D(uSampler, vTextureCoord);\n    9      gl_FragColor = sample * uColor;\n   10  }\n\nC:\\Users\\LCG\\Downloads\\pixi.js-dev\\pixi.js-dev\\packages\\sprite-tiling\\src\\TilingSpriteRenderer.ts:\n  142              shader.uniforms.uColor, baseTex.alphaMode as any);\n  143          shader.uniforms.translationMatrix = ts.transform.worldTransform.toArray(true);\n  144:         shader.uniforms.uSampler = tex;\n  145  \n  146          renderer.shader.bind(shader);\n\n60 matches across 28 files\n",
 			"settings":
 			{
-				"buffer_size": 1323,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
+				"buffer_size": 11891,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
 			}
 		},
 		{
-			"file": "public/renderer/stage-mgr/stage-unit.js",
+			"file": "/C/Users/LCG/Downloads/pixi.js-dev/pixi.js-dev/packages/core/src/filters/FilterSystem.ts",
 			"settings":
 			{
-				"buffer_size": 3201,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
+				"buffer_size": 16972,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -638,31 +629,31 @@
 		"/D/CodeTest/Self/JS-Layers/public",
 		"/D/CodeTest/Self/JS-Layers/public/draws",
 		"/D/CodeTest/Self/JS-Layers/public/draws/uints",
-		"/D/CodeTest/Self/JS-Layers/public/global",
-		"/D/CodeTest/Self/JS-Layers/public/layers",
-		"/D/CodeTest/Self/JS-Layers/public/renderer",
-		"/D/CodeTest/Self/JS-Layers/public/renderer/builder",
-		"/D/CodeTest/Self/JS-Layers/public/renderer/filter",
-		"/D/CodeTest/Self/JS-Layers/public/renderer/res-mgr",
-		"/D/CodeTest/Self/JS-Layers/public/renderer/stage-mgr",
 		"/D/CodeTest/Self/JS-Layers/src"
 	],
 	"file_history":
 	[
+		"/C/Tools/SSS/pac.txt",
+		"/D/package.json",
+		"/D/CodeTest/Self/JS-Layers/public/draws/uints/draws-uint.js",
+		"/D/CodeTest/Self/JS-Layers/public/renderer/stage-mgr/stage-mgr.js",
+		"/D/CodeTest/Self/JS-Layers/public/renderer/stage-mgr/stage-unit.js",
+		"/D/CodeTest/Self/JS-Layers/public/renderer/builder/builder-base.js",
+		"/D/CodeTest/Self/JS-Layers/public/draws/uints/draws-image.js",
+		"/D/CodeTest/Self/JS-Layers/public/draws/uints/draws-rect.js",
+		"/D/CodeTest/Self/JS-Layers/public/draws/draws-app.js",
+		"/D/CodeTest/Self/JS-Layers/module.html",
 		"/D/CodeTest/Self/JS-Layers/public/draws/index.js",
 		"/D/CodeTest/Cpany/tag匹配/test2.js",
 		"/D/CodeTest/Cpany/tag匹配/test.js",
 		"/D/CodeTest/Self/JS-Layers/public/layers/demo.js",
 		"/D/CodeTest/Self/JS-Layers/build/lib/pixi.js",
-		"/D/CodeTest/Self/JS-Layers/public/renderer/stage-mgr/stage-unit.js",
 		"/D/CodeTest/Self/JS-Layers/public/renderer/demo.js",
 		"/D/CodeTest/Self/JS-Layers/public/renderer/filter/filter-base.js",
 		"/D/CodeTest/Self/JS-Layers/public/renderer/builder/builder-main.js",
-		"/D/CodeTest/Self/JS-Layers/public/renderer/builder/builder-base.js",
 		"/D/CodeTest/Self/JS-Layers/public/renderer/res-mgr/res-mgr.js",
 		"/D/Code/MyLib/Git/前端/public_modules/lcg/base.js",
 		"/D/CodeTest/Self/JS-Layers/public/renderer/res-mgr/res-item.js",
-		"/D/CodeTest/Self/JS-Layers/public/renderer/stage-mgr/stage-mgr.js",
 		"/D/CodeTest/Self/pixi.js-dev/pixi.js-dev/packages/core/test/FilterSystem.js",
 		"/D/CodeTest/Self/pixi.js-dev/pixi.js-dev/packages/core/src/filters/FilterSystem.ts",
 		"/D/Code/MyLib/Git/前端/public_modules/lcg-tools/ssh/ssh-config.js",
@@ -675,13 +666,9 @@
 		"/D/CodeTest/Self/JS-Layers/webpack.config.js",
 		"/D/CodeTest/Self/JS-Layers/lcg.build.js",
 		"/D/CodeTest/Self/JS-Layers/build/info/info-module.json",
-		"/D/CodeTest/Self/JS-Layers/public/draws/draws-app.js",
 		"/D/CodeTest/Self/JS-Layers/alpha-new/main.js",
 		"/C/Users/LCG/Documents/WeChat Files/wxid_2b2qzp857v7b21/FileStorage/File/2020-08/reportData.js",
 		"/D/CodeTest/Self/JS-Layers/public/draws/uints/draws-layer.js",
-		"/D/CodeTest/Self/JS-Layers/public/draws/uints/draws-uint.js",
-		"/D/CodeTest/Self/JS-Layers/public/draws/uints/draws-image.js",
-		"/D/CodeTest/Self/JS-Layers/module.html",
 		"/D/CodeTest/Self/JS-Layers/public/draws/draws-util.js",
 		"/D/CodeTest/Self/JS-Layers/public/draws/draws-layer.js",
 		"/D/CodeTest/Self/JS-Layers/public/draws/draws-unit.js",
@@ -773,10 +760,7 @@
 		"/D/CodeWork/Cpany/gits/AlphaProject/Alpha-Label/public/export-modules/tag-editor/editor.js",
 		"/D/CodeWork/Cpany/gits/AlphaProject/Alpha-Label/public/export-modules/tag-editor/modules.js",
 		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/quest/22010.js",
-		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/reactor/2111000.js",
-		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/map/onUserEnter/lightning_tuto_5_0.js",
-		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/extend/制作1.js",
-		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/event/2xEvent.js"
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V13/米米单机脚本/reactor/2111000.js"
 	],
 	"find":
 	{
@@ -787,6 +771,10 @@
 		"height": 128.0,
 		"where_history":
 		[
+			"C:\\Users\\LCG\\Downloads\\pixi.js-dev\\pixi.js-dev",
+			"D:\\CodeTest\\Self\\JS-Layers\\public\\draws",
+			"D:\\CodeTest\\Self\\JS-Layers\\public\\renderer",
+			"D:\\CodeTest\\Self\\JS-Layers\\public\\draws",
 			"D:\\CodeTest\\Self\\JS-Layers\\public",
 			"D:\\CodeTest\\Self\\pixi.js-dev\\pixi.js-dev",
 			"D:\\CodeWork\\Cpany\\gits\\AlphaProject\\Alpha-Label\\alpha-new",
@@ -865,6 +853,17 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"OPACITY_BL",
+			"OPEN_ANGLE",
+			"uSampler",
+			"iAngle",
+			"COUNT_LENGTH",
+			"length",
+			"graphics",
+			"input",
+			".input",
+			"uid",
+			"graphics",
 			" )",
 			"texture2D(uSampler,vTextureCoord)",
 			"alpha",
@@ -981,18 +980,7 @@
 			"info",
 			"0.25",
 			"0.4",
-			".y",
-			"1 - ",
-			"img",
-			".render",
-			"0.4",
-			"mode",
-			"mpr_center_mode",
-			"data",
-			"mpr",
-			"rel2mpr",
-			"rel2",
-			"render("
+			".y"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1011,7 +999,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -1027,8 +1015,8 @@
 						"selection":
 						[
 							[
-								129,
-								129
+								31,
+								31
 							]
 						],
 						"settings":
@@ -1042,7 +1030,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -1058,8 +1046,8 @@
 						"selection":
 						[
 							[
-								186,
-								186
+								418,
+								418
 							]
 						],
 						"settings":
@@ -1070,10 +1058,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 406.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -1082,15 +1070,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4047,
+						"buffer_size": 4075,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								230,
-								230
+								2154,
+								2154
 							]
 						],
 						"settings":
@@ -1101,135 +1089,356 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3159.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "public/renderer/filter/filter-base.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6168,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4866,
+								4866
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 7206.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "/D/package.json",
+					"buffer": 4,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2563,
+						"buffer_size": 11891,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										329,
+										337
+									],
+									[
+										627,
+										635
+									],
+									[
+										895,
+										903
+									],
+									[
+										1089,
+										1097
+									],
+									[
+										1346,
+										1354
+									],
+									[
+										1560,
+										1568
+									],
+									[
+										1637,
+										1645
+									],
+									[
+										1856,
+										1864
+									],
+									[
+										2070,
+										2078
+									],
+									[
+										2156,
+										2164
+									],
+									[
+										2270,
+										2278
+									],
+									[
+										2414,
+										2422
+									],
+									[
+										2658,
+										2666
+									],
+									[
+										2928,
+										2936
+									],
+									[
+										3097,
+										3105
+									],
+									[
+										3400,
+										3408
+									],
+									[
+										3478,
+										3486
+									],
+									[
+										3719,
+										3727
+									],
+									[
+										3818,
+										3826
+									],
+									[
+										4186,
+										4194
+									],
+									[
+										4451,
+										4459
+									],
+									[
+										4526,
+										4534
+									],
+									[
+										4731,
+										4739
+									],
+									[
+										5020,
+										5028
+									],
+									[
+										5056,
+										5064
+									],
+									[
+										5145,
+										5153
+									],
+									[
+										5173,
+										5181
+									],
+									[
+										5428,
+										5436
+									],
+									[
+										5486,
+										5494
+									],
+									[
+										5771,
+										5779
+									],
+									[
+										5885,
+										5893
+									],
+									[
+										6157,
+										6165
+									],
+									[
+										6443,
+										6451
+									],
+									[
+										6592,
+										6600
+									],
+									[
+										6845,
+										6853
+									],
+									[
+										6980,
+										6988
+									],
+									[
+										7236,
+										7244
+									],
+									[
+										7401,
+										7409
+									],
+									[
+										7679,
+										7687
+									],
+									[
+										7800,
+										7808
+									],
+									[
+										8101,
+										8109
+									],
+									[
+										8214,
+										8222
+									],
+									[
+										8620,
+										8628
+									],
+									[
+										8830,
+										8838
+									],
+									[
+										9117,
+										9125
+									],
+									[
+										9234,
+										9242
+									],
+									[
+										9427,
+										9435
+									],
+									[
+										9554,
+										9562
+									],
+									[
+										9662,
+										9670
+									],
+									[
+										9732,
+										9740
+									],
+									[
+										9962,
+										9970
+									],
+									[
+										10048,
+										10056
+									],
+									[
+										10330,
+										10338
+									],
+									[
+										10565,
+										10573
+									],
+									[
+										10641,
+										10649
+									],
+									[
+										10880,
+										10888
+									],
+									[
+										11066,
+										11074
+									],
+									[
+										11308,
+										11316
+									],
+									[
+										11421,
+										11429
+									],
+									[
+										11794,
+										11802
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								3175,
+								3175
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"git_gutter_is_enabled": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 999.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/C/Users/LCG/Downloads/pixi.js-dev/pixi.js-dev/packages/core/src/filters/FilterSystem.ts",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 16972,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1947,
-								1947
+								1396,
+								1396
 							]
 						],
 						"settings":
 						{
 							"git_gutter_is_enabled": false,
 							"origin_encoding": "ASCII",
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "public/renderer/filter/filter-base.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3538,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1938,
-								1938
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 3077.0,
+						"translation.y": 813.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "module.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1323,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								120,
-								120
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "public/renderer/stage-mgr/stage-unit.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3201,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1174,
-								1174
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1538.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
 					"type": "text"
 				}
 			]

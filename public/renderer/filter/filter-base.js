@@ -32,14 +32,23 @@ Filters["color-map"] = lcg.bind(function(d,main){
 	var fs = `
 varying vec2 vTextureCoord;
 uniform sampler2D uSampler;
+uniform vec3 color;
 void main(void)
 {
-   gl_FragColor = vec4(0,0,0,texture2D(uSampler,vTextureCoord).a);
+	float a = texture2D(uSampler,vTextureCoord).a;
+	gl_FragColor = vec4(color * a,a);
 }
 	`;
 
 	//代理滤镜对象
 	var p = this.proxy(new PIXI.Filter(null,fs));
+
+	//同步方法
+	p.sync = function(dt){
+		dt.attr = dt.attr || {};
+		//写入角度
+		p.uniforms["color"] = dt.attr["color"];
+	}
 });
 
 
@@ -158,6 +167,7 @@ void main(void)
 
 	//同步方法
 	p.sync = function(dt){
+		dt.attr = dt.attr || {};
 		//写入角度
 		var angle = dt.attr["angle"];
 		if(angle == null)
@@ -200,21 +210,27 @@ uniform float iAngle;
 uniform float iLen;
 //深度采样次数
 uniform float iLenSamp;
+//发散角度
+uniform float iAngleFade;
+//减淡深度
+uniform float iFade;
+//阴影浓度
+uniform float iAlpha;
+//是否是内阴影
+uniform float iInner;
 
 //π
 const float PI = 3.14159265358979323846264;
 //角度采样次数
 const float COUNT_ANGLE = 24.0;
-//发散角度
-const float OPEN_ANGLE = PI * 0.1;
-//远端淡化
-const float OPACITY_BL = 0.6;
 
+//命中值
+float mitValue = 1.0;
 
 //是否命中像素
 bool mitPix(vec2 p){
 	vec4 color = texture2D(uSampler,p);
-	if(color.a == 1.0)
+	if(color.a == mitValue)
 		return true;
 	return false;
 }
@@ -247,13 +263,20 @@ vec2 rayTestOne(float angle){
 
 	//距离比例
 	float bl = len / iLenSamp;
-	bl = min(1.0,(1.0 - bl) / OPACITY_BL);
+	if(iFade <= 0.0)
+		bl = 1.0;
+	else
+		bl = min(1.0,(1.0 - bl) / iFade);
 
 	return vec2(weight * bl,len * iLen / iLenSamp);
 }
 
 void main(void)
 {
+	//内阴影逻辑转换
+	if(iInner > 0.0)
+		mitValue = 0.0;
+
 	//如果在内部则不处理
 	if(mitPix(vTextureCoord)){
 		gl_FragColor = vec4(0,0,0,0);
@@ -264,13 +287,13 @@ void main(void)
 	float weight = 0.0;
 
 	//无角度则单采样
-	if(OPEN_ANGLE == 0.0)
+	if(iAngleFade == 0.0)
 		weight = rayTestOne(iAngle).x;
 	else{
 		//当前角度
 		float angle;
-		float sangle = iAngle - OPEN_ANGLE / 2.0;
-		float cangle = OPEN_ANGLE / COUNT_ANGLE;
+		float sangle = iAngle - iAngleFade / 2.0;
+		float cangle = iAngleFade / COUNT_ANGLE;
 		//有角度则多采样
 		for(float i = 0.0;i <= COUNT_ANGLE;i++){
 			angle = sangle + cangle * i;
@@ -280,7 +303,14 @@ void main(void)
 		}
 	}
 
-	gl_FragColor = vec4(vec3(0,0,0),weight);
+	//内阴影边缘处理
+	if(iInner > 0.0)
+		weight *= texture2D(uSampler,vTextureCoord).a;
+	else
+		weight *= 1.0 - texture2D(uSampler,vTextureCoord).a;
+
+	//着色
+	gl_FragColor = vec4(vec3(0,0,0),weight * iAlpha);
 }
 	`;
 
@@ -289,6 +319,7 @@ void main(void)
 
 	//同步方法
 	p.sync = function(dt){
+		dt.attr = dt.attr || {};
 		//写入角度
 		var angle = dt.attr["angle"];
 		if(angle == null)
@@ -298,6 +329,10 @@ void main(void)
 		p.uniforms["iAngle"] = angle;
 		p.uniforms["iLen"] = dt.attr["len"] || 0;
 		p.uniforms["iLenSamp"] = dt.attr["len_samp"] || 10;
+		p.uniforms["iFade"] = dt.attr["fade"] || 0;
+		p.uniforms["iAngleFade"] = dt.attr["angle_fade"] || 0;
+		p.uniforms["iAlpha"] = (dt.attr["alpha"] == null)?1:dt.attr["alpha"];
+		p.uniforms["iInner"] = dt.attr["inner"];
 		p.padding = p.uniforms["iLen"];
 	}
 
@@ -309,6 +344,66 @@ void main(void)
 		p.uniforms.thickness[0] = 1 / input._frame.width;
         p.uniforms.thickness[1] = 1 / input._frame.height;
         filterManager.applyFilter(p, input, output, clear);
+	}
+
+});
+
+
+
+
+//方向性颜色叠加
+Filters["line-color"] = lcg.bind(function(d,main){
+	var self = this;
+
+	//片元着色器
+	var fs = `
+varying vec2 vTextureCoord;
+uniform sampler2D uSampler;
+//光线角度
+uniform float iAngle;
+
+void main(void)
+{
+	vec4 color = texture2D(uSampler,vTextureCoord);
+	if(color.a <= 0.0){
+		gl_FragColor = vec4(0,0,0,0);
+		return;
+	}
+	//计算渐变比例
+	vec2 angle = vec2(cos(iAngle),sin(iAngle));
+	float v = 0.5 - dot(angle,vTextureCoord - 0.5);
+	v = max(0.0,min(1.0,v * 0.7));
+
+	//目标混合颜色rgb
+	vec3 end;
+
+	//计算颜色
+	if(v > 0.5){
+		end = vec3(
+			color.r + (2.0 * v - 1.0) * (color.r - color.r * color.r),
+			color.g + (2.0 * v - 1.0) * (color.g - color.g * color.g),
+			color.b + (2.0 * v - 1.0) * (color.b - color.b * color.b)
+		);
+	}else{
+		end = vec3(
+			color.r + (2.0 * v - 1.0) * (sqrt(color.r) - color.r),
+			color.g + (2.0 * v - 1.0) * (sqrt(color.g) - color.g),
+			color.b + (2.0 * v - 1.0) * (sqrt(color.b) - color.b)
+		);
+	}
+
+	gl_FragColor = vec4(end,color.a);
+}
+	`;
+
+	//代理滤镜对象
+	var p = this.proxy(new PIXI.Filter(null,fs));
+
+	//同步方法
+	p.sync = function(dt){
+		dt.attr = dt.attr || {};
+		//写入角度
+		p.uniforms["iAngle"] = dt.attr["angle"] || 0;
 	}
 
 });

@@ -18,6 +18,9 @@ Builders["sprite"] = function(d,main){
 	//数据同步处理
 	this.message("unit-sync",function(e){
 		sprite.texture = main.res.get(self.attr.res);
+		if(self.attr.anchor)
+			for(var i in self.attr.anchor)
+				sprite.anchor[i] = self.attr.anchor[i];
 	});
 
 }
@@ -36,7 +39,7 @@ Builders["rect-full"] = function(d,main){
 	//数据同步处理
 	this.message("unit-sync",function(e){
 		g.clear();
-		g.beginFill(this.attr.color || 0xFF3300);
+		g.beginFill(this.attr.color || 0x0);
 		g.drawRect(0, 0, main.setting.width, main.setting.height);
 		g.endFill();
 	});
