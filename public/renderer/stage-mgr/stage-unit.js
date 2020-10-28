@@ -27,7 +27,10 @@ class StageUnit{
 			this.proxy(target);
 		else{
 			this.proxy(new PIXI.Container());
-			this.extend(Builders[d.type],d,main);
+			if(Builders[d.type] == null)
+				console.warn("没有找到["+d.type+"]生成器");
+			else
+				this.extend(Builders[d.type],d,main);
 		}
 		var p = this._proxy;
 

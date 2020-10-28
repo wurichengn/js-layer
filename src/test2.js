@@ -10,11 +10,11 @@ var states = new Camera({
 	//角度
 	rotation:0,
 	//背景色
-	background_color:"#0098d8",
+	background_color:0x0098d8,
 	//阴影距离
 	len:80,
 	//阴影采样数量
-	samp:20,
+	samp:50,
 	//模糊程度
 	blur:30,
 	//模糊类型
@@ -35,7 +35,7 @@ var gui = new dat.GUI({name:"参数"});
 gui.add(states,"rotation",0,360,0.1).name("投射角度");
 gui.addColor(states,"background_color").name("背景色");
 gui.add(states,"len",0,300,1).name("阴影长度");
-gui.add(states,"samp",5,50,1).name("阴影采样数");
+gui.add(states,"samp",10,150,1).name("阴影采样数");
 gui.add(states,"blur",0,300,1).name("模糊程度");
 gui.add(states,"blur_type",0,2,1).name("模糊类型");
 gui.add(states,"alpha",0,10,0.1).name("阴影能见度");
@@ -65,7 +65,7 @@ var renderOne = async function(d){
 		//阴影距离
 		len:200,
 		//采样数
-		samp:20,
+		samp:10,
 		//模糊系数
 		blur:200,
 		//透明度
@@ -79,7 +79,9 @@ var renderOne = async function(d){
 		//光照强度
 		lightStr:10,
 		//辉光强度
-		glowStr:3
+		glowStr:3,
+		//背景色
+		background_color:0x0098d8
 	};
 	for(var i in d)
 		cfgs[i] = d[i];
@@ -127,7 +129,7 @@ var renderOne = async function(d){
 				res:"roz8ga3kg8"
 			},
 			body:{
-				alpha:cfg.alpha || alpha,
+				//alpha:cfg.alpha || alpha,
 				//坐标
 				position:{
 					x:cfgs.x + px * off,
@@ -138,13 +140,11 @@ var renderOne = async function(d){
 			filters:[
 				{
 					uid:uuid(),
-					type:"color-map"
-				},
-				{
-					uid:uuid(),
-					type:"blur",
+					type:"line-shadow",
 					attr:{
-						blur:cfg.blur || index * cfgs.blur
+						angle:cfgs.rotation,
+						len:cfgs.len,
+						len_samp:cfgs.samp
 					}
 				}
 			]
@@ -193,16 +193,22 @@ var renderOne = async function(d){
 	}
 
 
-	var lays = [];
+	var lays = [{
+		uid:uuid(),
+		type:"rect-full",
+		attr:{color:cfgs.background_color}
+	}];
 
 	//加入阴影
-	for(var i = 0;i < cfgs.samp;i++){
-		lays.push(createOne({index:i}));
-	}
+	lays.push(createOne({}));
 
-	lays.push(createOne({blur:10,alpha:0.2}));
+	//加入固定阴影
+	//lays.push(createOne({blur:10,alpha:0.2}));
 
+	//加入原图
 	lays.push(createOne({isImage:true}));
+	
+	//加入辉光
 	if(cfgs.useGlow){
 		for(var i = 0;i < cfgs.glowStr;i++)
 			lays.push(createOne({isLight:true}));
@@ -217,7 +223,7 @@ var renderOne = async function(d){
 			{
 				uid:"roz8ga3kg8",
 				type:"img",
-				target:"img/logo.png"
+				target:"img/text.png"
 			}
 		],
 		stage:{

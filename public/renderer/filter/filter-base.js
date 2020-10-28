@@ -166,6 +166,7 @@ void main(void)
 		p.uniforms["iAngle"] = angle;
 		p.uniforms["iStr"] = dt.attr.str;
 		p.uniforms["iMode"] = dt.attr.mode || 0;
+		p.padding = 5;
 	}
 
 	//写入像素尺寸
@@ -177,4 +178,137 @@ void main(void)
         p.uniforms.thickness[1] = 1 / input._frame.height;
         filterManager.applyFilter(p, input, output, clear);
 	}
+});
+
+
+
+
+
+
+//方向性阴影
+Filters["line-shadow"] = lcg.bind(function(d,main){
+	var self = this;
+
+	//片元着色器
+	var fs = `
+varying vec2 vTextureCoord;
+uniform sampler2D uSampler;
+uniform vec2 thickness;
+//光线角度
+uniform float iAngle;
+//阴影距离
+uniform float iLen;
+//深度采样次数
+uniform float iLenSamp;
+
+//π
+const float PI = 3.14159265358979323846264;
+//角度采样次数
+const float COUNT_ANGLE = 24.0;
+//发散角度
+const float OPEN_ANGLE = PI * 0.1;
+//远端淡化
+const float OPACITY_BL = 0.6;
+
+
+//是否命中像素
+bool mitPix(vec2 p){
+	vec4 color = texture2D(uSampler,p);
+	if(color.a == 1.0)
+		return true;
+	return false;
+}
+
+
+//投射一个角度
+vec2 rayTestOne(float angle){
+	//当前采样点
+	vec2 p = vTextureCoord;
+	//当前命中权重
+	float weight = 0.0;
+	
+	//计算步长
+	vec2 step = vec2(cos(angle) * thickness.x,sin(angle) * thickness.y) * iLen / iLenSamp;
+
+	//循环采样
+	float len = 0.0;
+	for(float i = 1.0;i <= 500.0;i++){
+		if(i > iLenSamp)
+			break;
+		len++;
+		//步进
+		p += step;
+		if(mitPix(p))
+			weight += 1.0;
+		//如果权足够则停止采样
+		if(weight >= 1.0)
+			break;
+	}
+
+	//距离比例
+	float bl = len / iLenSamp;
+	bl = min(1.0,(1.0 - bl) / OPACITY_BL);
+
+	return vec2(weight * bl,len * iLen / iLenSamp);
+}
+
+void main(void)
+{
+	//如果在内部则不处理
+	if(mitPix(vTextureCoord)){
+		gl_FragColor = vec4(0,0,0,0);
+		return;
+	}
+
+	//当前点权重
+	float weight = 0.0;
+
+	//无角度则单采样
+	if(OPEN_ANGLE == 0.0)
+		weight = rayTestOne(iAngle).x;
+	else{
+		//当前角度
+		float angle;
+		float sangle = iAngle - OPEN_ANGLE / 2.0;
+		float cangle = OPEN_ANGLE / COUNT_ANGLE;
+		//有角度则多采样
+		for(float i = 0.0;i <= COUNT_ANGLE;i++){
+			angle = sangle + cangle * i;
+			weight += rayTestOne(angle).x / COUNT_ANGLE * (1.0 - abs(i - COUNT_ANGLE / 2.0) / COUNT_ANGLE);
+			if(weight >= 1.0)
+				break;
+		}
+	}
+
+	gl_FragColor = vec4(vec3(0,0,0),weight);
+}
+	`;
+
+	//代理滤镜对象
+	var p = this.proxy(new PIXI.Filter(null,fs));
+
+	//同步方法
+	p.sync = function(dt){
+		//写入角度
+		var angle = dt.attr["angle"];
+		if(angle == null)
+			angle = 0;
+		angle = angle + Math.PI;
+		angle = ((angle / (Math.PI * 2)) % 1) * (Math.PI * 2);
+		p.uniforms["iAngle"] = angle;
+		p.uniforms["iLen"] = dt.attr["len"] || 0;
+		p.uniforms["iLenSamp"] = dt.attr["len_samp"] || 10;
+		p.padding = p.uniforms["iLen"];
+	}
+
+	//写入像素尺寸
+	p.uniforms.thickness = new Float32Array([0, 0]);
+
+	//更新像素尺寸
+	p.apply = function(filterManager, input, output, clear){
+		p.uniforms.thickness[0] = 1 / input._frame.width;
+        p.uniforms.thickness[1] = 1 / input._frame.height;
+        filterManager.applyFilter(p, input, output, clear);
+	}
+
 });
