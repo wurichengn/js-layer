@@ -1,10 +1,9 @@
-/*var Draws = require("draws");
 
-console.log("xxx");
+var Map = require("map");
+var UI = require("map-ui");
 
-//初始化画布
-var app = new Draws.App({width:800,height:800});
+//初始化一个流程图
+var map = new Map();
+var uiMap = UI.map.new(map);
 
-document.body.appendChild(app.view);*/
-
-require("./test2.js");
+document.body.appendChild(uiMap);
