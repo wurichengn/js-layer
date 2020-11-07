@@ -48,8 +48,31 @@ module.exports = {
 			],
 			//组件的输出
 			outputs:[
-				{type:"image",name:"图像"},
-				{type:"image",name:"图像"}
+				{type:"image",name:"图像",key:"image"}
+			],
+			//初始化执行  不支持异步
+			init:function(){},
+			//数据改变时执行，最初也会执行一次  不支持异步，只做通知用
+			data_change:function(){},
+			//渲染时执行  必须要有，需要返回运行结果，可以异步处理。
+			render:function(){}
+		},
+		{
+			name:"图层",
+			key:"image-layer",
+			inputs:[
+				{
+					name:"图像",
+					type:"image",
+					key:"images",
+					only_link:true,
+					//是否是数组输入
+					array:true
+				}
+			],
+			//组件的输出
+			outputs:[
+				{type:"image",name:"图像",key:"image"}
 			],
 			//初始化执行  不支持异步
 			init:function(){},

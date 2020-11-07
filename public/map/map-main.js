@@ -61,5 +61,8 @@ module.exports = function(){
 	this.usePlugin(plugins["base"]);
 	//添加一个默认节点
 	this.addNode("image-file-select");
+	this.addNode("image-layer");
+	this.addNode("image-file-select");
+	this.addNode("image-layer");
 
 }
