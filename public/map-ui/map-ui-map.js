@@ -17,16 +17,22 @@ class UIMap{
 		//图表
 		this.map = map;
 
+		//输出组件表
+		this.outputModules = {};
+
 		//初始化dom
 		this.$dom(function(){
 			//节点表
 			var nodes = map.nodes.map(function(node){
-				return <Node key={node.attr.uid} node={node} main={self}></Node>
+				return <Node key={node.attrs.uid} node={node} main={self}></Node>
 			});
 			return <div>
-				<div lid="view">
+				<div class="view" lid="view">
 					<svg><LinesPanle main={self}></LinesPanle></svg>
 					<div lid="modules"></div>
+				</div>
+				<div class="out">
+					<OutputPanle main={self}></OutputPanle>
 				</div>
 			</div>;
 		});
@@ -41,7 +47,7 @@ class UIMap{
 			"font-size":"10px",
 			"background-image":"linear-gradient(#444 0%,#444 5%,rgba(0,0,0,0) 6%),linear-gradient(90deg,#444 0%,#444 5%,rgba(0,0,0,0) 6%)",
 			"background-size":"20px 20px",
-			">div":{
+			">.view":{
 				"position":"absolute",
 				"left":"50%",
 				"top":"50%",
@@ -65,6 +71,15 @@ class UIMap{
 					"left":"0px",
 					"top":"0px"
 				}
+			},
+			">.out":{
+				"position":"absolute",
+				"height":"100%",
+				"width":"100px",
+				"right":"0px",
+				"top":"0px",
+				"background-color":"#333",
+				"border-left":"1px solid #555"
 			}
 		});
 
@@ -77,7 +92,7 @@ class UIMap{
 		//根据node添加一个UI组件
 		var addNode = function(node){
 			var dom = Node.new({node:node,main:self});
-			modules[node.attr.uid] = dom.module;
+			modules[node.attrs.uid] = dom.module;
 			self.ids["modules"].appendChild(dom);
 		}
 
@@ -95,8 +110,11 @@ class UIMap{
 			off = off || {x:0,y:0};
 			off.x += dom.offsetLeft;
 			off.y += dom.offsetTop;
-			if(dom.parentNode == self.ids["view"] || dom.parentNode == null)
+			if(dom.parentNode == self._proxy || dom.parentNode == null){
+				off.x -= self.ids["view"].offsetLeft;
+				off.y -= self.ids["view"].offsetTop;
 				return off;
+			}
 			return self.dom2view(dom.parentNode,off);
 		}
 
@@ -141,19 +159,28 @@ class LinesPanle{
 			//关联线条渲染
 			lines = [];
 			for(var i in nodes){
-				for(var j in nodes[i].attr.inputs){
-					if(lcg.isArray(nodes[i].attr.inputs[j])){
-						for(var k in nodes[i].attr.inputs[j])
-							lines.push(self.getLineOfLink(nodes[i],nodes[i].attr.inputs[j][k],j));
-					}else if(nodes[i].attr.inputs[j] != null){
-						lines.push(self.getLineOfLink(nodes[i],nodes[i].attr.inputs[j],j));
+				for(var j in nodes[i].attrs.inputs){
+					if(lcg.isArray(nodes[i].attrs.inputs[j])){
+						for(var k in nodes[i].attrs.inputs[j])
+							lines.push(self.getLineOfLink(nodes[i],nodes[i].attrs.inputs[j][k],j));
+					}else if(nodes[i].attrs.inputs[j] != null){
+						lines.push(self.getLineOfLink(nodes[i],nodes[i].attrs.inputs[j],j));
 					}
 				}
+			}
+
+			//全局输出连线
+			g_lines = [];
+			for(var i in d.main.map.attrs.outputs){
+				if(d.main.map.attrs.outputs[i] == null)
+					continue;
+				g_lines.push(self.getLineOfLinkGlobal(d.main.map.attrs.outputs[i],i));
 			}
 
 			return <g>
 				<g>{line}</g>
 				<g>{lines}</g>
+				<g>{g_lines}</g>
 			</g>;
 		});
 
@@ -176,7 +203,7 @@ class LinesPanle{
 
 	//根据关联信息获取一个路径
 	getLineOfLink(node,link,inputkey){
-		var dom1 = this.main.modules[node.attr.uid];
+		var dom1 = this.main.modules[node.attrs.uid];
 		var dom2 = this.main.modules[link.uid];
 		var main = this.main;
 		return this.getLine(
@@ -184,13 +211,93 @@ class LinesPanle{
 			dom1.inputModules[inputkey].getPluginPos(),{node,link,inputkey,main});
 	}
 
+	//根据关联信息获取一个全局输出路径
+	getLineOfLinkGlobal(link,inputkey){
+		var output = this.main.modules[link.uid].outputModules[link.key].getPluginPos();
+		var input = this.main.outputModules[inputkey].getPluginPos();
+		return this.getLine(output,input,{node:this.main,main:this.main,inputkey,link});
+	}
+
 	//删除一个关联
 	delLink(){
 		var data = this.$$dom.attrs.data;
 		if(data == null)
 			return;
-		data.node.removeLink(data.inputkey,data.link.uid,data.link.key);
+		if(data.node == data.main){
+			data.main.map.attrs.outputs[data.inputkey] = null;
+		}else{
+			data.node.removeLink(data.inputkey,data.link.uid,data.link.key);
+		}
 		data.main.trigger("line-draw");
+	}
+}
+
+
+
+@lcg
+class OutputPanle{
+	init(d){
+		var self = this;
+		//初始化dom
+		this.$dom(function(){
+			return <div></div>;
+		});
+
+		for(var i in d.main.map.outputs){
+			var output = d.main.map.outputs[i];
+			var dom = OutputItem.new({
+				data:output,
+				main:d.main
+			});
+			self._proxy.appendChild(dom);
+			d.main.outputModules[output.key] = dom.module;
+		}
+
+		//样式
+		this.css({
+			"height":"100%",
+			"width":"100%"
+		});
+	}
+}
+
+
+//全局输出参数
+@lcg
+class OutputItem{
+	init(d){
+		var self = this;
+		this.data = d.data;
+		this.node = d.node;
+		//初始化dom
+		this.$dom(function(){
+			return <div><i lid="plugin"></i><z>{d.data.name}</z></div>;
+		});
+
+		//继承通用样式
+		this.extend(Node.ItemStyle,d);
+
+		//状态处理
+		var render = function(){
+			if(d.main.store.states.activeOutputNode && d.main.store.states.activeOutputNode.data.type == d.data.type)
+				self.ids["plugin"].classList.add("active");
+			else
+				self.ids["plugin"].classList.remove("active");
+		}
+
+		//侦听状态变化
+		this.extend(Camera.Listen,d.main.store.states,function(){
+			render();
+		});
+
+		//接口鼠标放开事件
+		lcg.domEvent(self.ids["plugin"],"mouseup",function(e){
+			var node = d.main.store.states.activeOutputNode;
+			if(node == null || node.data.type != d.data.type)
+				return;
+			//添加关联项
+			d.main.map.attrs.outputs[d.data.key] = {uid:node.node.attrs.uid,key:node.data.key};
+		});
 	}
 }
 

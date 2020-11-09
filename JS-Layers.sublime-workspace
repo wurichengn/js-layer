@@ -4,16 +4,56 @@
 		"selected_items":
 		[
 			[
+				"input",
+				"inputkey"
+			],
+			[
+				"offset",
+				"offsetTop"
+			],
+			[
+				"output",
+				"output"
+			],
+			[
+				"remo",
+				"removeLink"
+			],
+			[
+				"line",
+				"line-draw"
+			],
+			[
+				"trigger",
+				"triggerDom"
+			],
+			[
+				"active",
+				"activeOutputNode"
+			],
+			[
+				"rea",
+				"relative"
+			],
+			[
+				"pa",
+				"parentNode"
+			],
+			[
+				"mouse",
+				"mouseup"
+			],
+			[
+				"class",
+				"classList"
+			],
+			[
 				"backg",
 				"background-color"
 			],
 			[
 				"border",
 				"border-radius"
-			],
-			[
-				"input",
-				"inputReview"
 			],
 			[
 				"add",
@@ -108,20 +148,12 @@
 				"voxel-show"
 			],
 			[
-				"trigger",
-				"trigger"
-			],
-			[
 				"pointer",
 				"pointer"
 			],
 			[
 				"create",
 				"createElement"
-			],
-			[
-				"mouse",
-				"mouse2pix"
 			],
 			[
 				"def",
@@ -196,10 +228,6 @@
 				"translate(50%,50"
 			],
 			[
-				"line",
-				"lineList"
-			],
-			[
 				"three",
 				"three-cut"
 			],
@@ -258,10 +286,6 @@
 			[
 				"size",
 				"size_low"
-			],
-			[
-				"active",
-				"activeVoxel"
 			],
 			[
 				"getSc",
@@ -370,10 +394,6 @@
 			[
 				"uin",
 				"uniform"
-			],
-			[
-				"offset",
-				"offset"
 			],
 			[
 				"sam",
@@ -494,26 +514,6 @@
 			[
 				"NC",
 				"NCP_Prob"
-			],
-			[
-				"ai-lin",
-				"ai-link-all-list"
-			],
-			[
-				"his",
-				"hisInfo"
-			],
-			[
-				"Link",
-				"LinkItem"
-			],
-			[
-				"Vec",
-				"Vector3"
-			],
-			[
-				"lne",
-				"length"
 			]
 		]
 	},
@@ -532,16 +532,7 @@
 			"file": "public/map-ui/map-ui-map.js",
 			"settings":
 			{
-				"buffer_size": 1389,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/map-ui/map-store.js",
-			"settings":
-			{
-				"buffer_size": 128,
+				"buffer_size": 6940,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -550,7 +541,7 @@
 			"file": "public/map-ui/map-ui-map-node.js",
 			"settings":
 			{
-				"buffer_size": 2917,
+				"buffer_size": 5472,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -559,7 +550,7 @@
 			"file": "public/map/map-main.js",
 			"settings":
 			{
-				"buffer_size": 1329,
+				"buffer_size": 1591,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -568,7 +559,7 @@
 			"file": "public/map/map-node.js",
 			"settings":
 			{
-				"buffer_size": 333,
+				"buffer_size": 1197,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -577,7 +568,7 @@
 			"file": "public/plugins/plugin-base.js",
 			"settings":
 			{
-				"buffer_size": 1348,
+				"buffer_size": 1373,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -636,13 +627,17 @@
 	[
 		"/D/CodeTest/Self/JS-Layers",
 		"/D/CodeTest/Self/JS-Layers/public",
-		"/D/CodeTest/Self/JS-Layers/public/map",
-		"/D/CodeTest/Self/JS-Layers/public/map-ui",
-		"/D/CodeTest/Self/JS-Layers/public/plugins",
-		"/D/CodeTest/Self/JS-Layers/src"
+		"/D/CodeTest/Self/JS-Layers/public/renderer-ui",
+		"/D/CodeTest/Self/JS-Layers/public/renderer-ui/layers",
+		"/D/CodeTest/Self/JS-Layers/public/renderer-ui/ui-mgr",
+		"/D/CodeTest/Self/JS-Layers/src",
+		"/D/Code/MyLib/Git/前端/public_modules",
+		"/D/Code/MyLib/Git/前端/public_modules/lcg"
 	],
 	"file_history":
 	[
+		"/D/Code/MyLib/Git/前端/public_modules/lcg/jsx.next.js",
+		"/D/CodeTest/Self/JS-Layers/public/map-ui/map-store.js",
 		"/C/Users/LCG/Documents/冠脉任务.txt",
 		"/C/Tools/FlashFXP/Cache/~flashfxp/DCA86D71_edit.tmp/config.js",
 		"/C/Tools/FlashFXP/Cache/~flashfxp/7B80EDAF_edit.tmp/model.js",
@@ -768,9 +763,7 @@
 		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/npc/1002100.js",
 		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/event/BossZakum_EASY.js",
 		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/js说明",
-		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/event/BossLucid.js",
-		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/item/2430455.js",
-		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/reactor/1058019.js"
+		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/event/BossLucid.js"
 	],
 	"find":
 	{
@@ -866,6 +859,14 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"attr",
+			".attr.",
+			".attr",
+			".attr.",
+			".attr",
+			"console",
+			"oytkey",
+			"hidden",
 			"this",
 			"mousedown",
 			"255",
@@ -985,15 +986,7 @@
 			"newInstance",
 			"Property",
 			"setInstanceMap",
-			"Portal",
-			"slot",
-			"$$slotDom",
-			"slotDom",
-			"dmid",
-			"__dmid",
-			"不规则形",
-			"cc.game",
-			"step"
+			"Portal"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1012,7 +1005,7 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -1028,8 +1021,8 @@
 						"selection":
 						[
 							[
-								183,
-								183
+								149,
+								149
 							]
 						],
 						"settings":
@@ -1052,15 +1045,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1389,
+						"buffer_size": 6940,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								166,
-								166
+								5017,
+								5017
 							]
 						],
 						"settings":
@@ -1071,88 +1064,58 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 5669.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "public/map-ui/map-ui-map-node.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5472,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1643,
+								1643
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 5032.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "public/map-ui/map-store.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 128,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								67,
-								67
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
 					"buffer": 3,
-					"file": "public/map-ui/map-ui-map-node.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2917,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								154,
-								154
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "public/map/map-main.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1329,
+						"buffer_size": 1591,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								111,
-								111
+								999,
+								999
 							]
 						],
 						"settings":
@@ -1163,27 +1126,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 810.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 4,
 					"file": "public/map/map-node.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 333,
+						"buffer_size": 1197,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								85,
-								85
+								461,
+								461
 							]
 						],
 						"settings":
@@ -1194,27 +1157,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 243.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 5,
 					"file": "public/plugins/plugin-base.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1348,
+						"buffer_size": 1373,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								846,
-								846
+								575,
+								575
 							]
 						],
 						"settings":
@@ -1225,10 +1188,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1215.0,
+						"translation.y": 810.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -1305,7 +1268,7 @@
 		[
 			[
 				"",
-				"D:\\CodeWork\\Cpany\\gits\\webpack\\ctview-webpack.sublime-project"
+				"D:\\CodeWork\\Cpany\\gits\\AlphaProject\\Alpha-Viewer\\Alpha-Viewer.sublime-project"
 			]
 		],
 		"width": 380.0

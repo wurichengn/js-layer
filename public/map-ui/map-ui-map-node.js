@@ -81,8 +81,8 @@ class UIMapNode{
 
 		//渲染组件
 		var render = function(){
-			self._proxy.style["left"] = node.attr.x / 10 + "em";
-			self._proxy.style["top"] = node.attr.y / 10 + "em";
+			self._proxy.style["left"] = node.attrs.x / 10 + "em";
+			self._proxy.style["top"] = node.attrs.y / 10 + "em";
 		}
 
 		//组件拖动处理
@@ -93,16 +93,16 @@ class UIMapNode{
 				isd = true;
 				ex = e.x;
 				ey = e.y;
-				sx = node.attr.x;
-				sy = node.attr.y;
+				sx = node.attrs.x;
+				sy = node.attrs.y;
 			});
 
 			//鼠标移动
 			self.message("mousemove",function(e){
 				if(!isd)
 					return;
-				node.attr.x = sx + (e.x - ex);
-				node.attr.y = sy + (e.y - ey);
+				node.attrs.x = sx + (e.x - ex);
+				node.attrs.y = sy + (e.y - ey);
 				render();
 				d.main.trigger("line-draw");
 			});
@@ -119,7 +119,7 @@ class UIMapNode{
 
 
 //输入输出组件通用样式
-var ItemStyle = function(d){
+var ItemStyle = module.exports.ItemStyle = function(d){
 	var self = this;
 	//样式
 	this.css({
@@ -129,7 +129,8 @@ var ItemStyle = function(d){
 		">z":{
 			"font-size":"1.4em",
 			"display":"inline-block",
-			"vertical-align":"middle"
+			"vertical-align":"middle",
+			"color":"#eee"
 		},
 		">i":{
 			"display":"inline-block",
@@ -141,13 +142,29 @@ var ItemStyle = function(d){
 			"margin":"0px 3px",
 			"cursor":"pointer",
 			"opacity":0.3,
+			"position":"relative",
+			":before":{
+				"content":"''",
+				"display":"inline-block",
+				"width":"60%",
+				"height":"60%",
+				"background-color":"#ffb700",
+				"top":"20%",
+				"left":"20%",
+				"border-radius":"100%",
+				"position":"absolute",
+				"opacity":0
+			},
 			":hover":{
 				"box-shadow":"0px 0px 3px #fff",
 				"opacity":1
 			},
 			".active":{
 				"box-shadow":"0px 0px 3px 1px #ffff00",
-				"opacity":1
+				"opacity":1,
+				":before":{
+					"opacity":1
+				}
 			}
 		}
 	});

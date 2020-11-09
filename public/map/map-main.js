@@ -14,6 +14,21 @@ module.exports = function(){
 	//组件表
 	var modules = this.modules = {};
 
+	//全局输出表
+	var outputs = this.outputs = [
+		{
+			key:"image",
+			type:"image",
+			name:"屏幕"
+		}
+	];
+
+	//全局属性
+	var attrs = this.attrs = {
+		//全局输出结果
+		outputs:{}
+	};
+
 	//添加数据类型
 	this.addType = function(type){
 		if(type == null)
@@ -59,6 +74,7 @@ module.exports = function(){
 
 	//默认引入基础扩展
 	this.usePlugin(plugins["base"]);
+
 	//添加一个默认节点
 	this.addNode("image-file-select");
 	this.addNode("image-layer");
