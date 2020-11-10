@@ -16,11 +16,11 @@ module.exports = {
 			name:"文件",
 			key:"file",
 			//类型选择器，一个函数返回一个html节点    如果没有这个属性则只能通过节点的形式输入
-			selecter:function(value,onchange){
+			selector:function(value,onchange){
 				return <input type="file" onchange={function(e){
 					//如果
-					if(this.file != null)
-						onchange(this.file)
+					if(this.files[0] != null)
+						onchange(this.files[0]);
 				}}/>
 			}
 		}
@@ -50,12 +50,25 @@ module.exports = {
 			outputs:[
 				{type:"image",name:"图像",key:"image"}
 			],
-			//初始化执行  不支持异步
-			init:function(){},
-			//数据改变时执行，最初也会执行一次  不支持异步，只做通知用
-			data_change:function(){},
 			//渲染时执行  必须要有，需要返回运行结果，可以异步处理。
-			render:function(){}
+			render:function(vals){
+				return new Promise(function(next,err){
+					var reader = new FileReader();
+					reader.onload = function(){
+						//载入完成
+						next({
+							//图片
+							image:{
+								//图片数据
+								data:this.result,
+								//图片类型
+								type:"data-url"
+							}
+						});
+					}
+					reader.readAsDataURL(vals.file);
+				});
+			}
 		},
 		{
 			name:"图层",
@@ -74,10 +87,6 @@ module.exports = {
 			outputs:[
 				{type:"image",name:"图像",key:"image"}
 			],
-			//初始化执行  不支持异步
-			init:function(){},
-			//数据改变时执行，最初也会执行一次  不支持异步，只做通知用
-			data_change:function(){},
 			//渲染时执行  必须要有，需要返回运行结果，可以异步处理。
 			render:function(){}
 		}

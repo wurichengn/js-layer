@@ -9,7 +9,9 @@ module.exports = function(){
 			//临时线条
 			activeLine:null,
 			//当前输出接口的节点
-			activeOutputNode:null
+			activeOutputNode:null,
+			//当前聚焦的节点
+			activeNode:null
 		}
 	};
 }

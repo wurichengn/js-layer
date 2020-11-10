@@ -4,6 +4,7 @@ var React = lcg.React;
 
 var Node = require("./map-ui-map-node.js");
 var createStore = require("./map-store.js");
+var AttrsPanle = require("./map-ui-attrs.js");
 
 //UI主面板
 module.exports = 
@@ -36,6 +37,9 @@ class UIMap{
 				</div>
 			</div>;
 		});
+
+		//初始化属性面板
+		this.attrsDom = this._proxy.attrsDom = AttrsPanle.new(this);
 
 		//样式
 		this.css({

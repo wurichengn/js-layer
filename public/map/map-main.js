@@ -1,5 +1,6 @@
 var plugins = require("plugins");
 var Node = require("./map-node.js");
+var lcg = require("lcg");
 
 //整个流程处理核心
 module.exports = function(){
@@ -72,6 +73,20 @@ module.exports = function(){
 	}
 
 
+	//运行拓扑图  异步
+	this.run = async function(){
+		//生成组件哈希表
+		var hx = {};
+		for(var i in nodes)
+			hx[nodes[i].attrs.uid] = nodes[i];
+		//设置优先级
+		var ns = setLevels(nodes,attrs.outputs,hx);
+		//按顺序运行组件
+		for(var i in ns)
+			await ns[i].run(hx);
+	}
+
+
 	//默认引入基础扩展
 	this.usePlugin(plugins["base"]);
 
@@ -81,4 +96,55 @@ module.exports = function(){
 	this.addNode("image-file-select");
 	this.addNode("image-layer");
 
+}
+
+
+
+
+
+//遍历节点的运行优先级
+var setLevels = function(nodes,outputs,hx){
+	//先给所有优先级置-1
+	for(var i in nodes)
+		nodes[i].attrs.level = -1;
+
+	//计算一个节点的优先级
+	var setOne = function(node,level){
+		node.attrs.level = level;
+		for(var i in node.attrs.inputs){
+			var inputs = node.attrs.inputs[i];
+			if(inputs == null)
+				continue;
+			if(lcg.isArray(inputs)){
+				for(var j in inputs){
+					if(inputs[j].uid && hx[inputs[j].uid])
+						setOne(hx[inputs[j].uid],level + 1);
+				}
+			}else{
+				if(inputs.uid && hx[inputs.uid])
+					setOne(hx[inputs.uid],level + 1);
+			}
+		}
+	}
+
+	//循环计算每一个输出
+	for(var i in outputs){
+		if(outputs[i] == null || hx[outputs[i].uid] == null)
+			continue;
+		setOne(hx[outputs[i].uid],0);
+	}
+
+	//返回所有level大于-1的节点
+	var re = [];
+	for(var i in nodes){
+		if(nodes[i].attrs.level > -1)
+			re.push(nodes[i]);
+	}
+
+	//level排序
+	re.sort(function(a,b){
+		return b.attrs.level - a.attrs.level;
+	});
+
+	return re;
 }

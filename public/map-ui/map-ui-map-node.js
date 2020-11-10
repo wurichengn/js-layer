@@ -8,7 +8,7 @@ module.exports =
 @lcg
 class UIMapNode{
 	init(d){
-		var node = d.node;
+		var node = this.node = d.node;
 		var info = node.info;
 		var self = this;
 		//初始化dom
@@ -32,6 +32,9 @@ class UIMapNode{
 			"position":"absolute",
 			":hover":{
 				"box-shadow":"0px 0px 3px rgba(255,255,255,0.5)"
+			},
+			".active":{
+				"box-shadow":"0px 0px 3px 1px #ffb700"
 			},
 			">.title":{
 				"background-color":"#444",
@@ -65,6 +68,9 @@ class UIMapNode{
 		this.inputModules = {};
 		this.outputModules = {};
 
+		//输入参数填写组件表
+		this.inputForms = {};
+
 		//生成输入表
 		for(var i in info.inputs){
 			var dom = InputItem.new({data:info.inputs[i],key:i,...d});
@@ -83,7 +89,22 @@ class UIMapNode{
 		var render = function(){
 			self._proxy.style["left"] = node.attrs.x / 10 + "em";
 			self._proxy.style["top"] = node.attrs.y / 10 + "em";
+			//是否聚焦
+			if(d.main.store.states.activeNode == self)
+				self._proxy.classList.add("active");
+			else
+				self._proxy.classList.remove("active");
 		}
+
+		//侦听状态变化
+		this.extend(Camera.Listen,d.main.store.states,function(){
+			render();
+		});
+
+		//点击切换聚焦
+		this.on("click",function(){
+			d.main.store.states.activeNode = self;
+		});
 
 		//组件拖动处理
 		!function(){
