@@ -84,6 +84,16 @@ module.exports = function(){
 		//按顺序运行组件
 		for(var i in ns)
 			await ns[i].run(hx);
+		//整理全局输出
+		var re = {};
+		for(var i in attrs.outputs){
+			if(attrs.outputs[i] == null)
+				continue;
+			if(hx[attrs.outputs[i].uid])
+				re[i] = hx[attrs.outputs[i].uid].attrs.outputs[attrs.outputs[i].key];
+		}
+		//输出全局结果
+		return re;
 	}
 
 

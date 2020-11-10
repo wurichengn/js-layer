@@ -3,6 +3,7 @@ var React = lcg.React;
 
 var Map = require("map");
 var UI = require("map-ui");
+var Tools = require("tools");
 
 //主面板
 @lcg
@@ -13,12 +14,15 @@ class Panle{
 		this.$dom(function(){
 			return <div>
 				<div class="left">
-					<div class="top"></div>
+					<div class="top"><canvas lid="canvas"></canvas></div>
 					<div class="bottom" lid="map"></div>
 				</div>
 				<div class="right" lid="attrs"></div>
 			</div>;
 		});
+
+		//初始化上下文
+		self.ids["canvas"].getContext("2d");
 
 		//初始化一个流程图
 		var map = new Map();
@@ -26,7 +30,13 @@ class Panle{
 		self.ids["map"].appendChild(uiMap);
 		self.ids["attrs"].appendChild(uiMap.attrsDom);
 
-		window.run = map.run;
+		//运行一次图像处理
+		window.run = async function(){
+			var re = await map.run();
+			if(re.image){
+				Tools.getImage(re.image,"canvas-2d",{canvas:self.ids["canvas"]});
+			}
+		};
 
 		//样式
 		this.css({
@@ -42,10 +52,11 @@ class Panle{
 					"width":"calc(100% - 300px)",
 					">div":{
 						".top":{
-							"height":"40%"
+							"height":"50%",
+							"overflow":"hidden"
 						},
 						".bottom":{
-							"height":"60%"
+							"height":"50%"
 						}
 					}
 				},
