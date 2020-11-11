@@ -23,8 +23,7 @@ class MapAttrsPanle{
 		this.css({
 			"width":"100%",
 			"height":"100%",
-			"background-color":"#333",
-			"border-left":"1px solid #555"
+			"background-color":"#333"
 		});
 
 		//正在处理参数的节点
@@ -57,7 +56,8 @@ class MapAttrsPanle{
 					node:node,
 					node_info:info,
 					info:info.inputs[i],
-					type_info:type
+					type_info:type,
+					main:main
 				});
 			}
 
@@ -86,10 +86,13 @@ class AttrItem{
 
 		//样式
 		this.css({
-			"margin":"0px 3px",
-			"padding":"3px 0px",
+			"margin":"0px 5px",
+			"padding":"5px 0px",
 			">.title":{
 				"color":"#fff"
+			},
+			">.panle":{
+				"padding":"2px 5px"
 			}
 		});
 
@@ -97,8 +100,9 @@ class AttrItem{
 		var def = d.node.node.attrs.forms[d.info.key] || d.info.default;
 		//生成面板
 		var dom = d.type_info.selector(def,function(val){
-			console.log("onchange",val);
 			d.node.node.attrs.forms[d.info.key] = val;
+			//触发结构变化消息
+			d.main.trigger("struct-change");
 		});
 
 		//加入面板

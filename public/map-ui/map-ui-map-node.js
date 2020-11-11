@@ -36,6 +36,9 @@ class UIMapNode{
 			".active":{
 				"box-shadow":"0px 0px 3px 1px #ffb700"
 			},
+			".error":{
+				"box-shadow":"0px 0px 3px 1px #f00"
+			},
 			">.title":{
 				"background-color":"#444",
 				"border-radius":"4px 4px 0px 0px",
@@ -73,6 +76,8 @@ class UIMapNode{
 
 		//生成输入表
 		for(var i in info.inputs){
+			if(info.inputs[i].use_link == false)
+				continue;
 			var dom = InputItem.new({data:info.inputs[i],key:i,...d});
 			this.inputModules[info.inputs[i].key] = dom.module;
 			self.ids["left"].appendChild(dom);
@@ -105,6 +110,23 @@ class UIMapNode{
 		this.on("click",function(){
 			d.main.store.states.activeNode = self;
 		});
+
+		!function(){
+			var lastError;
+			//侦听错误信息
+			self.message("dt",function(){
+				if(node.error == lastError)
+					return;
+				lastError = node.error;
+				if(node.error == null){
+					self._proxy.classList.remove("error");
+					self._proxy.removeAttribute("title");
+				}else{
+					self._proxy.classList.add("error");
+					self._proxy.setAttribute("title",node.error.stack);
+				}
+			});
+		}();
 
 		//组件拖动处理
 		!function(){
@@ -236,6 +258,8 @@ class InputItem{
 			//添加关联项
 			d.node.addLink(d.data.key,node.node,node.data.key);
 			d.main.trigger("line-draw");
+			//触发结构变化消息
+			d.main.trigger("struct-change");
 		});
 	}
 }

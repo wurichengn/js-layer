@@ -42,8 +42,8 @@ module.exports = {
 					type:"file",
 					//输入下标
 					key:"file",
-					//输入是否只能通过关联输入，开启后无法在参数页进行输入
-					only_link:false
+					//是否使用关联输入 - 默认使用
+					use_link:false
 				}
 			],
 			//组件的输出
@@ -78,9 +78,26 @@ module.exports = {
 					name:"图像",
 					type:"image",
 					key:"images",
-					only_link:true,
 					//是否是数组输入
 					array:true
+				}
+			],
+			//组件的输出
+			outputs:[
+				{type:"image",name:"图像",key:"image"}
+			],
+			//渲染时执行  必须要有，需要返回运行结果，可以异步处理。
+			render:function(){}
+		},
+		{
+			name:"灰度",
+			key:"image-gray",
+			inputs:[
+				{
+					name:"图像",
+					type:"image",
+					key:"image",
+					use_link:false
 				}
 			],
 			//组件的输出

@@ -12,15 +12,15 @@ module.exports = async function(image,type,args){
 var toCanvas2d = async function(image,type,canvas){
 	var ctx = canvas.getContext("2d");
 	if(image.type == "data-url"){
-		await new Promise(function(next){
+		return await new Promise(function(next){
 			var img = new Image();
 			img.src = image.data;
 			img.onload = function(){
 				canvas.width = img.width;
 				canvas.height = img.height;
 				ctx.drawImage(img,0,0);
+				next();
 			}
 		});
-		return;
 	}
 }

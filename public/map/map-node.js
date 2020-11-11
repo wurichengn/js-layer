@@ -5,6 +5,8 @@ module.exports = function(info,d,main){
 	var self = this;
 	//info写入
 	this.info = info;
+	//错误信息 - 运行前清空，运行时可能产生
+	this.error = null;
 	//组件属性
 	var attrs = this.attrs = {
 		//组件坐标
@@ -65,16 +67,23 @@ module.exports = function(info,d,main){
 
 		//运行组件，获取输出
 		var re = {};
-		if(info.render)
-			re = info.render.call(self,vals);
-		if(re instanceof Promise)
-			re = await re;
-		re = re || {};
+		try{
+			if(info.render)
+				re = info.render.call(self,vals);
+			//异步则等待
+			if(re instanceof Promise)
+				re = await re;
+			re = re || {};
+		}catch(e){
+			//设置并抛出错误
+			self.error = e;
+			throw e;
+		}
 
 		//写入输出
 		for(var i in info.outputs)
 			attrs.outputs[info.outputs[i].key] = re[info.outputs[i].key];
-		
+
 		return re;
 	}
 }

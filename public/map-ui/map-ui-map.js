@@ -5,6 +5,7 @@ var React = lcg.React;
 var Node = require("./map-ui-map-node.js");
 var createStore = require("./map-store.js");
 var AttrsPanle = require("./map-ui-attrs.js");
+var MenuPanle = require("./map-ui-menu.js");
 
 //UI主面板
 module.exports = 
@@ -28,12 +29,15 @@ class UIMap{
 				return <Node key={node.attrs.uid} node={node} main={self}></Node>
 			});
 			return <div>
-				<div class="view" lid="view">
-					<svg><LinesPanle main={self}></LinesPanle></svg>
-					<div lid="modules"></div>
-				</div>
-				<div class="out">
-					<OutputPanle main={self}></OutputPanle>
+				<MenuPanle main={self}></MenuPanle>
+				<div class="bottom" lid="bottom">
+					<div class="view" lid="view">
+						<svg lid="svg"><LinesPanle main={self}></LinesPanle></svg>
+						<div lid="modules"></div>
+					</div>
+					<div class="out">
+						<OutputPanle main={self}></OutputPanle>
+					</div>
 				</div>
 			</div>;
 		});
@@ -45,45 +49,49 @@ class UIMap{
 		this.css({
 			"width":"100%",
 			"height":"100%",
-			"overflow":"hidden",
-			"position":"relative",
-			"background-color":"#222",
-			"font-size":"10px",
-			"background-image":"linear-gradient(#444 0%,#444 5%,rgba(0,0,0,0) 6%),linear-gradient(90deg,#444 0%,#444 5%,rgba(0,0,0,0) 6%)",
-			"background-size":"20px 20px",
-			">.view":{
-				"position":"absolute",
-				"left":"50%",
-				"top":"50%",
-				">svg":{
-					"width":"8000px",
-					"height":"8000px",
+			"user-select":"none",
+			">.bottom":{
+				"height":"calc(100% - 35px)",
+				"overflow":"hidden",
+				"position":"relative",
+				"font-size":"10px",
+				"background-color":"#222",
+				"background-image":"linear-gradient(#444 0%,#444 5%,rgba(0,0,0,0) 6%),linear-gradient(90deg,#444 0%,#444 5%,rgba(0,0,0,0) 6%)",
+				"background-size":"20px 20px",
+				">.view":{
 					"position":"absolute",
-					"left":"-4000px",
-					"top":"-4000px",
-					">g":{
-						"transform":"translate(4000px,4000px)",
-						" path":{
-							"stroke":"#fff",
-							"fill":"transparent",
-							"cursor":"pointer"
+					"left":"50%",
+					"top":"50%",
+					">svg":{
+						"width":"8000px",
+						"height":"8000px",
+						"position":"absolute",
+						"left":"-4000px",
+						"top":"-4000px",
+						">g":{
+							"transform":"translate(4000px,4000px)",
+							" path":{
+								"stroke":"#fff",
+								"fill":"transparent",
+								"cursor":"pointer"
+							}
 						}
+					},
+					">div":{
+						"position":"absolute",
+						"left":"0px",
+						"top":"0px"
 					}
 				},
-				">div":{
+				">.out":{
 					"position":"absolute",
-					"left":"0px",
-					"top":"0px"
+					"height":"100%",
+					"width":"100px",
+					"right":"0px",
+					"top":"0px",
+					"background-color":"#333",
+					"border-left":"1px solid #555"
 				}
-			},
-			">.out":{
-				"position":"absolute",
-				"height":"100%",
-				"width":"100px",
-				"right":"0px",
-				"top":"0px",
-				"background-color":"#333",
-				"border-left":"1px solid #555"
 			}
 		});
 
@@ -109,12 +117,60 @@ class UIMap{
 			e.preventDefault();
 		});
 
+		//渲染视图坐标
+		var render = function(){
+			self.ids["view"].style["margin-left"] = map.attrs.x + "px";
+			self.ids["view"].style["margin-top"] = map.attrs.y + "px";
+		}
+		render();
+
+
+		//右键拖动
+		!function(){
+			var isd = false;
+			var ism = false;
+			var sx,sy,mx,my;
+			self.on("mousedown",function(e){
+				if(e.button != 2)
+					return;
+				if(e.target != self.ids["bottom"] && e.target != self.ids["svg"])
+					return;
+				ism = false;
+				isd = true;
+				sx = map.attrs.x;
+				sy = map.attrs.y;
+				mx = e.x;
+				my = e.y;
+			});
+
+			self.message("mousemove",function(e){
+				if(!isd)
+					return;
+				ism = true;
+				map.attrs.x = sx + e.x - mx;
+				map.attrs.y = sy + e.y - my;
+				render();
+				self.trigger("line-draw");
+			});
+
+			self.message("mouseup",function(e){
+				if(!isd)
+					return;
+				isd = false;
+				//如果没有移动则展开右键菜单
+				if(!ism){
+					console.log("contextmenu");
+				}
+			});
+		}();
+		
+
 		//根据节点获取view视图坐标
 		this.dom2view = function(dom,off){
 			off = off || {x:0,y:0};
 			off.x += dom.offsetLeft;
 			off.y += dom.offsetTop;
-			if(dom.parentNode == self._proxy || dom.parentNode == null){
+			if(dom.parentNode == self.ids["bottom"] || dom.parentNode == null){
 				off.x -= self.ids["view"].offsetLeft;
 				off.y -= self.ids["view"].offsetTop;
 				return off;
@@ -233,11 +289,13 @@ class LinesPanle{
 			data.node.removeLink(data.inputkey,data.link.uid,data.link.key);
 		}
 		data.main.trigger("line-draw");
+		//触发结构变化消息
+		data.main.trigger("struct-change");
 	}
 }
 
 
-
+//全局输出面板
 @lcg
 class OutputPanle{
 	init(d){
@@ -301,6 +359,8 @@ class OutputItem{
 				return;
 			//添加关联项
 			d.main.map.attrs.outputs[d.data.key] = {uid:node.node.attrs.uid,key:node.data.key};
+			//触发结构变化消息
+			d.main.trigger("struct-change");
 		});
 	}
 }

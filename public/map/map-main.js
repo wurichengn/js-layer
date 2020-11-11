@@ -26,6 +26,9 @@ module.exports = function(){
 
 	//全局属性
 	var attrs = this.attrs = {
+		//全局视图坐标
+		x:0,
+		y:0,
 		//全局输出结果
 		outputs:{}
 	};
@@ -77,8 +80,14 @@ module.exports = function(){
 	this.run = async function(){
 		//生成组件哈希表
 		var hx = {};
-		for(var i in nodes)
+		for(var i in nodes){
+			//设置运行前级别
+			nodes[i].attrs.level = -1;
+			//写入哈希
 			hx[nodes[i].attrs.uid] = nodes[i];
+			//重置错误状态
+			nodes[i].error = null;
+		}
 		//设置优先级
 		var ns = setLevels(nodes,attrs.outputs,hx);
 		//按顺序运行组件
@@ -114,10 +123,6 @@ module.exports = function(){
 
 //遍历节点的运行优先级
 var setLevels = function(nodes,outputs,hx){
-	//先给所有优先级置-1
-	for(var i in nodes)
-		nodes[i].attrs.level = -1;
-
 	//计算一个节点的优先级
 	var setOne = function(node,level){
 		node.attrs.level = level;
