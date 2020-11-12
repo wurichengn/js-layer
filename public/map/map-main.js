@@ -111,9 +111,8 @@ module.exports = function(){
 
 	//添加一个默认节点
 	this.addNode("image-file-select");
-	this.addNode("image-layer");
-	this.addNode("image-file-select");
-	this.addNode("image-layer");
+	this.addNode("filter-gray");
+	this.addNode("filter-gray");
 
 }
 

@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"trigg",
+				"trigger"
+			],
+			[
 				"conten",
 				"contextmenu"
 			],
@@ -510,10 +514,6 @@
 			[
 				"las",
 				"lastDom"
-			],
-			[
-				"conte",
-				"contentWindow"
 			]
 		]
 	},
@@ -523,7 +523,7 @@
 			"file": "src/main.js",
 			"settings":
 			{
-				"buffer_size": 2365,
+				"buffer_size": 2691,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -550,7 +550,7 @@
 			"file": "public/tools/index.js",
 			"settings":
 			{
-				"buffer_size": 95,
+				"buffer_size": 352,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -568,7 +568,7 @@
 			"file": "public/map-ui/map-ui-map.js",
 			"settings":
 			{
-				"buffer_size": 8195,
+				"buffer_size": 8357,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -577,7 +577,7 @@
 			"file": "public/map-ui/map-ui-attrs.js",
 			"settings":
 			{
-				"buffer_size": 1951,
+				"buffer_size": 2030,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -586,7 +586,7 @@
 			"file": "public/map-ui/map-ui-map-node.js",
 			"settings":
 			{
-				"buffer_size": 6373,
+				"buffer_size": 6477,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -622,7 +622,25 @@
 			"file": "public/plugins/plugin-base.js",
 			"settings":
 			{
-				"buffer_size": 1499,
+				"buffer_size": 1741,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/CodeTest/2020-10/twgl/test.html",
+			"settings":
+			{
+				"buffer_size": 1808,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "module.html",
+			"settings":
+			{
+				"buffer_size": 1392,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -682,6 +700,7 @@
 		"/D/CodeTest/Self/JS-Layers",
 		"/D/CodeTest/Self/JS-Layers/public",
 		"/D/CodeTest/Self/JS-Layers/public/map-ui",
+		"/D/CodeTest/Self/JS-Layers/public/tools",
 		"/D/CodeTest/Self/JS-Layers/src",
 		"/D/Code/MyLib/Git/前端/public_modules"
 	],
@@ -825,6 +844,7 @@
 		"height": 128.0,
 		"where_history":
 		[
+			"D:\\CodeTest\\Self\\JS-Layers\\public",
 			"D:\\CodeTest\\Self\\JS-Layers\\public\\renderer",
 			"D:\\CodeTest\\Self\\JS-Layers\\public\\draws",
 			"D:\\CodeTest\\Self\\JS-Layers\\public\\renderer",
@@ -910,6 +930,9 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"1080",
+			"640",
+			"only_link",
 			"400px",
 			"_proxy",
 			"input",
@@ -1034,10 +1057,7 @@
 			"Party",
 			"getParty",
 			"Party",
-			"getParty",
-			"BossDog",
-			"dispose(",
-			"disposeInstance"
+			"getParty"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1056,7 +1076,7 @@
 	"groups":
 	[
 		{
-			"selected": 8,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -1065,15 +1085,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2365,
+						"buffer_size": 2691,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								170,
-								170
+								920,
+								920
 							]
 						],
 						"settings":
@@ -1084,10 +1104,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 729.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -1118,7 +1138,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
@@ -1149,7 +1169,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -1158,15 +1178,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 95,
+						"buffer_size": 352,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								44,
-								44
+								352,
+								352
 							]
 						],
 						"settings":
@@ -1176,10 +1196,10 @@
 							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 405.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -1219,15 +1239,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8195,
+						"buffer_size": 8357,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2543,
-								2543
+								343,
+								343
 							]
 						],
 						"settings":
@@ -1238,10 +1258,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3078.0,
+						"translation.y": 404.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -1250,15 +1270,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1951,
+						"buffer_size": 2030,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								150,
-								150
+								1621,
+								1621
 							]
 						],
 						"settings":
@@ -1269,10 +1289,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2024.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -1281,15 +1301,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6373,
+						"buffer_size": 6477,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								461,
-								461
+								4762,
+								4762
 							]
 						],
 						"settings":
@@ -1300,10 +1320,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 567.0,
+						"translation.y": 6236.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -1319,8 +1339,8 @@
 						"selection":
 						[
 							[
-								78,
-								78
+								191,
+								191
 							]
 						],
 						"settings":
@@ -1334,7 +1354,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
@@ -1365,7 +1385,7 @@
 						"translation.y": 3726.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
@@ -1396,7 +1416,7 @@
 						"translation.y": 1458.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
@@ -1405,15 +1425,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1499,
+						"buffer_size": 1741,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								716,
-								716
+								1462,
+								1462
 							]
 						],
 						"settings":
@@ -1424,10 +1444,71 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1701.0,
+						"translation.y": 2106.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "/D/CodeTest/2020-10/twgl/test.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1808,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								342,
+								342
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": false,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 324.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "module.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1392,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								409,
+								409
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -1504,7 +1585,7 @@
 		[
 			[
 				"",
-				"D:\\CodeWork\\Cpany\\gits\\webpack\\ctview-webpack.sublime-project"
+				"D:\\CodeWork\\Cpany\\gits\\AlphaProject\\Alpha-Label\\标注整合.sublime-project"
 			]
 		],
 		"width": 380.0

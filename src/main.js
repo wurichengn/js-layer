@@ -52,7 +52,7 @@ class Panle{
 				var re = await map.run();
 				if(re.image){
 					//渲染图像
-					await Tools.getImage(re.image,"canvas-2d",{canvas:self.ids["canvas"]});
+					var re = await Tools.getImage(re.image,"canvas",{canvas:self.ids["canvas"]});
 					//设置canvas位置
 					self.ids["canvas"].style["left"] = -self.ids["canvas"].width / 2 + "px";
 					self.ids["canvas"].style["top"] = -self.ids["canvas"].height / 2 + "px";

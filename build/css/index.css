@@ -10,3 +10,10 @@ body{
 *{
 	box-sizing: border-box;
 }
+
+.debug{
+	position: fixed;
+	right: 0px;
+	bottom:0px;
+	width:350px;
+}
