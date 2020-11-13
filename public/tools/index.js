@@ -8,11 +8,14 @@ var canvas = Tools.canvas = document.createElement("canvas");
 //canvas.classList.add("debug");
 //尝试获取webgl2上下文
 var gl;
+var glConfig = {
+	premultipliedAlpha:false
+};
 try{
-	gl = canvas.getContext("webgl2");
+	gl = canvas.getContext("webgl2",glConfig);
 }catch(e){
 	//获取webgl上下文
-	gl = canvas.getContext("webgl");
+	gl = canvas.getContext("webgl",glConfig);
 }
 Tools.gl = gl;
 

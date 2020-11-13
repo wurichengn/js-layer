@@ -117,4 +117,19 @@ class LogicMapNode{
 		}else
 			inputs[key] = null;
 	}
+
+	//删除与指定uid相关的关联
+	removeUidLink(uid){
+		var inputs = this.attrs.inputs;
+		for(var key in inputs){
+			if(lcg.isArray(inputs[key])){
+				for(var i = inputs[key].length - 1;i >= 0;i--){
+					if(inputs[key][i].uid == uid)
+						inputs[key].splice(i,1);
+				}
+			}else
+				if(inputs[key].uid == uid)
+					inputs[key] = null;
+		}
+	}
 }

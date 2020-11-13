@@ -6,6 +6,7 @@ var Node = require("./map-ui-map-node.js");
 var createStore = require("./map-store.js");
 var AttrsPanle = require("./map-ui-attrs.js");
 var MenuPanle = require("./map-ui-menu.js");
+var CMenu = require("./map-ui-contextmenu.js");
 
 //UI主面板
 module.exports = 
@@ -104,6 +105,12 @@ class UIMap{
 			self.ids["modules"].appendChild(dom);
 		}
 
+		//根据node删除一个UI组件
+		var removeNode = function(node){
+			modules[node.attrs.uid].remove();
+			delete modules[node.attrs.uid];
+		}
+
 		//初始化节点加入
 		for(var i in map.nodes)
 			addNode(map.nodes[i]);
@@ -115,6 +122,12 @@ class UIMap{
 				for(var i in e.value)
 					addNode(e.value[i]);
 			}
+			//删除节点
+			if(e.action == "delete"){
+				for(var i in e.deletes)
+					removeNode(e.deletes[i]);
+			}
+			self.trigger("line-draw");
 		});
 
 		//关闭右键菜单
@@ -128,6 +141,32 @@ class UIMap{
 			self.ids["view"].style["margin-top"] = map.attrs.y + "px";
 		}
 		render();
+
+
+		//初始化组件菜单
+		var createModuleMenu;
+		var menuPos = {x:0,y:0};
+		!function(){
+			var mds = map.modules;
+			var menu = {};
+			//添加一个菜单
+			var addOne = function(md){
+				var dom = menu;
+				for(var i = 0;i < md.menu.length - 1;i++){
+					dom[md.menu[i]] = dom[md.menu[i]] || {};
+					dom = dom[md.menu[i]];
+				}
+				dom[md.menu[i]] = function(){
+					console.log(menuPos);
+					map.addNode(md.key,{x:menuPos.x,y:menuPos.y});
+				}
+			}
+			//循环加入菜单
+			for(var i in mds)
+				if(mds[i].menu)
+					addOne(mds[i]);
+			createModuleMenu = menu;
+		}();
 
 
 		//右键拖动
@@ -164,7 +203,10 @@ class UIMap{
 				isd = false;
 				//如果没有移动则展开右键菜单
 				if(!ism){
-					console.log("contextmenu");
+					menuPos = self.mouse2view(e);
+					CMenu.new(e,{
+						"创建节点":createModuleMenu
+					});
 				}
 			});
 		}();
@@ -373,20 +415,24 @@ class OutputItem{
 
 
 //初始化事件
+var initEventEnd = false;
 var initEvent = function(dom){
+	if(initEventEnd)
+		return;
+	initEventEnd = true;
 	lcg.domEvent(document,"click",function(e){
-		lcg.triggerDom("click",e,dom);
+		lcg.triggerDom("click",e);
 	});
 
 	lcg.domEvent(document,"mousedown",function(e){
-		lcg.triggerDom("mousedown",e,dom);
+		lcg.triggerDom("mousedown",e);
 	});
 
 	lcg.domEvent(document,"mousemove",function(e){
-		lcg.triggerDom("mousemove",e,dom);
+		lcg.triggerDom("mousemove",e);
 	});
 
 	lcg.domEvent(document,"mouseup",function(e){
-		lcg.triggerDom("mouseup",e,dom);
+		lcg.triggerDom("mouseup",e);
 	});
 }

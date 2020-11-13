@@ -32,6 +32,8 @@ module.exports = {
 		{
 			//组件名称
 			name:"选择本地图片",
+			//菜单
+			menu:["导入资源","选择本地图片"],
 			//组件全局唯一下标
 			key:"image-file-select",
 			//组件的输入 - 可以分组
@@ -57,6 +59,15 @@ module.exports = {
 				//如果没有变化则直接返回
 				if(self.file && vals.file == self.file)
 					return self.imgInfo;
+				//如果图片为空则直接报错
+				if(vals.file == null)
+					throw new Error("没有选择文件");
+				//如果不是图片文件则直接报错
+				if(vals.file.type.substr(0,5) != "image")
+					throw new Error("载入的不是图片文件");
+				//文件过大则报错
+				if(vals.file.size > 1024 * 1024 * 40)
+					throw new Error("载入的文件大于40M载入上限");
 				//写入file缓存
 				self.file = vals.file;
 				return new Promise(function(next,err){
@@ -88,6 +99,7 @@ module.exports = {
 		},
 		{
 			name:"图层",
+			menu:["处理","图层"],
 			key:"image-layer",
 			inputs:[
 				{
@@ -107,6 +119,7 @@ module.exports = {
 		},
 		{
 			name:"灰度",
+			menu:["滤镜","灰度"],
 			key:"filter-gray",
 			inputs:[
 				{

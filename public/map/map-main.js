@@ -79,6 +79,24 @@ class LogicMap{
 			nodes.push(Node.new(modules[type],d,self));
 		}
 
+		//删除节点
+		this.removeNode = function(node){
+			//删除关联
+			var uid = node.attrs.uid;
+			for(var i in nodes){
+				if(nodes[i] == node)
+					continue;
+				nodes[i].removeUidLink(uid);
+			}
+			//全局关联
+			for(var i in attrs.outputs){
+				if(attrs.outputs[i].uid == uid)
+					attrs.outputs[i] = null;
+			}
+			//删除节点
+			nodes.remove(node);
+		}
+
 
 		//运行拓扑图  异步
 		this.run = async function(){

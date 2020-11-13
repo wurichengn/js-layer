@@ -6,6 +6,8 @@ var Map = require("map");
 var UI = require("map-ui");
 var Tools = require("tools");
 
+window.lcg = lcg;
+
 //主面板
 @lcg
 class Panle{
@@ -113,7 +115,7 @@ class Panle{
 			"width":"100%",
 			"background-color":"#444",
 			">div":{
-				"opacity":0.1,
+				//"opacity":0.1,
 				"display":"inline-block",
 				"height":"100%",
 				"vertical-align":"top",

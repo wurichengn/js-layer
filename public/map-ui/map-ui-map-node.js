@@ -1,6 +1,7 @@
 var lcg = require("lcg");
 var React = lcg.React;
 var Camera = require("lcg-camera");
+var CMenu = require("./map-ui-contextmenu.js");
 
 
 //单个组件面板
@@ -100,6 +101,7 @@ class UIMapNode{
 			else
 				self._proxy.classList.remove("active");
 		}
+		render();
 
 		//侦听状态变化
 		this.extend(Camera.Listen,d.main.store.states,function(){
@@ -157,6 +159,15 @@ class UIMapNode{
 				isd = false;
 			});
 		}();
+
+		//右键菜单
+		this.on("contextmenu",function(e){
+			CMenu.new(e,{
+				"删除节点":function(){
+					d.main.map.removeNode(node);
+				}
+			});
+		});
 	}
 }
 
