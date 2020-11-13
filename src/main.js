@@ -30,7 +30,7 @@ class Panle{
 		self.ids["canvas"].getContext("2d");
 
 		//初始化一个流程图
-		var map = new Map();
+		var map = Map.new();
 		var uiMap = UI.map.new(map);
 		uiMap.module.message("struct-change",function(){
 			run();
@@ -90,13 +90,30 @@ class Panle{
 				state.scale /= 1.1;
 		});
 
+		//接收文件拖入
+		this.on("dragover",function(e){
+			e.preventDefault();
+		});
+
+		//拖入文件处理
+		this.on("drop",function(e){
+			e.preventDefault();
+			var files = event.dataTransfer.files;
+			for(var i = 0;i < files.length;i++){
+				//图像导入
+				if(files[i].type.substr(0,5) == "image"){
+					map.addNode("image-file-select",{forms:{file:files[i]}});
+				}
+			}
+		});
+
 		//样式
 		this.css({
 			"height":"100%",
 			"width":"100%",
 			"background-color":"#444",
 			">div":{
-				//"opacity":0.1,
+				"opacity":0.1,
 				"display":"inline-block",
 				"height":"100%",
 				"vertical-align":"top",

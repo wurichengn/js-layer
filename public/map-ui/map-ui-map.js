@@ -24,10 +24,6 @@ class UIMap{
 
 		//初始化dom
 		this.$dom(function(){
-			//节点表
-			var nodes = map.nodes.map(function(node){
-				return <Node key={node.attrs.uid} node={node} main={self}></Node>
-			});
 			return <div>
 				<MenuPanle main={self}></MenuPanle>
 				<div class="bottom" lid="bottom">
@@ -111,6 +107,15 @@ class UIMap{
 		//初始化节点加入
 		for(var i in map.nodes)
 			addNode(map.nodes[i]);
+
+		//节点发生变化处理
+		map.nodes.$listen(function(e){
+			//添加节点
+			if(e.action == "create"){
+				for(var i in e.value)
+					addNode(e.value[i]);
+			}
+		});
 
 		//关闭右键菜单
 		this.on("contextmenu",function(e){
