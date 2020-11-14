@@ -92,6 +92,9 @@ class LogicMapNode{
 			//写入输出
 			for(var i in info.outputs)
 				attrs.outputs[info.outputs[i].key] = re[info.outputs[i].key];
+			
+			//发送运行完成消息
+			self.sendMessage("run-end",{outputs:attrs.outputs});
 
 			return re;
 		}
@@ -128,6 +131,8 @@ class LogicMapNode{
 	removeUidLink(uid){
 		var inputs = this.attrs.inputs;
 		for(var key in inputs){
+			if(inputs[key] == null)
+				continue;
 			if(lcg.isArray(inputs[key])){
 				for(var i = inputs[key].length - 1;i >= 0;i--){
 					if(inputs[key][i].uid == uid)

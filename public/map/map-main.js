@@ -142,7 +142,8 @@ class LogicMap{
 var setLevels = function(nodes,outputs,hx){
 	//计算一个节点的优先级
 	var setOne = function(node,level){
-		node.attrs.level = level;
+		if(level > node.attrs.level)
+			node.attrs.level = level;
 		for(var i in node.attrs.inputs){
 			var inputs = node.attrs.inputs[i];
 			if(inputs == null)

@@ -79,10 +79,15 @@ module.exports = async function(module,d){
 	gl.clear(gl.COLOR_BUFFER_BIT);
 
 	//非缓冲区渲染设置分辨率
-	if(cfg.close_frame && (Tools.canvas.width != cfg.width || Tools.canvas.height != cfg.height)){
+	if(Tools.canvas.width != cfg.width || Tools.canvas.height != cfg.height){
 		Tools.canvas.width = cfg.width;
 		Tools.canvas.height = cfg.height;
 		gl.viewport(0, 0, cfg.width, cfg.height);
+	}
+
+	//缓冲区渲染设置分辨率
+	if(!cfg.close_frame && (info.fbi.width != cfg.width || info.fbi.height != cfg.height)){
+		twgl.resizeFramebufferInfo(gl, info.fbi,cfg.attachments,cfg.width,cfg.height);
 	}
 
 	//选定渲染器

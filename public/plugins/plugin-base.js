@@ -52,11 +52,21 @@ module.exports = {
 			name:"颜色",
 			key:"color",
 			selector:function(value,onchange,cfg){
-				console.log(value);
 				//浏览器自带颜色选择器
 				return <input value={value} type="color" onchange={function(e){
 					onchange(this.value);
 				}}/>;
+			},
+			//输出界面组件扩展
+			outputUIExpand:function(md){
+				//展示颜色计算结果用dom
+				var dom = <z style="display:inline-block;vertical-align:inherit;width:0.8em;height:0.8em;border-radius:2px;background-color:#000;margin-left:4px;box-shadow:0px 0px 2px rgba(255,255,255,0.5);"></z>;
+				md.ids["after"].appendChild(dom);
+				//运行结束
+				md.node.message("run-end",function(dt){
+					var color = dt.outputs[md.data.key];
+					dom.style["background-color"] = color;
+				});
 			}
 		}
 	],
@@ -91,7 +101,7 @@ module.exports = {
 			render:function(vals){
 				var self = this;
 				//如果没有变化则直接返回
-				if(self.file && vals.file == self.file)
+				if(self.file && vals.file == self.file && self.imgInfo != null)
 					return self.imgInfo;
 				//如果图片为空则直接报错
 				if(vals.file == null)

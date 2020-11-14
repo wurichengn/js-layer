@@ -157,7 +157,6 @@ class UIMap{
 					dom = dom[md.menu[i]];
 				}
 				dom[md.menu[i]] = function(){
-					console.log(menuPos);
 					map.addNode(md.key,{x:menuPos.x,y:menuPos.y});
 				}
 			}

@@ -4,12 +4,32 @@
 		"selected_items":
 		[
 			[
-				"filter",
-				"filterImage"
+				"unif",
+				"uniform"
 			],
 			[
-				"unif",
-				"uniforms"
+				"out",
+				"outputs"
+			],
+			[
+				"menu",
+				"menuPos"
+			],
+			[
+				"remove",
+				"removeNode"
+			],
+			[
+				"act",
+				"action"
+			],
+			[
+				"Map",
+				"MapContextmenu"
+			],
+			[
+				"filter",
+				"filterImage"
 			],
 			[
 				"uni",
@@ -172,10 +192,6 @@
 				"displayObject"
 			],
 			[
-				"remove",
-				"removeChild"
-			],
-			[
 				"child",
 				"children"
 			],
@@ -234,10 +250,6 @@
 			[
 				"vol",
 				"voxelData"
-			],
-			[
-				"out",
-				"output"
 			],
 			[
 				"annos",
@@ -314,10 +326,6 @@
 			[
 				"margin",
 				"margin"
-			],
-			[
-				"menu",
-				"menu-button"
 			],
 			[
 				"ver",
@@ -506,14 +514,6 @@
 			[
 				"list",
 				"list_mode"
-			],
-			[
-				"nodu",
-				"nodule"
-			],
-			[
-				"talk",
-				"talkAbout"
 			]
 		]
 	},
@@ -523,7 +523,7 @@
 			"file": "src/main.js",
 			"settings":
 			{
-				"buffer_size": 3055,
+				"buffer_size": 3133,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -532,16 +532,16 @@
 			"file": "public/map-ui/map-ui-map.js",
 			"settings":
 			{
-				"buffer_size": 8375,
+				"buffer_size": 9548,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "public/map/map-main.js",
+			"file": "public/map-ui/map-ui-map-node.js",
 			"settings":
 			{
-				"buffer_size": 3194,
+				"buffer_size": 7096,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -550,7 +550,16 @@
 			"file": "public/map/map-node.js",
 			"settings":
 			{
-				"buffer_size": 2237,
+				"buffer_size": 2767,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/map/map-main.js",
+			"settings":
+			{
+				"buffer_size": 3418,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -559,7 +568,7 @@
 			"file": "public/plugins/plugin-base.js",
 			"settings":
 			{
-				"buffer_size": 2562,
+				"buffer_size": 7516,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -623,28 +632,32 @@
 		"/D/CodeTest/Self/JS-Layers/public/map",
 		"/D/CodeTest/Self/JS-Layers/public/map-ui",
 		"/D/CodeTest/Self/JS-Layers/public/plugins",
+		"/D/CodeTest/Self/JS-Layers/public/tools",
 		"/D/CodeTest/Self/JS-Layers/src",
-		"/D/Code/MyLib/Git/前端/public_modules"
+		"/D/Code/MyLib/Git/前端/public_modules",
+		"/D/Code/MyLib/Git/前端/public_modules/lcg"
 	],
 	"file_history":
 	[
-		"/D/CodeTest/Self/JS-Layers/public/map-ui/map-ui-menu.js",
-		"/D/CodeTest/Self/JS-Layers/build/css/index.css",
-		"/D/CodeTest/Self/JS-Layers/public/tools/index.js",
-		"/D/CodeTest/Self/JS-Layers/public/tools/tools-easy-filter.js",
-		"/D/CodeTest/Self/JS-Layers/public/tools/tools-get-image.js",
-		"/D/CodeTest/2020-11/分享-OpenGL简介/2.html",
-		"/D/CodeTest/2020-10/twgl/test1.html",
-		"/D/CodeTest/Self/JS-Layers/public/map-ui/map-ui-map.js",
-		"/D/CodeTest/Self/JS-Layers/public/map-ui/map-ui-attrs.js",
+		"/D/CodeTest/Self/JS-Layers/public/map-ui/map-ui-contextmenu.js",
 		"/D/CodeTest/Self/JS-Layers/public/map-ui/map-ui-map-node.js",
 		"/D/CodeTest/Self/JS-Layers/public/map/map-main.js",
+		"/D/CodeTest/Self/JS-Layers/public/tools/tools-get-image.js",
 		"/D/CodeTest/Self/JS-Layers/public/map/map-node.js",
 		"/D/CodeTest/Self/JS-Layers/public/plugins/plugin-base.js",
 		"/D/CodeTest/Self/JS-Layers/module.html",
+		"/D/CodeTest/Self/JS-Layers/public/map-ui/map-ui-attrs.js",
+		"/D/CodeTest/2020-10/twgl/test.html",
+		"/D/CodeTest/Self/JS-Layers/public/tools/index.js",
+		"/D/CodeTest/Self/JS-Layers/public/tools/tools-easy-filter.js",
+		"/D/CodeTest/Self/JS-Layers/build/lib/color-thief.js",
+		"/D/CodeTest/Self/JS-Layers/public/map-ui/map-ui-menu.js",
+		"/D/CodeTest/Self/JS-Layers/build/css/index.css",
+		"/D/CodeTest/2020-11/分享-OpenGL简介/2.html",
+		"/D/CodeTest/2020-10/twgl/test1.html",
+		"/D/CodeTest/Self/JS-Layers/public/map-ui/map-ui-map.js",
 		"/D/CodeTest/2020-11/分享-OpenGL简介/tools.js",
 		"/D/CodeTest/Self/JS-Layers/public/map-ui/map-store.js",
-		"/D/CodeTest/2020-10/twgl/test.html",
 		"/D/临时文件夹/面试概要.txt",
 		"/D/临时文件夹/678f9ff153f41c6efcc78febef8e9cd.jpg",
 		"/C/Tools/FlashFXP/Cache/~flashfxp/8C32F23F_edit.tmp/license",
@@ -753,9 +766,7 @@
 		"/E/BaiDuDownload/游视界剑零单JI -625/游视界剑零单JI -625/游视界剑零单机625/BnsDat/config.dat.files/system.config2.xml",
 		"/E/BaiDuDownload/MXD143/Maple83-master/Maple83-master/docs/mcpq/blob/MCParty.java",
 		"/E/BaiDuDownload/MXD143/Maple83-master/Maple83-master/src/scripting/reactor/ReactorScriptManager.java",
-		"/E/BaiDuDownload/MXD143/Maple83-master/Maple83-master/src/scripting/AbstractPlayerInteraction.java",
-		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/reactor/9250000.js",
-		"/E/BaiDuDownload/MXD143/冒险岛143服务端VIP版V14/米米单机脚本/npc/1012100.js"
+		"/E/BaiDuDownload/MXD143/Maple83-master/Maple83-master/src/scripting/AbstractPlayerInteraction.java"
 	],
 	"find":
 	{
@@ -852,6 +863,16 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"inputUIExpand",
+			"255",
+			"color_d",
+			"饱和度",
+			"line-draw",
+			"input",
+			"this.value",
+			"value",
+			"CMenu",
+			"contex",
 			"re",
 			"canvas",
 			"img",
@@ -969,17 +990,7 @@
 			"mob",
 			"Moster",
 			"\"enter\"",
-			"playerMessage",
-			"updateEvanIntroState",
-			"getDirectionEffect",
-			"getDirectionStatus",
-			"\"act\"",
-			"quest",
-			"消灭",
-			"/",
-			"x",
-			"spawnAutoDrop",
-			"drop"
+			"playerMessage"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -998,7 +1009,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -1007,15 +1018,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3055,
+						"buffer_size": 3133,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1691,
-								1691
+								909,
+								909
 							]
 						],
 						"settings":
@@ -1026,10 +1037,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2186.0,
+						"translation.y": 2591.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -1038,15 +1049,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8375,
+						"buffer_size": 9548,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2567,
-								2567
+								5076,
+								5076
 							]
 						],
 						"settings":
@@ -1057,27 +1068,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2915.0,
+						"translation.y": 9484.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "public/map/map-main.js",
+					"file": "public/map-ui/map-ui-map-node.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3194,
+						"buffer_size": 7096,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								264,
-								264
+								5966,
+								5966
 							]
 						],
 						"settings":
@@ -1088,7 +1099,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 7532.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -1100,15 +1111,46 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2237,
+						"buffer_size": 2767,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								117,
-								117
+								1502,
+								1502
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2025.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "public/map/map-main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3418,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								133,
+								133
 							]
 						],
 						"settings":
@@ -1122,24 +1164,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 5,
 					"file": "public/plugins/plugin-base.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2562,
+						"buffer_size": 7516,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								461,
-								461
+								1249,
+								1249
 							]
 						],
 						"settings":
@@ -1150,10 +1192,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 566.0,
+						"translation.y": 1214.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]

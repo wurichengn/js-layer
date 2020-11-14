@@ -243,7 +243,8 @@ class InputItem{
 		this.node = d.node;
 		//初始化dom
 		this.$dom(function(){
-			return <div><i lid="plugin"></i>
+			return <div>
+				<i lid="plugin"></i>
 				<z><t lid="before"></t>{d.data.name}<t lid="after"></t></z>
 			</div>;
 		});
@@ -251,7 +252,9 @@ class InputItem{
 		//继承通用样式
 		this.extend(ItemStyle,d);
 
-		console.log(d.main.map.types[d.data.type]);
+		//如果有输入UI扩展
+		if(d.main.map.types[d.data.type].inputUIExpand)
+			d.main.map.types[d.data.type].inputUIExpand(self);
 
 		//状态处理
 		var render = function(){
@@ -291,11 +294,18 @@ class OutputItem{
 		this.node = d.node;
 		//初始化dom
 		this.$dom(function(){
-			return <div><z>{d.data.name}</z><i lid="plugin"></i></div>;
+			return <div>
+				<z><t lid="before"></t>{d.data.name}<t lid="after"></t></z>
+				<i lid="plugin"></i>
+			</div>;
 		});
 
 		//继承通用样式
 		this.extend(ItemStyle,d);
+
+		//如果有输出UI扩展
+		if(d.main.map.types[d.data.type].outputUIExpand)
+			d.main.map.types[d.data.type].outputUIExpand(self);
 
 		//输出接口操作
 		!function(){
