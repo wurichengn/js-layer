@@ -30,13 +30,19 @@ class LogicMapNode{
 		//写入状态
 		lcg.copyJSON(d,attrs,true);
 
-		//初始化输入类型（数组类型设置为数组）
+		//初始化输入类型和参数（数组类型设置为数组）
 		for(var i in info.inputs){
 			var ip = info.inputs[i];
 			if(attrs.inputs[ip.key])
 				continue;
 			if(ip.array == true)
 				attrs.inputs[ip.key] = [];
+			else{
+				//如果有默认值
+				if(ip.default != null && attrs.forms[ip.key] == null)
+					attrs.forms[ip.key] = ip.default;
+			}
+
 		}
 
 		//初始化触发

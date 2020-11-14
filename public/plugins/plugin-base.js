@@ -24,6 +24,40 @@ module.exports = {
 						onchange(this.files[0]);
 				}}/>
 			}
+		},
+		{
+			name:"浮点数",
+			key:"float",
+			selector:function(value,onchange,cfg){
+				//数值输入框
+				var re = <input value={value} style="width:100%;" type={cfg.input_type || "number"} min={cfg.min} max={cfg.max} step={cfg.step} onchange={function(e){
+					//数值化
+					var val = Number(this.value);
+					//NaN处理
+					if(val.toString() == "NaN")
+						val = 0;
+					//范围限制
+					if(cfg.min != null && val < cfg.min)
+						val = cfg.min;
+					if(cfg.max != null && val > cfg.max)
+						val = cfg.max;
+					//反向写入
+					this.value = val;
+					onchange(Number(val));
+				}}/>;
+				return re;
+			}
+		},
+		{
+			name:"颜色",
+			key:"color",
+			selector:function(value,onchange,cfg){
+				console.log(value);
+				//浏览器自带颜色选择器
+				return <input value={value} type="color" onchange={function(e){
+					onchange(this.value);
+				}}/>;
+			}
 		}
 	],
 	//扩展组件
@@ -98,34 +132,82 @@ module.exports = {
 			}
 		},
 		{
-			name:"图层",
-			menu:["处理","图层"],
-			key:"image-layer",
+			name:"图像对比",
+			menu:["其他","图像对比"],
+			key:"image-comparison",
 			inputs:[
 				{
-					name:"图像",
+					name:"图像1",
 					type:"image",
-					key:"images",
-					//是否是数组输入
-					array:true
+					key:"image1"
+				},
+				{
+					name:"图像2",
+					type:"image",
+					key:"image2"
 				}
 			],
 			//组件的输出
 			outputs:[
-				{type:"image",name:"图像",key:"image"}
+				{type:"image",name:"对比结果",key:"image"}
 			],
 			//渲染时执行  必须要有，需要返回运行结果，可以异步处理。
-			render:function(){}
+			render:async function(vals){
+				//初始化贴图
+				if(this.texture == null)
+					this.texture = Tools.gl.createTexture();
+				//贴图初始化
+				var image1 = await Tools.getImage(vals.image1,"texture",{texture:this.texture,gl:Tools.gl});
+				//使用简易滤镜逻辑
+				var re = await Tools.easyFilter(this,{
+					image:vals.image2,
+					width:image1.width,
+					height:image1.height * 2,
+					uniforms:{
+						weight:vals.weight,
+						uSampler1:image1.data
+					},
+					fs:`precision mediump float;
+						varying vec2 vUV;
+
+						uniform sampler2D uSampler1;
+						uniform sampler2D uSampler;
+						uniform vec2 uSize;
+
+						void main(void){
+							//计算uv
+							vec2 uv = vec2(vUV.x,vUV.y * 2.0);
+
+							//原图颜色
+							if(uv.y < 1.0)
+								gl_FragColor = texture2D(uSampler1, uv);
+							else
+								gl_FragColor = texture2D(uSampler, uv - vec2(0.0,1.0));
+						}`
+				});
+				return {image:re.outputs[0]};
+			}
 		},
 		{
-			name:"灰度",
-			menu:["滤镜","灰度"],
+			name:"饱和度",
+			menu:["滤镜","饱和度"],
 			key:"filter-gray",
 			inputs:[
 				{
 					name:"图像",
 					type:"image",
 					key:"image"
+				},
+				{
+					name:"饱和度",
+					type:"float",
+					key:"weight",
+					//数值参数
+					input_type:"range",
+					default:1,
+					min:0,
+					max:2,
+					step:0.01
 				}
 			],
 			//组件的输出
@@ -137,20 +219,125 @@ module.exports = {
 				//使用简易滤镜逻辑
 				var re = await Tools.easyFilter(this,{
 					image:vals.image,
+					uniforms:{
+						weight:vals.weight
+					},
 					fs:`precision mediump float;
 						varying vec2 vUV;
 
 						uniform sampler2D uSampler;
 						uniform vec2 uSize;
+						uniform float weight;
 
 						void main(void){
+							//原图颜色
 							vec4 color = texture2D(uSampler, vUV);
+							//rgb平均值
 							float c = (color.r + color.g + color.b) / 3.0;
-							gl_FragColor = vec4(c,c,c,color.a);
+							gl_FragColor = vec4(
+								(color.r - c) * weight + c,
+								(color.g - c) * weight + c,
+								(color.b - c) * weight + c,
+								color.a
+							);
 						}`
 				});
 				//输出图层1
 				return {image:re.outputs[0]};
+			}
+		},{
+			name:"渐变映射",
+			menu:["滤镜","渐变映射"],
+			key:"filter-gradient-mapping",
+			inputs:[
+				{
+					name:"图像",
+					type:"image",
+					key:"image"
+				},
+				{
+					name:"暗色",
+					type:"color",
+					key:"color_d",
+					default:"#470000"
+				},
+				{
+					name:"亮色",
+					type:"color",
+					key:"color_l",
+					default:"#ffe5e5"
+				}
+			],
+			//组件的输出
+			outputs:[
+				{type:"image",name:"图像",key:"image"}
+			],
+			//渲染时执行  必须要有，需要返回运行结果，可以异步处理。
+			render:async function(vals){
+				var color_d = new lcg.easycolor(vals.color_d);
+				var color_l = new lcg.easycolor(vals.color_l);
+				//使用简易滤镜逻辑
+				var re = await Tools.easyFilter(this,{
+					image:vals.image,
+					uniforms:{
+						color_d:[color_d.r/256,color_d.g/256,color_d.b/256],
+						color_l:[color_l.r/256,color_l.g/256,color_l.b/256]
+					},
+					fs:`precision mediump float;
+						varying vec2 vUV;
+
+						uniform sampler2D uSampler;
+						uniform vec2 uSize;
+						uniform vec3 color_d;
+						uniform vec3 color_l;
+
+						void main(void){
+							//原图颜色
+							vec4 color = texture2D(uSampler, vUV);
+							//rgb平均值
+							float c = (color.r + color.g + color.b) / 3.0;
+							gl_FragColor = vec4((color_l - color_d) * c + color_d,color.a);
+						}`
+				});
+				//输出图层1
+				return {image:re.outputs[0]};
+			}
+		},{
+			name:"主色提取",
+			menu:["其他","主色提取"],
+			key:"other-color-thief",
+			inputs:[
+				{
+					name:"图像",
+					type:"image",
+					key:"image"
+				}
+			],
+			//组件的输出
+			outputs:[
+				{type:"color",name:"主色",key:"color-main"},
+				{type:"color",name:"辅色1",key:"color1"},
+				{type:"color",name:"辅色2",key:"color2"},
+				{type:"color",name:"辅色3",key:"color3"},
+				{type:"color",name:"辅色4",key:"color4"}
+			],
+			//渲染时执行  必须要有，需要返回运行结果，可以异步处理。
+			render:async function(vals){
+				var image = await Tools.getImage(vals.image,"img");
+				var colorThief = new ColorThief();
+				var re = new lcg.easycolor(colorThief.getColor(image.data)).toString();
+				var rep = colorThief.getPalette(image.data);
+				for(var i in rep){
+					rep[i] = lcg.easycolor(rep[i]).toString();
+				}
+				//输出图层1
+				return {
+					"color-main":re,
+					"color1":rep[1],
+					"color2":rep[2],
+					"color3":rep[3],
+					"color4":rep[4]
+				};
 			}
 		}
 	]

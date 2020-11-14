@@ -180,6 +180,7 @@ var ItemStyle = module.exports.ItemStyle = function(d){
 		"overflow":"hidden",
 		"height":"1.8em",
 		"line-height":"1.8em",
+		"position":"relative",
 		">z":{
 			"font-size":"1.4em",
 			"display":"inline-block",
@@ -242,15 +243,19 @@ class InputItem{
 		this.node = d.node;
 		//初始化dom
 		this.$dom(function(){
-			return <div><i lid="plugin"></i><z>{d.data.name}</z></div>;
+			return <div><i lid="plugin"></i>
+				<z><t lid="before"></t>{d.data.name}<t lid="after"></t></z>
+			</div>;
 		});
 
 		//继承通用样式
 		this.extend(ItemStyle,d);
 
+		console.log(d.main.map.types[d.data.type]);
+
 		//状态处理
 		var render = function(){
-			if(d.main.store.states.activeOutputNode && d.main.store.states.activeOutputNode.data.type == d.data.type)
+			if(d.main.store.states.activeOutputNode && (d.main.store.states.activeOutputNode.data.type == d.data.type || d.data.type == "*"))
 				self.ids["plugin"].classList.add("active");
 			else
 				self.ids["plugin"].classList.remove("active");
@@ -264,7 +269,7 @@ class InputItem{
 		//接口鼠标放开事件
 		lcg.domEvent(self.ids["plugin"],"mouseup",function(e){
 			var node = d.main.store.states.activeOutputNode;
-			if(node == null || node.data.type != d.data.type || node.node == d.node)
+			if(node == null || (node.data.type != d.data.type && d.data.type != "*") || node.node == d.node)
 				return;
 			//添加关联项
 			d.node.addLink(d.data.key,node.node,node.data.key);

@@ -131,11 +131,6 @@ class LogicMap{
 		//默认引入基础扩展
 		this.usePlugin(plugins["base"]);
 
-		//添加一个默认节点
-		this.addNode("image-file-select");
-		this.addNode("filter-gray");
-		this.addNode("filter-gray");
-
 	}
 }
 

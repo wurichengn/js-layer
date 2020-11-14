@@ -103,7 +103,7 @@ class AttrItem{
 			d.node.node.attrs.forms[d.info.key] = val;
 			//触发结构变化消息
 			d.main.trigger("struct-change");
-		});
+		},d.info);
 
 		//加入面板
 		self.ids["panle"].appendChild(dom);

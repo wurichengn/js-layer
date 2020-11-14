@@ -105,8 +105,13 @@ module.exports = async function(module,d){
 
 	//循环每个层
 	for(var i in info.fbi.attachments){
-		var output = {...image};
-		output.data = info.fbi.attachments[i];
+		var output = {
+			data:info.fbi.attachments[i],
+			type:"texture",
+			width:cfg.width,
+			height:cfg.height,
+			gl:gl
+		};
 		re.outputs.push(output);
 	}
 

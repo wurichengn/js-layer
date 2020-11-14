@@ -300,6 +300,11 @@ class LinesPanle{
 		this.message("line-draw",function(){
 			self.$r();
 		});
+
+		//布局改动重绘
+		this.message("resize",function(){
+			self.$r();
+		});
 	}
 
 	//通过两点得到一个平滑的path对象
@@ -388,7 +393,7 @@ class OutputItem{
 
 		//状态处理
 		var render = function(){
-			if(d.main.store.states.activeOutputNode && d.main.store.states.activeOutputNode.data.type == d.data.type)
+			if(d.main.store.states.activeOutputNode && (d.main.store.states.activeOutputNode.data.type == d.data.type || d.data.type == "*"))
 				self.ids["plugin"].classList.add("active");
 			else
 				self.ids["plugin"].classList.remove("active");
@@ -402,7 +407,7 @@ class OutputItem{
 		//接口鼠标放开事件
 		lcg.domEvent(self.ids["plugin"],"mouseup",function(e){
 			var node = d.main.store.states.activeOutputNode;
-			if(node == null || node.data.type != d.data.type)
+			if(node == null || (node.data.type != d.data.type && d.data.type != "*"))
 				return;
 			//添加关联项
 			d.main.map.attrs.outputs[d.data.key] = {uid:node.node.attrs.uid,key:node.data.key};
@@ -434,5 +439,9 @@ var initEvent = function(dom){
 
 	lcg.domEvent(document,"mouseup",function(e){
 		lcg.triggerDom("mouseup",e);
+	});
+
+	lcg.domEvent(window,"resize",function(e){
+		lcg.triggerDom("resize",e);
 	});
 }

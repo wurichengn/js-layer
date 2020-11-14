@@ -20,6 +20,7 @@ var textureCache = {};
 
 //图像转换工具
 module.exports = async function(image,type,args){
+	args = args || {};
 	//如果要转换到canvas
 	if(type == "canvas")
 		return await toCanvas2d(image,args.canvas);
@@ -28,7 +29,7 @@ module.exports = async function(image,type,args){
 		return await toImg(image,args.img);
 	//如果要转换到贴图
 	if(type == "texture")
-		return await toTexture(image,args.texture);
+		return await toTexture(image,args.texture,args.gl);
 }
 
 
@@ -150,11 +151,9 @@ var toTexture = async function(image,textureIn,gl){
 
 	//如果是贴图
 	if(image.type == "texture"){
-		if(textureIn == null){
-			//同上下文贴图
-			if(gl == null || gl == image.gl)
-				return {data:texture,type:"texture",gl:gl,width:img.width,height:img.height}
-		}
+		//同上下文贴图则直接返回原贴图
+		if(gl == null || gl == image.gl)
+			return {data:image.data,type:"texture",gl:gl,width:image.width,height:image.height}
 	}
 
 	//如果是标签

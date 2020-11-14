@@ -104,7 +104,8 @@ class Panle{
 			for(var i = 0;i < files.length;i++){
 				//图像导入
 				if(files[i].type.substr(0,5) == "image"){
-					map.addNode("image-file-select",{forms:{file:files[i]}});
+					var pos = uiMap.module.mouse2view(e);
+					map.addNode("image-file-select",{x:pos.x,y:pos.y,forms:{file:files[i]}});
 				}
 			}
 		});
