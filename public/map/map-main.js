@@ -1,4 +1,3 @@
-var plugins = require("plugins");
 var Node = require("./map-node.js");
 var lcg = require("lcg");
 var Camera = require("lcg-camera");
@@ -98,6 +97,30 @@ class LogicMap{
 		}
 
 
+		//保存拓扑图
+		this.save = function(){
+			var re = {
+				attrs:attrs
+			};
+			var nds = re.nodes = [];
+			for(var i in nodes){
+				nds.push(nodes[i].attrs);
+			}
+			return re;
+		}
+
+
+		//载入拓扑图
+		this.load = function(data){
+			//写入图属性
+			lcg.copyJSON(data.attrs,attrs,true);
+			//初始化节点
+			for(var i in data.nodes){
+				self.addNode(data.nodes[i].key,data.nodes[i]);
+			}
+		}
+
+
 		//运行拓扑图  异步
 		this.run = async function(){
 			//生成组件哈希表
@@ -126,10 +149,6 @@ class LogicMap{
 			//输出全局结果
 			return re;
 		}
-
-
-		//默认引入基础扩展
-		this.usePlugin(plugins["base"]);
 
 	}
 }

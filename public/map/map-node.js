@@ -12,6 +12,8 @@ class LogicMapNode{
 		this.error = null;
 		//组件属性
 		var attrs = this.attrs = {
+			//组件类型
+			key:info.key,
 			//组件坐标
 			x:0,
 			y:0,
@@ -25,7 +27,9 @@ class LogicMapNode{
 			//组件运行优先级 - 运行时产生
 			level:0,
 			//运行输出结果 - 运行后产生
-			outputs:{}
+			outputs:{},
+			//缓存，用于存储其他结果
+			cache:{}
 		};
 		//写入状态
 		lcg.copyJSON(d,attrs,true);

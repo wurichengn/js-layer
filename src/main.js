@@ -5,6 +5,7 @@ var React = lcg.React;
 var Map = require("map");
 var UI = require("map-ui");
 var Tools = require("tools");
+var Plugins = require("plugins");
 
 window.lcg = lcg;
 
@@ -19,7 +20,7 @@ class Panle{
 				<div class="left">
 					<div class="top" lid="top">
 						<div lid="view">
-							<canvas lid="canvas"></canvas>
+							<canvas style="display:none;" lid="canvas"></canvas>
 						</div>
 					</div>
 					<div class="bottom" lid="map"></div>
@@ -31,14 +32,28 @@ class Panle{
 		//初始化上下文
 		self.ids["canvas"].getContext("2d");
 
+
 		//初始化一个流程图
 		var map = Map.new();
+		//初始化配置
+		Plugins["base"](map);
+		//如果有保存内容
+		if(localStorage["save"]){
+			map.load(JSON.parse(localStorage["save"]));
+		}
 		var uiMap = UI.map.new(map);
 		uiMap.module.message("struct-change",function(){
 			run();
 		});
 		self.ids["map"].appendChild(uiMap);
 		self.ids["attrs"].appendChild(uiMap.attrsDom);
+
+		//保存
+		window.save = function(){
+			var re = map.save();
+			var data = JSON.stringify(re);
+			localStorage["save"] = data;
+		}
 
 		//运行一次图像处理
 		var running = false;
@@ -55,6 +70,8 @@ class Panle{
 				if(re.image){
 					//渲染图像
 					var re = await Tools.getImage(re.image,"canvas",{canvas:self.ids["canvas"]});
+					console.log(re);
+					self.ids["canvas"].style["display"] = "";
 					//设置canvas位置
 					self.ids["canvas"].style["left"] = -self.ids["canvas"].width / 2 + "px";
 					self.ids["canvas"].style["top"] = -self.ids["canvas"].height / 2 + "px";
@@ -67,6 +84,9 @@ class Panle{
 				run();
 			}
 		};
+
+		//首次运行
+		run();
 
 		//视图状态表
 		var state = new Camera({
@@ -132,7 +152,8 @@ class Panle{
 								"left":"50%",
 								"top":"50%",
 								">canvas":{
-									"position":"absolute"
+									"position":"absolute",
+									"border":"1px solid #777"
 								}
 							}
 						},

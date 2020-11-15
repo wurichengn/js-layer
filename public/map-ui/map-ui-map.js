@@ -23,13 +23,16 @@ class UIMap{
 		//输出组件表
 		this.outputModules = {};
 
+		//组件映射表
+		var modules = this.modules = {};
+
 		//初始化dom
 		this.$dom(function(){
 			return <div>
 				<MenuPanle main={self}></MenuPanle>
 				<div class="bottom" lid="bottom">
 					<div class="view" lid="view">
-						<svg lid="svg"><LinesPanle main={self}></LinesPanle></svg>
+						<svg lid="svg"></svg>
 						<div lid="modules"></div>
 					</div>
 					<div class="out">
@@ -92,11 +95,14 @@ class UIMap{
 			}
 		});
 
+		//初始化完成后加入面板
+		this.message("module-ready",function(){
+			//初始化线条绘制
+			self.ids["svg"].appendChild(LinesPanle.new({main:self}));
+		});
+
 		//初始化事件
 		initEvent(this._proxy);
-
-		//组件映射表
-		var modules = this.modules = {};
 
 		//根据node添加一个UI组件
 		var addNode = function(node){
@@ -302,6 +308,10 @@ class LinesPanle{
 
 		//布局改动重绘
 		this.message("resize",function(){
+			self.$r();
+		});
+
+		setTimeout(function(){
 			self.$r();
 		});
 	}

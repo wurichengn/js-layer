@@ -32,8 +32,13 @@ module.exports = async function(module,d){
 		close_frame:false
 	};
 	//写入配置
-	for(var i in d)
-		cfg[i] = d[i];
+	for(var i in d){
+		if(i == "buffers")
+			for(var j in d[i])
+				cfg[i][j] = d[i][j];
+		else
+			cfg[i] = d[i];
+	}
 
 	//要写入的贴图
 	var image;
@@ -73,6 +78,9 @@ module.exports = async function(module,d){
 
 	//设置顶点数据
 	twgl.setBuffersAndAttributes(gl, info.pi, info.bi);
+	//更新顶点数据
+	for(var i in cfg.buffers)
+		twgl.setAttribInfoBufferFromArray(gl, info.bi.attribs[i], cfg.buffers[i]);
 
 	//清空画布
 	gl.clearColor(0,0,0,0);

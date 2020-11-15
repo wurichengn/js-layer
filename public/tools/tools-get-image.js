@@ -121,7 +121,7 @@ var toImg = async function(image,imgIn){
 	}
 
 	//如果是url
-	if(image.type == "data-url" || "url")
+	if(image.type == "data-url" || image.type == "url")
 		return await loadImg(image.data);
 
 	//如果是canvas
