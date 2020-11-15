@@ -1,4 +1,5 @@
 var Tools = require("tools");
+var lcg = require("lcg");
 
 
 
@@ -37,7 +38,7 @@ module.exports = function(map){
 			}
 		},
 		//渲染时执行  必须要有，需要返回运行结果，可以异步处理。
-		render:function(vals){
+		run:function(vals){
 			var self = this;
 			//根据URL载入
 			var loadURL = function(url,next){
@@ -137,7 +138,7 @@ module.exports = function(map){
 			this.ctx = this.canvas.getContext("2d");
 		},
 		//渲染时执行  必须要有，需要返回运行结果，可以异步处理。
-		render:async function(vals){
+		run:async function(vals){
 			var ctx = this.ctx;
 			var tex = vals.text;
 			//设置字体  italic斜体 bold粗体
@@ -161,6 +162,70 @@ module.exports = function(map){
 					height:this.canvas.height
 				}
 			};
+		}
+	});
+
+
+
+
+
+
+
+	map.addModule({
+		name:"矩形",
+		menu:["图像","矩形"],
+		key:"image-shape-rect",
+		inputs:[
+			{
+				name:"颜色",
+				type:"color",
+				key:"color"
+			},
+			{
+				name:"宽度",
+				type:"float",
+				key:"width",
+				default:720,
+				min:1,
+				max:8192,
+				step:1
+			},
+			{
+				name:"高度",
+				type:"float",
+				key:"height",
+				default:480,
+				min:1,
+				max:8192,
+				step:1
+			}
+		],
+		//组件的输出
+		outputs:[
+			{type:"image",name:"图像",key:"image"}
+		],
+		//渲染时执行  必须要有，需要返回运行结果，可以异步处理。
+		run:async function(vals){
+			var texture = this.texture || Tools.gl.createTexture();
+			var color = new lcg.easycolor(vals.color);
+			//使用简易滤镜逻辑
+			var re = await Tools.easyFilter(this,{
+				image:{data:texture,type:"texture",gl:Tools.gl,width:1,height:1},
+				width:vals.width,
+				height:vals.height,
+				uniforms:{
+					color:[color.r/256,color.g/256,color.b/256,color.a]
+				},
+				fs:`precision mediump float;
+				uniform vec4 color;
+
+				void main(void)
+				{
+					gl_FragColor = color;
+				}`
+			});
+			//输出图层1
+			return {image:re.outputs[0]};
 		}
 	});
 	

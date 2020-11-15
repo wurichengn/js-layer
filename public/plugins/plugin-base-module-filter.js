@@ -1,4 +1,5 @@
 var Tools = require("tools");
+var lcg = require("lcg");
 
 
 module.exports = function(map){
@@ -31,7 +32,7 @@ module.exports = function(map){
 			{type:"image",name:"图像",key:"image"}
 		],
 		//渲染时执行  必须要有，需要返回运行结果，可以异步处理。
-		render:async function(vals){
+		run:async function(vals){
 			//使用简易滤镜逻辑
 			var re = await Tools.easyFilter(this,{
 				image:vals.image,
@@ -100,7 +101,7 @@ module.exports = function(map){
 			{type:"image",name:"图像",key:"image"}
 		],
 		//渲染时执行  必须要有，需要返回运行结果，可以异步处理。
-		render:async function(vals){
+		run:async function(vals){
 			var color_d = new lcg.easycolor(vals.color_d);
 			var color_l = new lcg.easycolor(vals.color_l);
 			//使用简易滤镜逻辑
@@ -136,11 +137,63 @@ module.exports = function(map){
 
 
 
+	map.addModule({
+		name:"颜色叠加",
+		menu:["滤镜","颜色叠加"],
+		key:"filter-color-trans",
+		inputs:[
+			{
+				name:"图像",
+				type:"image",
+				key:"image"
+			},
+			{
+				name:"颜色",
+				type:"color",
+				key:"color",
+				default:"#ffffff"
+			}
+		],
+		//组件的输出
+		outputs:[
+			{type:"image",name:"图像",key:"image"}
+		],
+		//渲染时执行  必须要有，需要返回运行结果，可以异步处理。
+		run:async function(vals){
+			var color = new lcg.easycolor(vals.color);
+			console.log(color);
+			//使用简易滤镜逻辑
+			var re = await Tools.easyFilter(this,{
+				image:vals.image,
+				uniforms:{
+					uColor:[color.r/256,color.g/256,color.b/256]
+				},
+				fs:`precision mediump float;
+				varying vec2 vUV;
+				uniform sampler2D uSampler;
+				uniform vec3 uColor;
+
+				void main(void)
+				{
+					vec4 c = texture2D(uSampler,vUV);
+					gl_FragColor = vec4(uColor,c.a);
+				}`
+			});
+			//输出图层1
+			return {image:re.outputs[0]};
+		}
+	});
+
+
+
+
+
+
 
 
 	map.addModule({
-		name:"叠加渐变",
-		menu:["滤镜","叠加渐变"],
+		name:"柔光叠加",
+		menu:["滤镜","柔光叠加"],
 		key:"filter-line-color",
 		inputs:[
 			{
@@ -164,7 +217,7 @@ module.exports = function(map){
 			{type:"image",name:"图像",key:"image"}
 		],
 		//渲染时执行  必须要有，需要返回运行结果，可以异步处理。
-		render:async function(vals){
+		run:async function(vals){
 			//使用简易滤镜逻辑
 			var re = await Tools.easyFilter(this,{
 				image:vals.image,
@@ -181,7 +234,7 @@ module.exports = function(map){
 				{
 					vec4 color = texture2D(uSampler,vUV);
 					if(color.a <= 0.0){
-						gl_FragColor = vec4(0,0,0,0);
+						gl_FragColor = vec4(color.rgb,0);
 						return;
 					}
 					//计算渐变比例
@@ -241,6 +294,36 @@ module.exports = function(map){
 				max:360,
 				step:0.1,
 				input_type:"range"
+			},
+			{
+				name:"阴影长度",
+				type:"float",
+				key:"len",
+				default:200,
+				min:0,
+				max:500,
+				step:0.1,
+				input_type:"range"
+			},
+			{
+				name:"发散角度",
+				type:"float",
+				key:"angleFade",
+				default:15,
+				min:0,
+				max:150,
+				step:0.1,
+				input_type:"range"
+			},
+			{
+				name:"阴影浓度",
+				type:"float",
+				key:"alpha",
+				default:1,
+				min:0,
+				max:5,
+				step:0.02,
+				input_type:"range"
 			}
 		],
 		//组件的输出
@@ -248,17 +331,17 @@ module.exports = function(map){
 			{type:"image",name:"图像",key:"image"}
 		],
 		//渲染时执行  必须要有，需要返回运行结果，可以异步处理。
-		render:async function(vals){
+		run:async function(vals){
 			//使用简易滤镜逻辑
 			var re = await Tools.easyFilter(this,{
 				image:vals.image,
 				uniforms:{
-					iAngle:vals.angle * Math.PI / 180,
-					iLen:20,
-					iLenSamp:20,
-					iAngleFade:15 * Math.PI / 180,
-					iFade:0.8,
-					iAlpha:1,
+					iAngle:(vals.angle + 180) * Math.PI / 180,
+					iLen:vals.len,
+					iLenSamp:Math.max(1,Math.floor(vals.len / 1.5)),
+					iAngleFade:vals.angleFade * Math.PI / 180,
+					iFade:1,
+					iAlpha:vals.alpha,
 					iInner:0
 				},
 				fs:`precision mediump float;
@@ -332,6 +415,8 @@ module.exports = function(map){
 					else
 						bl = min(1.0,(1.0 - bl) / iFade);
 
+					bl = bl * bl;
+
 					return vec2(weight * bl,len * iLen / iLenSamp);
 				}
 
@@ -375,6 +460,170 @@ module.exports = function(map){
 
 					//着色
 					gl_FragColor = vec4(vec3(0,0,0),weight * iAlpha);
+				}`
+			});
+			//输出图层1
+			return {image:re.outputs[0]};
+		}
+	});
+
+
+
+
+
+
+
+
+
+	map.addModule({
+		name:"内高光",
+		menu:["滤镜","内高光"],
+		key:"filter-inner-light",
+		inputs:[
+			{
+				name:"图像",
+				type:"image",
+				key:"image"
+			},
+			{
+				name:"角度",
+				type:"float",
+				key:"angle",
+				default:0,
+				min:0,
+				max:360,
+				step:0.1,
+				input_type:"range"
+			},
+			{
+				name:"光照强度",
+				type:"float",
+				key:"str",
+				default:10,
+				min:0,
+				max:40,
+				step:0.1,
+				input_type:"range"
+			}
+		],
+		//组件的输出
+		outputs:[
+			{type:"image",name:"图像",key:"image"}
+		],
+		//渲染时执行  必须要有，需要返回运行结果，可以异步处理。
+		run:async function(vals){
+			vals.angle = ((vals.angle * Math.PI / 180 / (Math.PI * 2)) % 1) * (Math.PI * 2);
+			//使用简易滤镜逻辑
+			var re = await Tools.easyFilter(this,{
+				image:vals.image,
+				uniforms:{
+					iAngle:vals.angle,
+					iStr:vals.str
+				},
+				fs:`precision mediump float;
+				varying vec2 vUV;
+				uniform sampler2D uSampler;
+				uniform vec2 uSize;
+				//光线角度
+				uniform float iAngle;
+				//光线模式
+				uniform float iMode;
+				//光照强度
+				uniform float iStr;
+
+				//光照颜色
+				vec4 light_color = vec4(1,1,1,1);
+
+				//整圆角度
+				const float DOUBLE_PI = 3.14159265358979323846264 * 2.0;
+				//角度采样次数
+				const float COUNT_ANGLE = 12.0;
+				//深度采样次数
+				const float COUNT_LENGTH = 3.0;
+				//总深度
+				const float LENGTH = 6.0;
+
+				vec2 thickness;
+
+				//获取角度差值
+				float getAngleL(float a1,float a2){
+					float a_max = max(a1,a2);
+					float a_min = min(a1,a2);
+					float val = min(abs(a_max - a_min),abs(a_max - a_min - DOUBLE_PI));
+					val = -val / DOUBLE_PI * 4.0 + 1.0;
+					if(val > 0.0)
+						val = val * val;
+					else
+						val = -val * val;
+					//val = max(0.0,val - 0.3) / 0.7;
+					return val;
+				}
+
+				void main(void)
+				{
+					thickness = vec2(1.0 / uSize.x,1.0 / uSize.y);
+					//当前颜色
+					vec4 color = texture2D(uSampler,vUV);
+					//当前采样点坐标
+					vec2 samp_pos;
+					//采样点颜色
+					vec4 samp_color;
+					//光照权重强度
+					float samp_val = 0.0;
+					//采样角度
+					float angle;
+					//采样深度
+					float length;
+					//深度权重
+					float samp_val_len;
+					//角度权重
+					float samp_val_angle;
+
+					//透明部分直接返回
+					if(color.a <= 0.0){
+						gl_FragColor = color;
+						return;
+					}
+
+					//开始循环深度采样
+					for(float j = 0.0;j < COUNT_LENGTH;j += 1.0){
+						length = 1.0 - LENGTH * j / COUNT_LENGTH;
+						samp_val_len = (j + 1.0) / COUNT_LENGTH;
+						samp_val_len = samp_val_len * samp_val_len;
+						//开始循环角度采样
+						for(float i = 0.0;i < COUNT_ANGLE;i += 1.0){
+							angle = DOUBLE_PI * i / COUNT_ANGLE;
+							//计算角度权重
+							samp_val_angle = getAngleL(angle,iAngle);
+							//计算采样点坐标
+							vec2 samp_pos = vec2(
+								vUV.x + thickness.x * cos(angle) * length,
+								vUV.y + thickness.y * sin(angle) * length
+							);
+							samp_color = texture2D(uSampler, samp_pos);
+							samp_val += max(color.a - samp_color.a,0.0) * samp_val_len * samp_val_angle;
+						}
+					}
+
+					//强度计算
+					samp_val = samp_val / COUNT_ANGLE / COUNT_LENGTH * iStr;
+					if(samp_val > 1.0)
+						samp_val = 1.0;
+					samp_val = samp_val * color.a;
+
+					//如果光照模式是纯光照
+					if(iMode == 1.0){
+						gl_FragColor = light_color * samp_val;
+						return;
+					}
+
+					//混合颜色
+					if(samp_val >= 0.0)
+						gl_FragColor = vec4(color * (1.0 - samp_val) + light_color * samp_val);
+					else{
+						samp_val = -samp_val / color.a * 0.5;
+						gl_FragColor = vec4(color * (1.0 - samp_val) + vec4(0,0,0,1) * samp_val);
+					}
 				}`
 			});
 			//输出图层1

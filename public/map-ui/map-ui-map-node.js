@@ -25,7 +25,7 @@ class UIMapNode{
 
 		//样式
 		this.css({
-			"width":"200px",
+			"width":"20em",
 			"color":"#eee",
 			"border-radius":"4px",
 			"user-select":"none",
@@ -146,8 +146,8 @@ class UIMapNode{
 			self.message("mousemove",function(e){
 				if(!isd)
 					return;
-				node.attrs.x = sx + (e.x - ex);
-				node.attrs.y = sy + (e.y - ey);
+				node.attrs.x = sx + (e.x - ex) * 10 / d.main.store.states.scale;
+				node.attrs.y = sy + (e.y - ey) * 10 / d.main.store.states.scale;
 				render();
 				d.main.trigger("line-draw");
 			});

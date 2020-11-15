@@ -72,6 +72,25 @@ module.exports = function(map){
 		}
 	});
 
+	//增加角度专用组件
+	map.addModule({
+		name:"变量-浮点数(角度)",
+		menu:["变量","浮点数(角度)"],
+		key:"$$type-vars-float-angle",
+		inputs:[
+			{type:"float",name:"值",key:"value",use_link:false,input_type:"range",min:0,max:360,step:0.1}
+		],
+		//组件的输出
+		outputs:[
+			{type:"float",name:"输出",key:"value"}
+		],
+		//渲染时执行  必须要有，需要返回运行结果，可以异步处理。
+		run:async function(vals){
+			//输出图层1
+			return {value:vals.value};
+		}
+	});
+
 	map.addType({
 		name:"字符串",
 		key:"string",

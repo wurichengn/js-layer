@@ -11,7 +11,9 @@ module.exports = function(){
 			//当前输出接口的节点
 			activeOutputNode:null,
 			//当前聚焦的节点
-			activeNode:null
+			activeNode:null,
+			//缩放  10默认值
+			scale:10
 		}
 	};
 }

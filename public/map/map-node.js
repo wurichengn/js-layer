@@ -81,8 +81,8 @@ class LogicMapNode{
 			//运行组件，获取输出
 			var re = {};
 			try{
-				if(info.render)
-					re = info.render.call(self,vals);
+				if(info.run)
+					re = info.run.call(self,vals);
 				//异步则等待
 				if(re instanceof Promise)
 					re = await re;

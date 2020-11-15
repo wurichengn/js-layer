@@ -18,6 +18,8 @@ try{
 	gl = canvas.getContext("webgl",glConfig);
 }
 Tools.gl = gl;
+//gl.enable(gl.BLEND);
+//gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 
 
 //获取影像

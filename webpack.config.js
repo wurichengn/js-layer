@@ -130,7 +130,7 @@ var cfg = {
     ],
     //解析
     resolve:{
-        modules:["./public","node_modules","D:/Code/MyLib/Git/前端/public_modules"]
+        modules:["./public","./public-graph","node_modules","D:/Code/MyLib/Git/前端/public_modules"]
     }
     //生产测试环境
     //devtool:"source-map"

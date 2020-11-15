@@ -141,6 +141,21 @@ class UIMap{
 			e.preventDefault();
 		});
 
+		//滚轮缩放
+		lcg.domEvent(self.ids["view"],"mousewheel",function(e){
+			var scale = store.states.scale;
+			if(e.deltaY < 0)
+				scale += 1;
+			if(e.deltaY > 0)
+				scale -= 1;
+			if(scale < 6)
+				scale = 6;
+			if(scale > 20)
+				scale = 20;
+			self.ids["bottom"].style["font-size"] = scale + "px";
+			store.states.scale = scale;
+		});
+
 		//渲染视图坐标
 		var render = function(){
 			self.ids["view"].style["margin-left"] = map.attrs.x + "px";

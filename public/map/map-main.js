@@ -45,6 +45,9 @@ class LogicMap{
 			if(types[type.key])
 				return console.warn("添加数据类型失败，数据类型的key ["+type.key+"] 已存在");
 			types[type.key] = type;
+			//如果类型可以创建变量组件
+			if(type.selector)
+				self.addModule(typeModule(type));
 		}
 
 		//添加组件
@@ -199,4 +202,30 @@ var setLevels = function(nodes,outputs,hx){
 	});
 
 	return re;
+}
+
+
+
+
+
+
+//创建变量组件
+var typeModule = function(type){
+	return {
+		name:"变量-" + type.name,
+		menu:["变量",type.name],
+		key:"$$type-vars-" + type.key,
+		inputs:[
+			{type:type.key,name:"值",key:"value",use_link:false}
+		],
+		//组件的输出
+		outputs:[
+			{type:type.key,name:"输出",key:"value"}
+		],
+		//渲染时执行  必须要有，需要返回运行结果，可以异步处理。
+		run:async function(vals){
+			//输出图层1
+			return {value:vals.value};
+		}
+	};
 }
