@@ -161,7 +161,6 @@ module.exports = function(map){
 		//渲染时执行  必须要有，需要返回运行结果，可以异步处理。
 		run:async function(vals){
 			var color = new lcg.easycolor(vals.color);
-			console.log(color);
 			//使用简易滤镜逻辑
 			var re = await Tools.easyFilter(this,{
 				image:vals.image,

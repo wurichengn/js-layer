@@ -96,13 +96,14 @@ module.exports = function(map){
 		],
 		//组件的输出
 		outputs:[
-			{type:"image",name:"对比结果",key:"image"}
+			{type:"image",name:"图像",key:"image"}
 		],
 		//渲染时执行  必须要有，需要返回运行结果，可以异步处理。
 		run:async function(vals){
 			var image = vals.image;
 			var wbl = image.width / vals.width;
 			var hbl = image.height / vals.height;
+			console.log(wbl,hbl,image);
 			//使用简易滤镜逻辑
 			var re = await Tools.easyFilter(this,{
 				image:vals.image,

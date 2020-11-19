@@ -54,7 +54,9 @@ module.exports = function(map){
 							//图片数据
 							data:self.img,
 							//图片类型
-							type:"img"
+							type:"img",
+							width:self.img.width,
+							height:self.img.height
 						}
 					}
 					//载入完成

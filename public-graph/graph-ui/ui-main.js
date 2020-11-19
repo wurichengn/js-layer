@@ -9,6 +9,7 @@ var Map = require("map");
 var UI = require("map-ui");
 var Tools = require("tools");
 var Plugins = require("plugins");
+var Particles = require("particles");
 
 window.lcg = lcg;
 
@@ -41,11 +42,18 @@ class Panle{
 		var map = Map.new();
 		//初始化配置
 		Plugins["base"](map);
+		Particles.mapModule(map);
 		//如果有保存内容
 		if(saveData){
 			try{
 				map.load(saveData);
 			}catch(e){console.error(e);}
+		}else{
+			if(localStorage["save"]){
+				try{
+					map.load(JSON.parse(localStorage["save"]));
+				}catch(e){console.error(e);}
+			}
 		}
 		var uiMap = UI.map.new(map);
 		uiMap.module.message("struct-change",function(){
@@ -58,8 +66,7 @@ class Panle{
 		window.save = function(){
 			var re = map.save();
 			var data = JSON.stringify(re);
-			console.log(data);
-			//localStorage["save"] = data;
+			localStorage["save"] = data;
 		}
 
 		//运行一次图像处理
@@ -94,6 +101,10 @@ class Panle{
 
 		//首次运行
 		run();
+
+		window.onkeydown = function(){
+			run();
+		}
 
 		//视图状态表
 		var state = new Camera({
@@ -143,7 +154,7 @@ class Panle{
 			"width":"100%",
 			"background-color":"#444",
 			">div":{
-				//"opacity":0.1,
+				//"opacity":0,
 				"display":"inline-block",
 				"height":"100%",
 				"vertical-align":"top",

@@ -13,13 +13,15 @@ var glConfig = {
 };
 try{
 	gl = canvas.getContext("webgl2",glConfig);
+	if(gl == null)
+		throw new Error("无法初始化webgl2");
 }catch(e){
 	//获取webgl上下文
 	gl = canvas.getContext("webgl",glConfig);
 }
 Tools.gl = gl;
-//gl.enable(gl.BLEND);
-//gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+//初始化扩展
+twgl.addExtensionsToContext(gl);
 
 
 //获取影像

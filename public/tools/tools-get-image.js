@@ -153,7 +153,7 @@ var toTexture = async function(image,textureIn,gl){
 	if(image.type == "texture"){
 		//同上下文贴图则直接返回原贴图
 		if(gl == null || gl == image.gl)
-			return {data:image.data,type:"texture",gl:gl,width:image.width,height:image.height}
+			return {data:image.data,type:"texture",gl:gl,width:image.width,height:image.height};
 	}
 
 	//如果是标签
