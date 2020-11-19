@@ -92,8 +92,10 @@ class LogicMap{
 			}
 			//全局关联
 			for(var i in attrs.outputs){
+				if(attrs.outputs[i] == null)
+					continue;
 				if(attrs.outputs[i].uid == uid)
-					attrs.outputs[i] = null;
+					delete attrs.outputs[i];
 			}
 			//删除节点
 			nodes.remove(node);

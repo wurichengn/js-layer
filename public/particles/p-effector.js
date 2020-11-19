@@ -1,6 +1,7 @@
 var gp = require("./p-glsl.js");
 
 module.exports = function(d,par){
+	var self = this;
 	//默认配置
 	var cfg = {
 		//顶点着色器
@@ -28,6 +29,10 @@ module.exports = function(d,par){
 
 	//运行
 	this.run = function(dt){
+		//选定渲染器
+		gl.useProgram(pi.program);
+		//设置属性
+		twgl.setBuffersAndAttributes(gl, pi, bi);
 		//渲染
 		par.run(dt,self);
 	}

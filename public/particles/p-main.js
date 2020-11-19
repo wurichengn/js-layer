@@ -1,4 +1,5 @@
 var Effector = require("./p-effector.js");
+var Renderer = require("./p-render.js");
 
 
 var P = module.exports = function(d){
@@ -13,35 +14,39 @@ var P = module.exports = function(d){
 	this.canvas = canvas;
 
 	//默认配置
-	var cfg = {
+	var cfg = this.cfg = {
 		//数据贴图尺寸
 		data_width:64,
 		data_height:64,
 		//粒子数量
-		count:1000,
-		//帧缓冲区配置
-		attachments:[
-			//16位浮点RGB表示坐标  A表示权重
-			{format:gl.RGBA,internalFormat:gl.RGBA16F,type:gl.FLOAT,mag:gl.NEAREST},
-			//16位浮点RGB表示速度  A表示存活时间
-			{format:gl.RGBA,internalFormat:gl.RGBA16F,type:gl.FLOAT,mag:gl.NEAREST},
-			//16位浮点表示加速度
-			{format:gl.RGBA,internalFormat:gl.RGBA16F,type:gl.FLOAT,mag:gl.NEAREST}
-		]
+		count:1000
 	}
+
+	//帧缓冲区配置
+	var attachments = [
+		//16位浮点RGB表示坐标  A表示权重
+		{format:gl.RGBA,internalFormat:gl.RGBA16F,type:gl.FLOAT,mag:gl.NEAREST},
+		//16位浮点RGB表示速度  A表示存活时间
+		{format:gl.RGBA,internalFormat:gl.RGBA16F,type:gl.FLOAT,mag:gl.NEAREST},
+		//16位浮点表示加速度
+		{format:gl.RGBA,internalFormat:gl.RGBA16F,type:gl.FLOAT,mag:gl.NEAREST},
+		//16位浮点表示颜色
+		{format:gl.RGBA,internalFormat:gl.RGBA16F,type:gl.FLOAT,mag:gl.NEAREST}
+	]
 
 	//渲染输出层
 	var bufferList = [
 		gl.COLOR_ATTACHMENT0,
 		gl.COLOR_ATTACHMENT1,
-		gl.COLOR_ATTACHMENT2
+		gl.COLOR_ATTACHMENT2,
+		gl.COLOR_ATTACHMENT3
 	];
 
 	//初始化缓冲区
 	var fbis = [];
-	fbis.push(twgl.createFramebufferInfo(gl,cfg.attachments,cfg.data_width,cfg.data_height));
+	fbis.push(twgl.createFramebufferInfo(gl,attachments,cfg.data_width,cfg.data_height));
 	gl.drawBuffers(bufferList);
-	fbis.push(twgl.createFramebufferInfo(gl,cfg.attachments,cfg.data_width,cfg.data_height));
+	fbis.push(twgl.createFramebufferInfo(gl,attachments,cfg.data_width,cfg.data_height));
 	gl.drawBuffers(bufferList);
 	//当前使用的缓冲区
 	fbiKey = 0;
@@ -60,9 +65,43 @@ var P = module.exports = function(d){
 	gl.bindTexture(gl.TEXTURE_2D,null);
 
 
-	//创建一个建议效果器
+	//创建一个简易效果器
 	this.createEffector = function(cfg){
 		return new Effector(cfg,self);
+	}
+
+	//创建一个渲染器
+	this.createRenderer = function(cfg){
+		return new Renderer(cfg,self);
+	}
+
+	//写入一次变量
+	this.writeUniform = function(dt){
+		var cfgs = {
+			uniforms:{},
+			fbi:fbis[getE()]
+		};
+		for(var i in dt)
+			cfgs[i] = dt[i];
+		//写入变量
+		var uniforms = {...cfgs.uniforms};
+
+		//设置坐标贴图
+		uniforms.uPs = cfgs.fbi.attachments[0];
+		//设置速度贴图
+		uniforms.uVs = cfgs.fbi.attachments[1];
+		//设置加速度贴图
+		uniforms.uGs = cfgs.fbi.attachments[2];
+		//设置颜色贴图
+		uniforms.uCs = cfgs.fbi.attachments[3];
+
+		//设置尺寸
+		uniforms.uSize = [cfg.data_width,cfg.data_height];
+		//随机种子
+		uniforms.uRandSeed = Math.random();
+		//粒子数量
+		uniforms.uCount = cfg.count;
+		return uniforms;
 	}
 
 	//开始渲染
@@ -70,8 +109,6 @@ var P = module.exports = function(d){
 		var cfgs = {
 			//变量设置
 			uniforms:{},
-			//目标  framebuffer为缓冲区   canvas为绘制到视图
-			target:"framebuffer",
 			//渲染宽高，屏幕渲染才需要
 			width:cfg.data_width,
 			height:cfg.data_height,
@@ -81,50 +118,19 @@ var P = module.exports = function(d){
 		for(var i in dt)
 			cfgs[i] = dt[i];
 
-		//如果是绘制缓冲区
-		if(cfgs.target == "framebuffer"){
-			//缓冲区切换
-			fbiKey++;
-			if(fbiKey > 1)
-				fbiKey = 0;
+		//缓冲区切换
+		fbiKey++;
+		if(fbiKey > 1)
+			fbiKey = 0;
 
-			//绑定帧缓冲区
-			twgl.bindFramebufferInfo(gl,fbis[fbiKey]);
-		}else{
-			//绘制屏幕
-			twgl.bindFramebufferInfo(gl,null);
-			//尺寸改变
-			if(canvas.width != cfgs.width || canvas.height != cfgs.height){
-				canvas.width = cfgs.width;
-				canvas.height = cfgs.height;
-				gl.viewport(0, 0, cfgs.width, cfgs.height);
-			}
-		}
+		//绑定帧缓冲区
+		twgl.bindFramebufferInfo(gl,fbis[fbiKey]);
 
-		//设置属性
-		twgl.setBuffersAndAttributes(gl, effect.pi, effect.bi);
-		//选定渲染器
-		gl.useProgram(effect.pi.program);
+		//视图尺寸调整
+		gl.viewport(0, 0, cfgs.width, cfgs.height);
 
 		//写入变量
-		var uniforms = {...cfgs.uniforms};
-
-		var activeKey = fbiKey;
-		if(cfgs.target == "framebuffer")
-			activeKey = getE();
-		//设置坐标贴图
-		uniforms.uPs = fbis[activeKey].attachments[0];
-		//设置速度贴图
-		uniforms.uVs = fbis[activeKey].attachments[1];
-		//设置加速度贴图
-		uniforms.uGs = fbis[activeKey].attachments[2];
-
-		//设置尺寸
-		uniforms.uSize = [cfgs.width,cfgs.height];
-		//随机种子
-		uniforms.uRandSeed = Math.random();
-		//粒子数量
-		uniforms.uCount = cfg.count;
+		var uniforms = self.writeUniform(cfgs);
 
 		//写入uniform
 		twgl.setUniforms(effect.pi,uniforms);
