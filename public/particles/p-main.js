@@ -19,19 +19,19 @@ var P = module.exports = function(d){
 		data_width:64,
 		data_height:64,
 		//粒子数量
-		count:1000
+		count:200
 	}
 
 	//帧缓冲区配置
 	var attachments = [
 		//16位浮点RGB表示坐标  A表示权重
-		{format:gl.RGBA,internalFormat:gl.RGBA16F,type:gl.FLOAT,mag:gl.NEAREST},
+		{format:gl.RGBA,internalFormat:gl.RGBA32F,type:gl.FLOAT,mag:gl.NEAREST},
 		//16位浮点RGB表示速度  A表示存活时间
-		{format:gl.RGBA,internalFormat:gl.RGBA16F,type:gl.FLOAT,mag:gl.NEAREST},
+		{format:gl.RGBA,internalFormat:gl.RGBA32F,type:gl.FLOAT,mag:gl.NEAREST},
 		//16位浮点表示加速度
-		{format:gl.RGBA,internalFormat:gl.RGBA16F,type:gl.FLOAT,mag:gl.NEAREST},
+		{format:gl.RGBA,internalFormat:gl.RGBA32F,type:gl.FLOAT,mag:gl.NEAREST},
 		//16位浮点表示颜色
-		{format:gl.RGBA,internalFormat:gl.RGBA16F,type:gl.FLOAT,mag:gl.NEAREST}
+		{format:gl.RGBA,internalFormat:gl.RGBA32F,type:gl.FLOAT,mag:gl.NEAREST}
 	]
 
 	//渲染输出层
@@ -96,7 +96,7 @@ var P = module.exports = function(d){
 		uniforms.uCs = cfgs.fbi.attachments[3];
 
 		//设置尺寸
-		uniforms.uSize = [cfg.data_width,cfg.data_height];
+		uniforms.uDataSize = [cfg.data_width,cfg.data_height];
 		//随机种子
 		uniforms.uRandSeed = Math.random();
 		//粒子数量
@@ -117,6 +117,9 @@ var P = module.exports = function(d){
 		};
 		for(var i in dt)
 			cfgs[i] = dt[i];
+
+		//写入数量
+		cfg.count = cfgs.count;
 
 		//缓冲区切换
 		fbiKey++;
@@ -150,25 +153,14 @@ var P = module.exports = function(d){
 //初始化上下文
 var createGL = function(){
 	//初始化全局通用的webgl上下文
-	var canvas = P.canvas = document.createElement("canvas");
+	var canvas = canvas = document.createElement("canvas");
 	//尝试获取webgl2上下文
-	var gl;
-	var glConfig = {
+	var gl = twgl.getContext(canvas,{
 		premultipliedAlpha:false
-	};
-
-	try{
-		//尝试获取webgl2上下文
-		gl = canvas.getContext("webgl2",glConfig);
-		if(gl == null)
-			throw new Error("无法初始化webgl2");
-	}catch(e){
-		//获取webgl上下文
-		gl = canvas.getContext("webgl",glConfig);
-	}
+	});
 
 	//初始化扩展
 	twgl.addExtensionsToContext(gl);
-	P.gl = gl;
+	
 	return {canvas:canvas,gl:gl}
 }

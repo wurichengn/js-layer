@@ -185,6 +185,155 @@ module.exports = function(map){
 
 
 
+	//高斯函数
+	var gaussian = function(x, d){
+		d = d || 1;
+		return 1 / (Math.sqrt(2 * Math.PI) * d) * Math.exp(-1 * Math.pow(x, 2) / (2 * Math.pow(d, 2)));
+	}
+
+
+
+	//计算高斯矩阵
+	window.getGaussMat = function(size){
+		size = size || 5;
+		var cen = (size - 1) / 2;
+		var re = [];
+		var arr = [];
+		for(var y = 0;y < size;y++){
+			var yl = [];
+			re.push(yl);
+			for(var x = 0;x < size;x++){
+				var len = Math.sqrt((x - cen) * (x - cen) + (y - cen) * (y - cen)) / size * 2;
+				yl.push(gaussian(len));
+			}
+		}
+		//权重和
+		var all = 0;
+		for(var i in re){
+			for(var j in re[i]){
+				all += re[i][j];
+			}
+		}
+		for(var i in re){
+			for(var j in re[i]){
+				arr.push(re[i][j] / all);
+			}
+		}
+		return arr;//new Float32Array(arr);
+	}
+
+
+
+	map.addModule({
+		name:"模糊",
+		menu:["滤镜","模糊"],
+		key:"filter-color-blur",
+		inputs:[
+			{
+				name:"图像",
+				type:"image",
+				key:"image"
+			}
+		],
+		//组件的输出
+		outputs:[
+			{type:"image",name:"图像",key:"image"}
+		],
+		//渲染时执行  必须要有，需要返回运行结果，可以异步处理。
+		run:async function(vals){
+			var color = new lcg.easycolor(vals.color);
+			this.tex = this.tex || twgl.createTexture(gl,{
+				width:15,
+				height:15,
+				internalFormat:gl.R32F,
+				format:gl.RED,
+				type:gl.FLOAT,
+				mag:gl.NEAREST,
+				min:gl.NEAREST,
+				src:getGaussMat(15)
+			});
+			//使用简易滤镜逻辑
+			var re = await Tools.easyFilter(this,{
+				image:vals.image,
+				uniforms:{
+					uGuss:this.tex,
+					uGussSize:15
+				},
+				fs:`precision mediump float;
+				varying vec2 vUV;
+				uniform sampler2D uSampler;
+				uniform sampler2D uGuss;
+				uniform float uGussSize;
+				uniform vec2 uSize;
+
+				void main(void)
+				{
+					gl_FragColor = vec4(0,0,0,0);
+					float py = -(uGussSize - 1.0) / 2.0;
+					for(float x = 0.0;x < 20.0;x++){
+						if(x >= uGussSize)
+							break;
+						for(float y = 0.0;y < 20.0;y++){
+							if(y >= uGussSize)
+								break;
+							vec2 uv = vUV + vec2((py + x) / uSize.x,(py + y) / uSize.y);
+							gl_FragColor += texture2D(uGuss,vec2(x / uGussSize,y / uGussSize)).r * texture2D(uSampler,uv);
+						}
+					}
+				}`
+			});
+			//输出图层1
+			return {image:re.outputs[0]};
+		}
+	});
+
+
+
+
+	map.addModule({
+		name:"柔光",
+		menu:["滤镜","柔光"],
+		key:"filter-blend-light",
+		inputs:[
+			{
+				name:"图像",
+				type:"image",
+				key:"image"
+			},
+			{
+				name:"柔光",
+				type:"image",
+				key:"image_light"
+			}
+		],
+		//组件的输出
+		outputs:[
+			{type:"image",name:"图像",key:"image"}
+		],
+		//渲染时执行  必须要有，需要返回运行结果，可以异步处理。
+		run:async function(vals){
+			//使用简易滤镜逻辑
+			var re = await Tools.easyFilter(this,{
+				image:vals.image,
+				uniforms:{
+					uSampler_light:vals.image_light.data,
+				},
+				fs:`precision mediump float;
+				varying vec2 vUV;
+				uniform sampler2D uSampler;
+				uniform sampler2D uSampler_light;
+
+				void main(void)
+				{
+					vec4 c1 = texture2D(uSampler,vUV);
+					vec4 c2 = texture2D(uSampler_light,vUV);
+					gl_FragColor = vec4(c1.xyz + c2.xyz * 2.0,c1.a);
+				}`
+			});
+			//输出图层1
+			return {image:re.outputs[0]};
+		}
+	});
 
 
 

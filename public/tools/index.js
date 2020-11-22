@@ -3,23 +3,12 @@
 var Tools = module.exports = {};
 
 //初始化全局通用的webgl上下文
-var canvas = Tools.canvas = document.createElement("canvas");
-//document.body.appendChild(canvas);
-//canvas.classList.add("debug");
+var canvas = Tools.canvas = canvas = document.createElement("canvas");
 //尝试获取webgl2上下文
-var gl;
-var glConfig = {
+var gl = Tools.gl = window.gl = twgl.getContext(canvas,{
 	premultipliedAlpha:false
-};
-try{
-	gl = canvas.getContext("webgl2",glConfig);
-	if(gl == null)
-		throw new Error("无法初始化webgl2");
-}catch(e){
-	//获取webgl上下文
-	gl = canvas.getContext("webgl",glConfig);
-}
-Tools.gl = gl;
+});
+
 //初始化扩展
 twgl.addExtensionsToContext(gl);
 

@@ -32,8 +32,8 @@ module.exports = function(map){
 			//使用简易滤镜逻辑
 			var re = await Tools.easyFilter(this,{
 				image:vals.image2,
-				width:image1.width,
-				height:image1.height * 2,
+				width:image1.width * 2,
+				height:image1.height,
 				uniforms:{
 					weight:vals.weight,
 					uSampler1:image1.data
@@ -47,13 +47,13 @@ module.exports = function(map){
 
 					void main(void){
 						//计算uv
-						vec2 uv = vec2(vUV.x,vUV.y * 2.0);
+						vec2 uv = vec2(vUV.x * 2.0,vUV.y);
 
 						//原图颜色
-						if(uv.y < 1.0)
+						if(uv.x < 1.0)
 							gl_FragColor = texture2D(uSampler1, uv);
 						else
-							gl_FragColor = texture2D(uSampler, uv - vec2(0.0,1.0));
+							gl_FragColor = texture2D(uSampler, uv - vec2(1.0,0.0));
 					}`
 			});
 			return {image:re.outputs[0]};

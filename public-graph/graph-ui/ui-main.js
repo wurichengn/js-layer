@@ -66,6 +66,7 @@ class Panle{
 		window.save = function(){
 			var re = map.save();
 			var data = JSON.stringify(re);
+			//console.log(data);
 			localStorage["save"] = data;
 		}
 
@@ -101,6 +102,10 @@ class Panle{
 
 		//首次运行
 		run();
+
+		this.message("dt",function(){
+			//run();
+		});
 
 		window.onkeydown = function(){
 			run();
@@ -154,7 +159,7 @@ class Panle{
 			"width":"100%",
 			"background-color":"#444",
 			">div":{
-				//"opacity":0.1,
+				//"opacity":0,
 				"display":"inline-block",
 				"height":"100%",
 				"vertical-align":"top",

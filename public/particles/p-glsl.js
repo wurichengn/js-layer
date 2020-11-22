@@ -26,7 +26,7 @@ struct Particle {
 };
 
 //尺寸
-uniform vec2 uSize;
+uniform vec2 uDataSize;
 //随机种子
 uniform float uRandSeed;
 //粒子数量
@@ -58,15 +58,20 @@ Particle getParticleOfUV(vec2 uv){
 	return p;
 }
 
-//根据序号获取粒子
-Particle getParticleOfIndex(float index){
+//根据index获取UV
+vec2 getUVOfIndex(float index){
 	//序号算uv
 	vec2 uv = vec2(0,0);
-	uv.x = mod(index,uSize.x);
-	uv.y = (index - mod(index,uSize.x)) / uSize.x;
-	uv.x = uv.x / uSize.x;
-	uv.y = uv.y / uSize.y;
-	return getParticleOfUV(uv);
+	uv.x = mod(index,uDataSize.x);
+	uv.y = (index - mod(index,uDataSize.x)) / uDataSize.x;
+	uv.x = uv.x / uDataSize.x;
+	uv.y = uv.y / uDataSize.y;
+	return uv;
+}
+
+//根据序号获取粒子
+Particle getParticleOfIndex(float index){
+	return getParticleOfUV(getUVOfIndex(index));
 }
 `)
 
@@ -108,7 +113,7 @@ float rand(){
 
 void main(){
 	//粒子下标
-	_index = gl_FragCoord.y * uSize.x + gl_FragCoord.x;
+	_index = floor(gl_FragCoord.y) * uDataSize.x + floor(gl_FragCoord.x);
 
 	//如果超出限制则清空
 	if(_index >= uCount){
@@ -117,7 +122,7 @@ void main(){
 	}
 
 	//获取粒子
-	getParticleOfUV(vUV);
+	p = getParticleOfIndex(_index);
 
 	//运行逻辑
 	run();

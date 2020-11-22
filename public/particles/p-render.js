@@ -33,8 +33,8 @@ module.exports = function(d,par){
 	this.render = function(){
 		var cfgs = {
 			//渲染视图尺寸
-			width:640,
-			height:640,
+			width:480,
+			height:480,
 			//要渲染的输入缓冲区
 			fbi:par.getFrameBuffer(),
 			//额外参数
@@ -66,8 +66,12 @@ module.exports = function(d,par){
 		gl.clearColor(0,0,0,0);
 		gl.clear(gl.COLOR_BUFFER_BIT);
 
+		//设置混合模式
+		gl.enable(gl.BLEND);
+		gl.blendFunc(gl.ONE, gl.ONE);
+
 		//渲染
-		twgl.drawBufferInfo(gl, bi,cfgs.type,bi.numElements,0,1000);
+		twgl.drawBufferInfo(gl, bi,cfgs.type,bi.numElements,0,uniforms.uCount);
 	}
 }
 
@@ -80,9 +84,16 @@ var vs = `
 in vec4 position;
 
 void main() {
+	if(float(gl_InstanceID) >= uCount){
+		gl_PointSize = 0.0;
+		return;
+	}
 	Particle p = getParticleOfIndex(float(gl_InstanceID));
-	gl_Position = vec4(p.position.xyz,1.0);
-	gl_PointSize = p.life;
+	if(p.weight == 0.0)
+		return;
+	gl_Position = vec4(p.position.xyz * 0.5,1.0);
+	gl_PointSize = 1.0 / (1.5 - p.position.z) * 10.0;
+	gl_Position.z = 0.0;
 }`;
 
 //默认片元着色器
@@ -92,6 +103,11 @@ precision highp float;
 out vec4 color;
 
 void main() {
-	color = vec4(1,1,1,1);
+	// 距离
+    float dist = distance(gl_PointCoord, vec2(0.5, 0.5)) * 2.0;
+    dist = min(max(1.0 - dist,0.0),1.0);
+    dist = dist * dist;
+    //dist = dist * 0.1;
+	color = vec4(1.0, 1.0, 1.0, dist);
 }
 `;
