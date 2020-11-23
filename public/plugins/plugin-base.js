@@ -4,6 +4,7 @@ var initModuleImage = require("./plugin-base-module-image.js");
 var initModuleOther = require("./plugin-base-module-other.js");
 var initModuleFilter = require("./plugin-base-module-filter.js");
 var initModuleLayer = require("./plugin-base-module-layer.js");
+var initModuleVoxel = require("./plugin-base-module-voxel.js");
 
 module.exports = function(map){
 	//加入类型
@@ -17,4 +18,6 @@ module.exports = function(map){
 	initModuleLayer(map);
 	//加入其他组件
 	initModuleOther(map);
+	//加入体素矩阵
+	initModuleVoxel(map);
 }

@@ -13,6 +13,22 @@ module.exports = function(map){
 
 
 	map.addType({
+		//数据类型名
+		name:"变换矩阵",
+		//类型全局唯一的下标
+		key:"mat4"
+	});
+
+
+	map.addType({
+		//数据类型名
+		name:"体素数据",
+		//类型全局唯一的下标
+		key:"voxel-data"
+	});
+
+
+	map.addType({
 		name:"文件",
 		key:"file",
 		//类型选择器，一个函数返回一个html节点    如果没有这个属性则只能通过节点的形式输入

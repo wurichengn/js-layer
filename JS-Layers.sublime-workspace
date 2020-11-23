@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"voxel",
+				"voxel-data"
+			],
+			[
+				"uGuss",
+				"uGussSize"
+			],
+			[
+				"Arr",
+				"Float32Array"
+			],
+			[
+				"uG",
+				"uGussSize"
+			],
+			[
 				"unif",
 				"uniform"
 			],
@@ -284,10 +300,6 @@
 				"voxel_show"
 			],
 			[
-				"voxel",
-				"voxel-show"
-			],
-			[
 				"pointer",
 				"pointer"
 			],
@@ -502,18 +514,6 @@
 			[
 				"alpha",
 				"alpha_uper_render"
-			],
-			[
-				"is",
-				"isUper"
-			],
-			[
-				"uin",
-				"uniform"
-			],
-			[
-				"sam",
-				"sampler2D"
 			]
 		]
 	},
@@ -532,79 +532,25 @@
 			"file": "public-graph/graph-ui/ui-main.js",
 			"settings":
 			{
-				"buffer_size": 3770,
+				"buffer_size": 3796,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "public/particles/p-module.js",
+			"file": "public/plugins/plugin-base-module-voxel.js",
 			"settings":
 			{
-				"buffer_size": 9098,
+				"buffer_size": 2993,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "public/plugins/plugin-base-module-filter.js",
+			"file": "public/plugins/plugin-base-types.js",
 			"settings":
 			{
-				"buffer_size": 12655,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/particles/p-glsl.js",
-			"settings":
-			{
-				"buffer_size": 2083,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/particles/p-main.js",
-			"settings":
-			{
-				"buffer_size": 3142,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/tools/index.js",
-			"settings":
-			{
-				"buffer_size": 392,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/particles/p-render.js",
-			"settings":
-			{
-				"buffer_size": 2090,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/plugins/plugin-base-module-other.js",
-			"settings":
-			{
-				"buffer_size": 3109,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/D/CodeTest/2020-11/分享-OpenGL简介/tools.js",
-			"settings":
-			{
-				"buffer_size": 1525,
+				"buffer_size": 2851,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -614,15 +560,6 @@
 			"settings":
 			{
 				"buffer_size": 1281,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/tools/tools-easy-filter.js",
-			"settings":
-			{
-				"buffer_size": 3683,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -684,12 +621,25 @@
 		"/D/CodeTest/Self/JS-Layers/public",
 		"/D/CodeTest/Self/JS-Layers/public/plugins",
 		"/D/CodeTest/Self/JS-Layers/public-graph",
-		"/D/CodeTest/Self/JS-Layers/public-graph/graph-ui",
 		"/D/CodeTest/Self/JS-Layers/src"
 	],
 	"file_history":
 	[
+		"/D/CodeTest/Self/JS-Layers/public/plugins/plugin-base.js",
 		"/D/CodeTest/Self/JS-Layers/public/plugins/plugin-base-module-filter.js",
+		"/D/CodeTest/Self/JS-Layers/public/plugins/plugin-base-types.js",
+		"/D/CodeTest/2020-11/分享-OpenGL简介/5.html",
+		"/D/CodeTest/Self/JS-Layers/public/particles/p-module.js",
+		"/D/CodeTest/Self/JS-Layers/module.html",
+		"/D/CodeTest/Self/JS-Layers/public/tools/tools-easy-filter.js",
+		"/D/CodeTest/Self/JS-Layers/public/particles/p-glsl.js",
+		"/D/CodeTest/Self/JS-Layers/public/particles/p-main.js",
+		"/D/CodeTest/Self/JS-Layers/public/tools/index.js",
+		"/D/CodeTest/Self/JS-Layers/public/particles/p-render.js",
+		"/D/CodeTest/Self/JS-Layers/public/plugins/plugin-base-module-other.js",
+		"/D/CodeTest/2020-11/分享-OpenGL简介/tools.js",
+		"/D/CodeTest/Self/JS-Layers/public/particles/p-effector.js",
+		"/D/CodeTest/Self/JS-Layers/build/demos/2pts.json",
 		"/D/package.json",
 		"/D/CodeWork/Cpany/前端整合/rendering/alpha-new/main.js",
 		"/D/CodeTest/2020-11/分享-OpenGL简介/2 - 副本.html",
@@ -698,7 +648,6 @@
 		"/D/CodeTest/Self/JS-Layers/public/map/map-main.js",
 		"/D/CodeTest/Self/JS-Layers/public/particles/index.js",
 		"/D/CodeWork/Cpany/gits/不同医院的标注配置/DR标注任务.js",
-		"/D/CodeTest/Self/JS-Layers/public/tools/tools-easy-filter.js",
 		"/D/CodeTest/Self/JS-Layers/public/glsl-pack/gp-main.js",
 		"/D/CodeTest/2020-11/分享-OpenGL简介/7.html",
 		"/D/CodeTest/Self/JS-Layers/public/tools/tools-get-image.js",
@@ -710,9 +659,7 @@
 		"/D/临时文件夹/CCTA/ljj/data.txt",
 		"/D/临时文件夹/CCTA/lyj/saves/p27-2020-11-13-22.json",
 		"/D/CodeTest/2020-10/twgl/test1.html",
-		"/D/CodeTest/Self/JS-Layers/public/tools/index.js",
 		"/D/Code/MyLib/Git/前端/public_modules/lcg-webgl/lcg-webgl.js",
-		"/D/CodeTest/Self/JS-Layers/public/plugins/plugin-base-types.js",
 		"/D/CodeTest/Self/pixi.js-dev/pixi.js-dev/packages/core/src/state/StateSystem.ts",
 		"/D/CodeTest/Self/pixi.js-dev/pixi.js-dev/packages/core/src/state/utils/mapWebGLBlendModesToPixi.ts",
 		"/D/CodeTest/Self/pixi.js-dev/pixi.js-dev/packages/canvas/canvas-mesh/src/CanvasMeshRenderer.ts",
@@ -723,17 +670,14 @@
 		"/D/CodeTest/Self/JS-Layers/public-graph/graph-ui/ui-main.js",
 		"/D/CodeTest/Self/JS-Layers/public/map/map-node.js",
 		"/D/CodeTest/2020-8/pif.html",
-		"/D/CodeTest/Self/JS-Layers/public/plugins/plugin-base-module-other.js",
 		"/D/CodeTest/2020-10/twgl/test.html",
 		"/D/CodeTest/Self/JS-Layers/public/renderer/filter/filter-base.js",
 		"/D/CodeTest/Self/JS-Layers/public/map-ui/map-ui-map.js",
 		"/D/CodeTest/2020-10/twgl/twgl-full.js",
-		"/D/CodeTest/Self/JS-Layers/module.html",
 		"/D/CodeTest/Self/JS-Layers/build/demos/1shadow.json",
 		"/D/CodeTest/Self/JS-Layers/public-graph/graph-ui/index.js",
 		"/D/CodeTest/Self/JS-Layers/webpack.config.js",
 		"/D/CodeTest/Self/JS-Layers/public/map-ui/map-ui-map-node.js",
-		"/D/CodeTest/Self/JS-Layers/public/plugins/plugin-base.js",
 		"/D/CodeTest/Self/JS-Layers/public/plugins/plugin-base-module-layer.js",
 		"/D/CodeTest/Self/JS-Layers/public/map-ui/map-store.js",
 		"/D/CodeTest/Self/JS-Layers/public/map-ui/map-ui-attrs.js",
@@ -742,7 +686,6 @@
 		"/D/CodeTest/Self/JS-Layers/build/lib/color-thief.js",
 		"/D/CodeTest/Self/JS-Layers/public/map-ui/map-ui-menu.js",
 		"/D/CodeTest/Self/JS-Layers/build/css/index.css",
-		"/D/CodeTest/2020-11/分享-OpenGL简介/tools.js",
 		"/D/临时文件夹/面试概要.txt",
 		"/D/临时文件夹/678f9ff153f41c6efcc78febef8e9cd.jpg",
 		"/C/Tools/FlashFXP/Cache/~flashfxp/8C32F23F_edit.tmp/license",
@@ -809,14 +752,7 @@
 		"/D/CodeWork/Cpany/gits/Service/web-project/build/talk/index.html",
 		"/D/CodeWork/Cpany/gits/Service/web-project/build/talk/index.js",
 		"/D/test.html",
-		"/C/Tools/FlashFXP/Cache/~flashfxp/D3F192A0_edit.tmp/crow_pacs.properties",
-		"/D/CodeWork/Cpany/gits/weiyun-plugin/plugin.js",
-		"/D/CodeWork/Cpany/gits/weiyun-plugin/web-project/build/plugin.js",
-		"/D/CodeTest/Self/JS-Layers/public/global/index.js",
-		"/D/CodeWork/Cpany/gits/AlphaProject/Alpha-Label/alpha-new/ui/ui-index.js",
-		"/D/CodeWork/Cpany/gits/AlphaProject/Alpha-Label/public/actions/label-server-new/label-server-new.js",
-		"/D/临时文件夹/math-growing.js",
-		"/D/CodeWork/Cpany/gits/AlphaProject/ImageServer/web-project/public/maths/math-growing.js"
+		"/C/Tools/FlashFXP/Cache/~flashfxp/D3F192A0_edit.tmp/crow_pacs.properties"
 	],
 	"find":
 	{
@@ -914,6 +850,13 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"gl_FragColor",
+			"640",
+			"视图矩阵",
+			"image",
+			"save",
+			"模糊",
+			"15",
 			"颜色叠加",
 			"60",
 			"引力点",
@@ -1034,14 +977,7 @@
 			"OPACITY_BL",
 			"OPEN_ANGLE",
 			"uSampler",
-			"iAngle",
-			"COUNT_LENGTH",
-			"length",
-			"graphics",
-			"input",
-			".input",
-			"uid",
-			"graphics"
+			"iAngle"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1076,8 +1012,8 @@
 						"selection":
 						[
 							[
-								111,
-								111
+								30,
+								30
 							]
 						],
 						"settings":
@@ -1091,7 +1027,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -1100,15 +1036,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3770,
+						"buffer_size": 3796,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2116,
-								2116
+								681,
+								681
 							]
 						],
 						"settings":
@@ -1119,27 +1055,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2025.0,
+						"translation.y": 900.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "public/particles/p-module.js",
+					"file": "public/plugins/plugin-base-module-voxel.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9098,
+						"buffer_size": 2993,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8502,
-								8502
+								142,
+								142
 							]
 						],
 						"settings":
@@ -1150,7 +1086,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 10125.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -1158,19 +1094,19 @@
 				},
 				{
 					"buffer": 3,
-					"file": "public/plugins/plugin-base-module-filter.js",
+					"file": "public/plugins/plugin-base-types.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 12655,
+						"buffer_size": 2851,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3580,
-								3580
+								98,
+								98
 							]
 						],
 						"settings":
@@ -1181,7 +1117,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 4956.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1189,190 +1125,6 @@
 				},
 				{
 					"buffer": 4,
-					"file": "public/particles/p-glsl.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2083,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1347,
-								1347
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 2650.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "public/particles/p-main.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3142,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1539,
-								1539
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1727.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "public/tools/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 392,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								63,
-								63
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "public/particles/p-render.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2090,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1572,
-								1572
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1950.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "public/plugins/plugin-base-module-other.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3109,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								960,
-								960
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 525.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "/D/CodeTest/2020-11/分享-OpenGL简介/tools.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1525,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								845,
-								845
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": false,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
 					"file": "public/particles/p-effector.js",
 					"semi_transient": false,
 					"settings":
@@ -1384,8 +1136,8 @@
 						"selection":
 						[
 							[
-								767,
-								767
+								770,
+								770
 							]
 						],
 						"settings":
@@ -1396,41 +1148,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 817.0,
+						"translation.y": 951.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "public/tools/tools-easy-filter.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3683,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								495,
-								464
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
