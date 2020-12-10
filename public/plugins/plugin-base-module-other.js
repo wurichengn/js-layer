@@ -3,6 +3,34 @@ var Tools = require("tools");
 module.exports = function(map){
 
 	map.addModule({
+		name:"JS代码",
+		menu:["其他","JS代码"],
+		key:"other-js-code-output",
+		inputs:[
+			{type:"code",name:"代码",key:"code",default:"return {};"}
+		],
+		//组件的输出
+		outputs:[
+			{type:"*",name:"输出",key:"out"}
+		],
+		//渲染时执行  必须要有，需要返回运行结果，可以异步处理。
+		run:async function(vals){
+			if(this.lastCode != vals.code){
+				this.lastCode = vals.code;
+				this.func = new Function(vals.code);
+			}
+			var re = this.func();
+			if(re instanceof Promise)
+				re = await re;
+			//输出图层1
+			return {out:re};
+		}
+	});
+
+
+
+
+	map.addModule({
 		name:"图像对比",
 		menu:["其他","图像对比"],
 		key:"image-comparison",

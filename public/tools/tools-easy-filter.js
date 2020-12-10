@@ -69,6 +69,13 @@ module.exports = async function(module,d){
 	//接收info主体
 	var info = module.filterInfo;
 
+	//初始化着色器
+	if(info.lastFS != cfg.fs || info.lastVS != cfg.vs){
+		info.pi = twgl.createProgramInfo(gl, [cfg.vs,cfg.fs]);
+		info.lastFS = cfg.fs;
+		info.lastVS = cfg.vs;
+	}
+
 	//======渲染流程开始======
 	//绑定缓冲区
 	if(!cfg.close_frame)
@@ -137,8 +144,6 @@ module.exports = async function(module,d){
 //初始化Info
 var initInfo = function(cfg){
 	var re = {};
-	//初始化着色器
-	re.pi = twgl.createProgramInfo(gl, [cfg.vs,cfg.fs]);
 	//绑定顶点数据
 	re.bi = twgl.createBufferInfoFromArrays(gl, cfg.buffers);
 	//初始化帧缓冲区

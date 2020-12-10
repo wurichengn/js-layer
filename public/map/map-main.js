@@ -109,7 +109,10 @@ class LogicMap{
 			};
 			var nds = re.nodes = [];
 			for(var i in nodes){
-				nds.push(nodes[i].attrs);
+				var nodeAttrs = {...nodes[i].attrs};
+				if(nodeAttrs["outputs"])
+					delete nodeAttrs["outputs"];
+				nds.push(nodeAttrs);
 			}
 			return re;
 		}

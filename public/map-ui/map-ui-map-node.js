@@ -108,6 +108,11 @@ class UIMapNode{
 			render();
 		});
 
+		//侦听节点变化
+		node.message("change",function(){
+			d.main.trigger("struct-change");
+		});
+
 		//点击切换聚焦
 		this.on("click",function(){
 			d.main.store.states.activeNode = self;
@@ -258,7 +263,7 @@ class InputItem{
 
 		//状态处理
 		var render = function(){
-			if(d.main.store.states.activeOutputNode && (d.main.store.states.activeOutputNode.data.type == d.data.type || d.data.type == "*"))
+			if(d.main.store.states.activeOutputNode && (d.main.store.states.activeOutputNode.data.type == d.data.type || d.main.store.states.activeOutputNode.data.type == "*" || d.data.type == "*"))
 				self.ids["plugin"].classList.add("active");
 			else
 				self.ids["plugin"].classList.remove("active");
@@ -272,7 +277,7 @@ class InputItem{
 		//接口鼠标放开事件
 		lcg.domEvent(self.ids["plugin"],"mouseup",function(e){
 			var node = d.main.store.states.activeOutputNode;
-			if(node == null || (node.data.type != d.data.type && d.data.type != "*") || node.node == d.node)
+			if(node == null || (node.data.type != d.data.type && node.data.type != "*" && d.data.type != "*") || node.node == d.node)
 				return;
 			//添加关联项
 			d.node.addLink(d.data.key,node.node,node.data.key);
@@ -304,7 +309,7 @@ class OutputItem{
 		this.extend(ItemStyle,d);
 
 		//如果有输出UI扩展
-		if(d.main.map.types[d.data.type].outputUIExpand)
+		if(d.main.map.types[d.data.type] && d.main.map.types[d.data.type].outputUIExpand)
 			d.main.map.types[d.data.type].outputUIExpand(self);
 
 		//输出接口操作

@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"norm",
+				"normalize"
+			],
+			[
+				"uArgs",
+				"uArgs1"
+			],
+			[
+				"voxe",
+				"voxel"
+			],
+			[
+				"fnc",
+				"function"
+			],
+			[
+				"Func",
+				"function"
+			],
+			[
 				"voxel",
 				"voxel-data"
 			],
@@ -296,10 +316,6 @@
 				"StageUnit"
 			],
 			[
-				"voxe",
-				"voxel_show"
-			],
-			[
 				"pointer",
 				"pointer"
 			],
@@ -498,22 +514,6 @@
 			[
 				"light",
 				"light_mat_n"
-			],
-			[
-				"obj",
-				"objTest"
-			],
-			[
-				"low",
-				"lowSize"
-			],
-			[
-				"End",
-				"firstEnd"
-			],
-			[
-				"alpha",
-				"alpha_uper_render"
 			]
 		]
 	},
@@ -529,19 +529,37 @@
 			}
 		},
 		{
-			"file": "public-graph/graph-ui/ui-main.js",
+			"file": "module.html",
 			"settings":
 			{
-				"buffer_size": 3796,
+				"buffer_size": 1900,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "public/plugins/plugin-base-module-voxel.js",
+			"file": "build/res/voxel_data.js",
 			"settings":
 			{
-				"buffer_size": 2993,
+				"buffer_size": 565,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public-graph/graph-ui/ui-main.js",
+			"settings":
+			{
+				"buffer_size": 4382,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/map/map-main.js",
+			"settings":
+			{
+				"buffer_size": 4355,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -550,16 +568,69 @@
 			"file": "public/plugins/plugin-base-types.js",
 			"settings":
 			{
-				"buffer_size": 2851,
+				"buffer_size": 3553,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "public/particles/p-effector.js",
+			"file": "/D/临时文件夹/ls.cpp",
 			"settings":
 			{
-				"buffer_size": 1281,
+				"buffer_size": 2717,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/临时文件夹/lsm.cpp",
+			"settings":
+			{
+				"buffer_size": 10536,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/plugins/plugin-base-module-other.js",
+			"settings":
+			{
+				"buffer_size": 3619,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/plugins/plugin-base-module-voxel.js",
+			"settings":
+			{
+				"buffer_size": 4902,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/tools/index.js",
+			"settings":
+			{
+				"buffer_size": 404,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/tools/tools-easy-filter.js",
+			"settings":
+			{
+				"buffer_size": 3791,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/particles/p-module.js",
+			"settings":
+			{
+				"buffer_size": 9097,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -617,28 +688,34 @@
 	"expanded_folders":
 	[
 		"/D/CodeTest/Self/JS-Layers",
-		"/D/CodeTest/Self/JS-Layers/build",
 		"/D/CodeTest/Self/JS-Layers/public",
-		"/D/CodeTest/Self/JS-Layers/public/plugins",
-		"/D/CodeTest/Self/JS-Layers/public-graph",
-		"/D/CodeTest/Self/JS-Layers/src"
+		"/D/CodeTest/Self/JS-Layers/public/map"
 	],
 	"file_history":
 	[
+		"/D/CodeTest/Self/JS-Layers/build/demos/sdf1.json",
+		"/C/Tools/nginx-1.15.5/nginx-1.15.5/conf/nginx.conf",
+		"/D/CodeTest/Self/JS-Layers/build/lib/pako.min.js",
+		"/D/CodeTest/Self/JS-Layers/build/demos/voxel2.json",
+		"/D/CodeTest/Self/JS-Layers/build/demos/voxel1.json",
+		"/D/CodeTest/Self/JS-Layers/public/map/map-node.js",
+		"/D/CodeTest/Self/JS-Layers/public/plugins/plugin-base-module-other.js",
+		"/D/CodeTest/Self/JS-Layers/public/map-ui/map-ui-map-node.js",
+		"/D/CodeTest/Self/JS-Layers/public/plugins/plugin-base-types.js",
+		"/D/CodeTest/Self/JS-Layers/module.html",
+		"/D/CodeTest/Self/JS-Layers/public/particles/p-effector.js",
+		"/D/CodeTest/Self/JS-Layers/public/map-ui/map-ui-map.js",
+		"/D/CodeTest/Self/JS-Layers/build/ace-min/theme-tomorrow_night.js",
 		"/D/CodeTest/Self/JS-Layers/public/plugins/plugin-base.js",
 		"/D/CodeTest/Self/JS-Layers/public/plugins/plugin-base-module-filter.js",
-		"/D/CodeTest/Self/JS-Layers/public/plugins/plugin-base-types.js",
 		"/D/CodeTest/2020-11/分享-OpenGL简介/5.html",
 		"/D/CodeTest/Self/JS-Layers/public/particles/p-module.js",
-		"/D/CodeTest/Self/JS-Layers/module.html",
 		"/D/CodeTest/Self/JS-Layers/public/tools/tools-easy-filter.js",
 		"/D/CodeTest/Self/JS-Layers/public/particles/p-glsl.js",
 		"/D/CodeTest/Self/JS-Layers/public/particles/p-main.js",
 		"/D/CodeTest/Self/JS-Layers/public/tools/index.js",
 		"/D/CodeTest/Self/JS-Layers/public/particles/p-render.js",
-		"/D/CodeTest/Self/JS-Layers/public/plugins/plugin-base-module-other.js",
 		"/D/CodeTest/2020-11/分享-OpenGL简介/tools.js",
-		"/D/CodeTest/Self/JS-Layers/public/particles/p-effector.js",
 		"/D/CodeTest/Self/JS-Layers/build/demos/2pts.json",
 		"/D/package.json",
 		"/D/CodeWork/Cpany/前端整合/rendering/alpha-new/main.js",
@@ -668,16 +745,13 @@
 		"/D/CodeTest/Self/pixi.js-dev/pixi.js-dev/packages/canvas/canvas-sprite/src/CanvasSpriteRenderer.ts",
 		"/D/CodeTest/Self/pixi.js-dev/pixi.js-dev/packages/core/src/textures/BaseTexture.ts",
 		"/D/CodeTest/Self/JS-Layers/public-graph/graph-ui/ui-main.js",
-		"/D/CodeTest/Self/JS-Layers/public/map/map-node.js",
 		"/D/CodeTest/2020-8/pif.html",
 		"/D/CodeTest/2020-10/twgl/test.html",
 		"/D/CodeTest/Self/JS-Layers/public/renderer/filter/filter-base.js",
-		"/D/CodeTest/Self/JS-Layers/public/map-ui/map-ui-map.js",
 		"/D/CodeTest/2020-10/twgl/twgl-full.js",
 		"/D/CodeTest/Self/JS-Layers/build/demos/1shadow.json",
 		"/D/CodeTest/Self/JS-Layers/public-graph/graph-ui/index.js",
 		"/D/CodeTest/Self/JS-Layers/webpack.config.js",
-		"/D/CodeTest/Self/JS-Layers/public/map-ui/map-ui-map-node.js",
 		"/D/CodeTest/Self/JS-Layers/public/plugins/plugin-base-module-layer.js",
 		"/D/CodeTest/Self/JS-Layers/public/map-ui/map-store.js",
 		"/D/CodeTest/Self/JS-Layers/public/map-ui/map-ui-attrs.js",
@@ -746,23 +820,20 @@
 		"/D/CodeTest/Self/JS-Layers/alpha-new/main.js",
 		"/C/Users/LCG/Documents/WeChat Files/wxid_2b2qzp857v7b21/FileStorage/File/2020-08/reportData.js",
 		"/D/CodeTest/Self/JS-Layers/public/draws/uints/draws-layer.js",
-		"/D/CodeTest/Self/JS-Layers/public/draws/draws-util.js",
-		"/D/CodeTest/Self/JS-Layers/public/draws/draws-layer.js",
-		"/D/CodeTest/Self/JS-Layers/public/draws/draws-unit.js",
-		"/D/CodeWork/Cpany/gits/Service/web-project/build/talk/index.html",
-		"/D/CodeWork/Cpany/gits/Service/web-project/build/talk/index.js",
-		"/D/test.html",
-		"/C/Tools/FlashFXP/Cache/~flashfxp/D3F192A0_edit.tmp/crow_pacs.properties"
+		"/D/CodeTest/Self/JS-Layers/public/draws/draws-util.js"
 	],
 	"find":
 	{
-		"height": 44.0
+		"height": 43.0
 	},
 	"find_in_files":
 	{
 		"height": 128.0,
 		"where_history":
 		[
+			"D:\\CodeTest\\Self\\JS-Layers",
+			"D:\\CodeTest\\Self\\JS-Layers\\public-graph",
+			"D:\\CodeTest\\Self\\JS-Layers\\public",
 			"D:\\CodeTest\\Self\\pixi.js-dev\\pixi.js-dev",
 			"D:\\CodeTest\\Self\\JS-Layers\\public",
 			"D:\\CodeTest\\Self\\JS-Layers\\public\\renderer",
@@ -850,6 +921,19 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"zoom",
+			"650px",
+			"save",
+			"编程-体素渲染流程",
+			"体素渲染",
+			"document",
+			"550px",
+			"450px",
+			"350px",
+			"\"*\"",
+			"outputUIExpand",
+			"JS代码输出",
+			"视图矩阵",
 			"gl_FragColor",
 			"640",
 			"视图矩阵",
@@ -964,20 +1048,7 @@
 			"fff",
 			"20px",
 			"10px",
-			"modules",
-			"Module",
-			"types",
-			"数据类型",
-			"types",
-			"uid",
-			"256",
-			"iAngle",
-			".r",
-			"anchor",
-			"OPACITY_BL",
-			"OPEN_ANGLE",
-			"uSampler",
-			"iAngle"
+			"modules"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -996,7 +1067,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 6,
 			"sheets":
 			[
 				{
@@ -1012,8 +1083,8 @@
 						"selection":
 						[
 							[
-								30,
-								30
+								40,
+								40
 							]
 						],
 						"settings":
@@ -1027,24 +1098,86 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "public-graph/graph-ui/ui-main.js",
+					"file": "module.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3796,
+						"buffer_size": 1900,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								681,
-								681
+								705,
+								705
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 300.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "build/res/voxel_data.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 565,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								309,
+								309
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "public-graph/graph-ui/ui-main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4382,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1008,
+								1008
 							]
 						],
 						"settings":
@@ -1055,27 +1188,184 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 900.0,
+						"translation.y": 1296.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "public/plugins/plugin-base-module-voxel.js",
+					"buffer": 4,
+					"file": "public/map/map-main.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2993,
+						"buffer_size": 4355,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								142,
-								142
+								1798,
+								1798
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2016.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "public/plugins/plugin-base-types.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3553,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								571,
+								571
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 936.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/D/临时文件夹/ls.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2717,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								32,
+								32
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": false,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/D/临时文件夹/lsm.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10536,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2343,
+								2343
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": false,
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2016.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "public/plugins/plugin-base-module-other.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3619,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1470,
+								1470
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1656.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "public/plugins/plugin-base-module-voxel.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4902,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								55,
+								55
 							]
 						],
 						"settings":
@@ -1093,20 +1383,81 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "public/plugins/plugin-base-types.js",
+					"buffer": 10,
+					"file": "public/tools/index.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2851,
+						"buffer_size": 404,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								98,
-								98
+								233,
+								233
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "public/tools/tools-easy-filter.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3791,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2772,
+								2772
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2916.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "public/particles/p-module.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9097,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								183,
+								183
 							]
 						],
 						"settings":
@@ -1120,38 +1471,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "public/particles/p-effector.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1281,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								770,
-								770
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/babel-sublime-master/JavaScript (Babel).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 951.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
+					"stack_index": 11,
 					"type": "text"
 				}
 			]

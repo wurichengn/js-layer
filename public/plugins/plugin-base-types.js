@@ -47,6 +47,7 @@ module.exports = function(map){
 		selector:function(value,onchange,cfg,md){
 			//数值输入框
 			var re = <input value={value} style="width:100%;" type={cfg.input_type || "number"} min={cfg.min} max={cfg.max} step={cfg.step}/>;
+			re.value = value;
 
 			//回调处理
 			var callback = function(e){
@@ -138,6 +139,41 @@ module.exports = function(map){
 				var color = dt.outputs[md.data.key];
 				dom.style["background-color"] = color;
 			});
+		}
+	});
+
+
+	map.addType({
+		//数据类型名
+		name:"代码",
+		//类型全局唯一的下标
+		key:"code",
+		selector:function(value,onchange,d){
+			//默认配置
+			var cfg = {
+				//主题
+				theme:"tomorrow_night",
+				//语言类型
+				mode:"javascript"
+			}
+			//写入配置
+			for(var i in d)
+				cfg[i] = d[i];
+
+			//创建容器
+			var div = <div style="margin:8px;height:600px;border:1px solid rgba(255,255,255,0.3);"></div>;
+			var panle = <div>
+				{div}
+				<button onclick={function(){onchange(editor.getValue());}}>保存</button>
+			</div>;
+
+			//初始化编辑器
+			var editor = ace.edit(div);
+			editor.setTheme("ace/theme/" + cfg.theme);
+			editor.getSession().setMode("ace/mode/" + cfg.mode);
+			editor.setValue(value);
+
+			return panle;
 		}
 	});
 }

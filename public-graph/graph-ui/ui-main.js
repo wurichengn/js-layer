@@ -37,6 +37,9 @@ class Panle{
 		//初始化上下文
 		self.ids["canvas"].getContext("2d");
 
+		//初始化消息
+		initEvent(self.ids["top"],"view-");
+
 
 		//初始化一个流程图
 		var map = Map.new();
@@ -65,8 +68,12 @@ class Panle{
 		//保存
 		window.save = function(){
 			var re = map.save();
-			var data = JSON.stringify(re);
-			//console.log(data);
+			var data = JSON.stringify(re,function(k,v){
+				if(v != null && v.buffer && (v.buffer instanceof ArrayBuffer || v.buffer instanceof SharedArrayBuffer))
+					return null;
+				return v;
+			});
+			console.log(data);
 			localStorage["save"] = data;
 		}
 
@@ -164,7 +171,7 @@ class Panle{
 				"height":"100%",
 				"vertical-align":"top",
 				".left":{
-					"width":"calc(100% - 350px)",
+					"width":"calc(100% - 850px)",
 					">div":{
 						".top":{
 							"height":"50%",
@@ -187,10 +194,30 @@ class Panle{
 					}
 				},
 				".right":{
-					"width":"350px",
+					"width":"850px",
 					"border-left":"1px solid #555"
 				}
 			}
 		});
 	}
+}
+
+
+
+var initEvent = function(dom,key){
+	lcg.domEvent(dom,"click",function(e){
+		lcg.triggerDom(key + "click",e);
+	});
+
+	lcg.domEvent(dom,"mousedown",function(e){
+		lcg.triggerDom(key + "mousedown",e);
+	});
+
+	lcg.domEvent(dom,"mousemove",function(e){
+		lcg.triggerDom(key + "mousemove",e);
+	});
+
+	lcg.domEvent(dom,"mouseup",function(e){
+		lcg.triggerDom(key + "mouseup",e);
+	});
 }
