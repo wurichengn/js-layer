@@ -84,8 +84,8 @@ module.exports = function(map){
 				if(!isd)
 					return;
 				isd = true;
-				twgl.m4.rotateZ(self.mat4,-(e.x - ex) / 100,self.mat4);
-				twgl.m4.rotateY(self.mat4,(e.y - ey) / 100,self.mat4);
+				twgl.m4.rotateY(self.mat4,(e.x - ex) / 100,self.mat4);
+				twgl.m4.rotateX(self.mat4,(e.y - ey) / 100,self.mat4);
 				ex = e.x;
 				ey = e.y;
 				self.sendMessage("change");
@@ -117,7 +117,9 @@ module.exports = function(map){
 			{type:"float",name:"uArgs1（0-1）",key:"args1",use_link:false,default:0,input_type:"range",min:0,max:1,step:0.001},
 			{type:"float",name:"uArgs2（0-1）",key:"args2",use_link:false,default:0,input_type:"range",min:0,max:1,step:0.001},
 			{type:"float",name:"uArgs3（0-1）",key:"args3",use_link:false,default:0,input_type:"range",min:0,max:1,step:0.001},
-			{type:"float",name:"uArgs4（0-1）",key:"args4",use_link:false,default:0,input_type:"range",min:0,max:1,step:0.001}
+			{type:"float",name:"uArgs4（0-1）",key:"args4",use_link:false,default:0,input_type:"range",min:0,max:1,step:0.001},
+			{type:"image",name:"uTex1",key:"img1"},
+			{type:"image",name:"uTex2",key:"img2"}
 		],
 		//组件的输出
 		outputs:[
@@ -163,22 +165,38 @@ module.exports = function(map){
 				twgl.setTextureFromArray(gl,this.tex,voxel.data,updateData);
 			}
 
+			//设置uniforms
+			var uniforms = {
+				uViewMat:vals.mat,
+				uVoxel:this.tex,
+				uColor:this.ctex,
+				uVoxelSize:[voxel.width,voxel.height,voxel.depth],
+				//参数
+				uArgs1:vals.args1,
+				uArgs2:vals.args2,
+				uArgs3:vals.args3,
+				uArgs4:vals.args4
+			};
+
+			//贴图输入处理
+			if(vals.img1){
+				//转换图像
+				img1 = await Tools.getImage(vals.img1,"texture",{gl:gl});
+				uniforms["uTex1"] = img1.data;
+			}
+
+			if(vals.img2){
+				//转换图像
+				img2 = await Tools.getImage(vals.img2,"texture",{gl:gl});
+				uniforms["uTex2"] = img2.data;
+			}
+
 			//使用简易滤镜逻辑
 			var re = await Tools.easyFilter(this,{
 				image:{gl:gl,data:null,type:"texture",width:1,height:1},
 				width:480,
 				height:480,
-				uniforms:{
-					uViewMat:vals.mat,
-					uVoxel:this.tex,
-					uColor:this.ctex,
-					uVoxelSize:[voxel.width,voxel.height,voxel.depth],
-					//参数
-					uArgs1:vals.args1,
-					uArgs2:vals.args2,
-					uArgs3:vals.args3,
-					uArgs4:vals.args4
-				},
+				uniforms:uniforms,
 				vs:`
 				#version 300 es
 				in vec4 position;
@@ -200,9 +218,8 @@ module.exports = function(map){
 
 
 
-
 //基本代码
-gp.addLib("voxel-base",`#version 300 es
+gp.addLib("shader-base",`#version 300 es
 precision mediump float;
 precision highp sampler3D;
 in vec2 vUV;
@@ -218,7 +235,19 @@ uniform float uArgs2;
 uniform float uArgs3;
 uniform float uArgs4;
 
+uniform sampler2D uTex1;
+uniform sampler2D uTex2;
+
+const float PI = 3.141592654;
+
 out vec4 outColor;
+
+`)
+
+
+//基本代码
+gp.addLib("voxel-base",`
+#include shader-base;
 
 //光线结构体
 struct Ray {
