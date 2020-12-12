@@ -131,7 +131,6 @@ module.exports = function(map){
 			var image = vals.image;
 			var wbl = image.width / vals.width;
 			var hbl = image.height / vals.height;
-			console.log(wbl,hbl,image);
 			//使用简易滤镜逻辑
 			var re = await Tools.easyFilter(this,{
 				image:vals.image,

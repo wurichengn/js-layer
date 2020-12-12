@@ -10,7 +10,7 @@ module.exports = function(map){
 
 	map.addModule({
 		name:"视图旋转矩阵",
-		menu:["体素","视图旋转矩阵"],
+		menu:["学习工具","视图旋转矩阵"],
 		key:"voxel-mat-view",
 		inputs:[],
 		//组件的输出
@@ -59,7 +59,7 @@ module.exports = function(map){
 
 	map.addModule({
 		name:"对象旋转矩阵",
-		menu:["体素","对象旋转矩阵"],
+		menu:["学习工具","对象旋转矩阵"],
 		key:"voxel-mat-obj-rotate",
 		inputs:[],
 		//组件的输出
@@ -108,7 +108,7 @@ module.exports = function(map){
 
 	map.addModule({
 		name:"编程-体素渲染",
-		menu:["体素","编程-体素渲染"],
+		menu:["学习工具","编程-渲染"],
 		key:"voxel-render-code",
 		inputs:[
 			{type:"mat4",name:"矩阵",key:"mat"},
@@ -214,8 +214,70 @@ module.exports = function(map){
 			return {image:re.outputs[0]};
 		}
 	});
+
+
+
+	map.addModule({
+		name:"编程-体素渲染",
+		menu:["学习工具","编程-滤镜"],
+		key:"filter-render-code",
+		inputs:[
+			{type:"image",name:"图像",key:"image"},
+			{type:"code",name:"glsl代码",key:"code",use_link:false,default:defFilterFS,mode:"c_cpp"}
+		],
+		//组件的输出
+		outputs:[
+			{type:"image",name:"图像",key:"image"}
+		],
+		//渲染时执行  必须要有，需要返回运行结果，可以异步处理。
+		run:async function(vals){
+
+			//使用简易滤镜逻辑
+			var re = await Tools.easyFilter(this,{
+				image:vals.image,
+				attachments:[
+					{format:gl.RGBA,internalFormat:gl.RGBA32F,type:gl.FLOAT}
+				],
+				vs:`
+				#version 300 es
+				in vec4 position;
+				in vec2 uv;
+
+				out vec2 vUV;
+
+				void main() {
+				  gl_Position = position;
+				  vUV = uv;
+				}`,
+				fs:gp.build(vals.code)
+			});
+			//输出图层1
+			return {image:re.outputs[0]};
+		}
+	});
 }
 
+
+
+//滤镜基本代码
+gp.addLib("filter-base",`#version 300 es
+precision mediump float;
+precision highp sampler3D;
+in vec2 vUV;
+
+uniform sampler2D uSampler;
+uniform vec2 uSize;
+
+out vec4 outColor;
+`);
+
+var defFilterFS = `
+#include filter-base;
+
+void main(){
+	outColor = texture(uSampler,vUV);
+}
+`;
 
 
 //基本代码
